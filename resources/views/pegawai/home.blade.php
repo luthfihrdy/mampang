@@ -14,6 +14,24 @@
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card bg-info rounded">
+              <div class="row card-body">
+                 <div class="col-sm-8">
+                    <h5 class="card-title"><input type="date" class="form-control bg-white" style="opacity: 0.5"></h5>
+                    <br/><br/><br/><br/><br/><br/>
+                    <p class="card-text"><h2>Good Day Mr. blalblalb</h2></p>
+                    <p class="card-text">Have a nice day!</p>
+                  </div>
+                  <div class="col-sm-4">
+                    <img src="{{asset('img/hello.png')}}" alt="doctor" height="250"/>
+                  </div>
+                  
+              </div>
+
+          </div>
+      </div>
     </div><!-- /.container-fluid -->
 </div>
 <!-- /.content-header -->
