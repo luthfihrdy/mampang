@@ -121,7 +121,6 @@
             @elseif(Auth::user()->role_id == 3)
             Pegawai | {{ $name[0] }}
             @endif
-
           </a>
         </div>
       </div>
