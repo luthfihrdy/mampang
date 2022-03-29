@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dashboard</title>
+  <!-- icon -->
+  <link rel="icon" href="{{asset('img/logo.png')}}">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -35,9 +37,9 @@
 <div class="wrapper">
 
   <!-- Preloader -->
-  <!-- <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-  </div> -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="{{asset('img/logo.png')}}" alt="Mampang" height="100" width="100">
+  </div>
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -92,9 +94,9 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="{{asset('img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">SPA</span>
+    <a href="index3.html" class="brand-link bg-secondary bold">
+      <img src="{{asset('img/logo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <h4><span class="brand-text font-weight-light">PKC Mampang</span></h4>
     </a>
 
     <!-- Sidebar -->
