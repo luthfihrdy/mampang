@@ -19,24 +19,30 @@ class KegiatanController extends Controller
 
     public function create()
     {
-        $res = DB::table('kegiatans')->where('user_id',Auth::user()->id)->get();
-        return Datatables::of($res)->editColumn('tanggal_kegiatan', function($date) {
-            return Carbon::parse($date->tanggal_kegiatan)->format('Y-m-d');
+        $res = DB::table('kegiatanumum')->where('user_id',Auth::user()->id)->get();
+        return Datatables::of($res)->editColumn('keg_date', function($date) {
+            return Carbon::parse($date->keg_date)->format('Y-m-d');
          })->make(true);
     }
+
+    // public function get_all_aktifitas(){
+    //     $this->db->from('m_activity');
+    //     $query = $this->db->get();
+    //     return $query->result(); //setelah selesai pindah ke controller book
+    // }
 
     public function storeKegiatan(Request $request)
     {
         Validator::make($request->all(), [
-            'tanggal_kegiatan' => ['required', 'string', 'max:255'],
-            'jam_awal' => ['required', 'string'],
-            'jam_akhir' => ['required', 'string'],
-            'kegiatan' => ['required', 'string', 'max:255'],
+            'keg_date' => ['required', 'string', 'max:255'],
+            'keg_jammulai' => ['required', 'string'],
+            'keg_jamselesai' => ['required', 'string'],
+            'keg_notes' => ['required', 'string', 'max:255'],
         ]);
         
-        $jam_awal = strtotime($request->jam_awal);
-        $jam_akhir = strtotime($request->jam_akhir);
-        $point_menit = ($jam_akhir - $jam_awal)/60;
+        $keg_jammulai = strtotime($request->keg_jammulai);
+        $keg_jamselesai = strtotime($request->keg_jamselesai);
+        $point_menit = ($keg_jamselesai - $keg_jammulai)/60;
 
         if($point_menit <= 0) {
             return response()->json(['status'=>422,'message'=>'Waktu tidak valid!']);
@@ -44,11 +50,11 @@ class KegiatanController extends Controller
 
         $create = Kegiatan::create([
             'user_id' => Auth::user()->id,
-            'tanggal_kegiatan' => $request->tanggal_kegiatan,
-            'jam_awal' => $request->jam_awal,
-            'jam_akhir' => $request->jam_akhir,
+            'keg_date' => $request->keg_date,
+            'keg_jammulai' => $request->keg_jammulai,
+            'keg_jamselesai' => $request->keg_jamselesai,
             'point_menit' => $point_menit,
-            'kegiatan' => $request->kegiatan,
+            'kegiatan_notes' => $request->kegiatan_notes,
         ]);
 
         if($create){
@@ -59,21 +65,21 @@ class KegiatanController extends Controller
     }
 
     public function updateKegiatan(Request $request) {
-        $res = DB::table('kegiatans')->where('id',$request->id)->get();
+        $res = DB::table('kegiatanumum')->where('id',$request->id)->get();
         return response()->json($res);
     }
 
     public function editKegiatan(Request $request) {
         Validator::make($request->all(), [
-            'tanggal_kegiatan' => ['required', 'string', 'max:255'],
-            'jam_awal' => ['required', 'string'],
-            'jam_akhir' => ['required', 'string'],
-            'kegiatan' => ['required', 'string', 'max:255'],
+            'keg_date' => ['required', 'string', 'max:255'],
+            'keg_jammulai' => ['required', 'string'],
+            'keg_jamselesai' => ['required', 'string'],
+            'keg_notes' => ['required', 'string', 'max:255'],
         ]);
 
-        $jam_awal = strtotime($request->jam_awal);
-        $jam_akhir = strtotime($request->jam_akhir);
-        $point_menit = ($jam_akhir - $jam_awal)/60;
+        $keg_jammulai = strtotime($request->keg_jammulai);
+        $keg_jamakhir = strtotime($request->keg_jamakhir);
+        $point_menit = ($keg_jamakhir - $keg_jammulai)/60;
 
         if($point_menit <= 0) {
             return response()->json(['status'=>422,'message'=>'Waktu tidak valid!']);
@@ -81,11 +87,11 @@ class KegiatanController extends Controller
 
         $data = Kegiatan::find($request->id);
 
-        $data->tanggal_kegiatan = $request->tanggal_kegiatan;
-        $data->jam_awal = $request->jam_awal;
-        $data->jam_akhir = $request->jam_akhir;
+        $data->keg_date = $request->keg_date;
+        $data->keg_jammulai = $request->keg_jammulai;
+        $data->keg_jamakhir = $request->keg_jamakhir;
         $data->point_menit = $point_menit;
-        $data->kegiatan = $request->kegiatan;
+        $data->keg_notes = $request->keg_notes;
         $success = $data->save();
 
         if($success){

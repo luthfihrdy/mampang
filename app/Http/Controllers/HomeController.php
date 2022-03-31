@@ -48,4 +48,6 @@ class HomeController extends Controller
     public function pegawaiDash() {
         return view('pegawai.home');
     }
+
+    
 }

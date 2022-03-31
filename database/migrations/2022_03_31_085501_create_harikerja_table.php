@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAktivitasTable extends Migration
+class CreateHarikerjaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateAktivitasTable extends Migration
      */
     public function up()
     {
-        Schema::create('aktivitas', function (Blueprint $table) {
+        Schema::create('harikerja', function (Blueprint $table) {
             $table->id();
-            $table->string('act_nama');
-            $table->integer('act_waktu');
-            $table->string('act_durasi');
-            $table->string('act_unit');
+            $table->timestamps();
+            $table->integer('tahun');
+            $table->integer('bulan');
+            $table->integer('jmlhari');
         });
     }
 
@@ -29,6 +29,6 @@ class CreateAktivitasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('aktivitas');
+        Schema::dropIfExists('harikerja');
     }
 }

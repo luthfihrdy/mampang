@@ -181,9 +181,27 @@
           @if (Auth::user()->role_id == 3)
           <li class="nav-item">
             <a href="{{route('pegawai.kegiatan')}}" class="nav-link {{ Request::is('pegawai/kegiatan') ? 'active' : ''}}">
-              <i class="nav-icon fas fa-clipboard-list"></i>
+              <i class="nav-icon fas fa-pen-field"></i>
               <p>
                 Kegiatan
+                {{-- <span class="right badge badge-danger">New</span> --}}
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('pegawai.cuti')}}" class="nav-link {{ Request::is('pegawai/cuti') ? 'active' : ''}}">
+              <i class="nav-icon fas fa-business-time"></i>
+              <p>
+                Cuti
+                {{-- <span class="right badge badge-danger">New</span> --}}
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('aktivitas.keg_get')}}" class="nav-link {{ Request::is('aktivitas') ? 'active' : ''}}">
+              <i class="nav-icon fas fa-file"></i>
+              <p>
+                Aktivitas
                 {{-- <span class="right badge badge-danger">New</span> --}}
               </p>
             </a>

@@ -11,15 +11,21 @@ class Kegiatan extends Model
 
     protected $fillable = [
         'user_id',
-        'tanggal_kegiatan',
-        'jam_awal',
-        'jam_akhir',
-        'point_menit',
-        'kegiatan',
+        'nrk',
+        'act_id',
+        'keg_date',
+        'keg_jammualai',
+        'keg_jamselesai',
+        'poin_menit',
+        'keg_notes',
+        'keg_volume',
+        'cacode',
+        'dscode',
+        'totalunit',
         'status',
     ];
 
-    protected $dates = ['tanggal_kegiatan'];
+    protected $dates = ['keg_date'];
 
     public function getUser() {
         return $this->belongsTo(User::class, 'user_id', 'id');
