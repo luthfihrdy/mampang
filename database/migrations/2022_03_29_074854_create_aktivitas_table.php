@@ -17,8 +17,8 @@ class CreateAktivitasTable extends Migration
             $table->id();
             $table->varchar('act_nama');
             $table->integer('act_waktu');
-            $table->varchar('aktivitas_durasi');
-            $table->varchar('aktivitas_unit');
+            $table->varchar('act_durasi');
+            $table->varchar('act_unit');
         });
     }
 

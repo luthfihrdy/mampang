@@ -42,7 +42,9 @@
                             <th>Jam Mulai</th>
                             <th>Jam Selesai</th>
                             <th>Kegiatan</th>
+                            <th>Uraian</th>
                             <th>Point Menit</th>
+                            <th>Jenis Aktivitas</th>
                             <th>Status</th>
                             <th>Aksi</th>
                         </tr>
@@ -294,6 +296,10 @@ $(document).ready(function(){
             {
                 data: 'jam_akhir',
                 name: 'jam_akhir'
+            },
+            {
+                data: 'kegiatan',
+                name: 'kegiatan'
             },
             {
                 data: 'kegiatan',
