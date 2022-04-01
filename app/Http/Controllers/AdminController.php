@@ -108,7 +108,8 @@ class AdminController extends Controller
     }
 
     public function filter(Request $request) {
-        $data = DB::table('kegiatans')
+        $data = DB::table('
+        ')
                 ->join('users','users.id','=','kegiatans.user_id')
                 ->where('status','Approved');
                 
@@ -140,5 +141,38 @@ class AdminController extends Controller
             $user = null;
         }     
         return response()->json($user);
+    }
+
+    public function showHari() {
+        // $user = User::all();
+        return view('admin.harikerja');
+    }
+
+    public function getHari(){
+        $res = DB::table('harikerja')->get();
+        return Datatables::of($res)->make(true);
+    }
+
+    public function createHari(Request $request) {
+        Validator::make($request->all(), [
+            'id' => ['required', 'integer'],
+            'tahun' => ['required', 'integer'],
+            'bulan' => ['required', 'integer', 'min:1'],
+            'jmlhari' => ['required', 'integer', 'min:1'],
+            
+        ]);
+
+        $create = User::create([
+            'id' => $request->id,
+            'tahun' => $request->tahun,
+            'bulan' => $request->bulan,
+            'jmlhari' => $request->jmlhari,
+        ]);
+
+        if($create){
+            return response()->json(['status'=>200,'message'=>'Data Berhasil DiInput']);
+        }else{
+            return response()->json(['status'=>422,'message'=>$validator->messages()]);
+        }
     }
 }

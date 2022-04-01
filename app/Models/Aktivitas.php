@@ -10,7 +10,7 @@ class Kegiatan extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id',
+        'act_id',
         'act_nama',
         'act_waktu',
         'act_durasi',

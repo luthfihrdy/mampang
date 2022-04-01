@@ -6,6 +6,7 @@ use App\Models\Kegiatan;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use Carbon\Carbon;
+use App\Models\Aktivitas;
 use Validator;
 use Auth;
 use DB;
@@ -14,7 +15,11 @@ class KegiatanController extends Controller
 {
     public function index()
     {
-        return view('pegawai.kegiatan');
+        $aktivitas = DB::table('aktivitas')->get();
+        return view('pegawai.kegiatan',[
+            'aktivitas' => $aktivitas,
+
+        ]);
     }
 
     public function create()

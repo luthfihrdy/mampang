@@ -37,6 +37,10 @@ Route::get('/admin/report/data', [App\Http\Controllers\AdminController::class, '
 Route::get('/admin/report/json', [App\Http\Controllers\AdminController::class, 'getUserJson'])->name('admin.get_user')->middleware('admin');
 Route::get('/admin/report/filter', [App\Http\Controllers\AdminController::class, 'filter'])->name('admin.filter')->middleware('admin');
 
+Route::get('/admin/harikerja', [App\Http\Controllers\AdminController::class, 'showHari'])->name('admin.harikerja')->middleware(['admin', 'auth']);
+Route::get('/admin/harikerja/data', [App\Http\Controllers\AdminController::class, 'getHari'])->name('admin.hari_get')->middleware('admin');
+Route::get('/admin/harikerja/create', [App\Http\Controllers\AdminController::class, 'createHari'])->name('admin.hari_create')->middleware('admin');
+
 Route::get('/validator', [App\Http\Controllers\HomeController::class, 'validatorDash'])->name('validator.dash')->middleware('validator');
 Route::get('/validator/aktivitas', [App\Http\Controllers\ValidatorController::class, 'index'])->name('validator.aktivitas')->middleware('validator');
 Route::get('/validator/aktivitas/data', [App\Http\Controllers\ValidatorController::class, 'create'])->name('validator.aktivitas_get')->middleware('validator');

@@ -24,6 +24,9 @@
   <!-- Datatables -->
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.5/datatables.min.css"/> 
   <link rel="stylesheet" href="http://cdn.datatables.net/responsive/1.0.2/css/dataTables.responsive.css"/>
+
+  <!-- Select with search -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
  
 
   <!-- Tempus Dominus clock -->
@@ -176,6 +179,15 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{route('admin.harikerja')}}" class="nav-link {{ Request::is('admin/harikerja') ? 'active' : ''}}">
+              <i class="nav-icon fas fa-file"></i>
+              <p>
+                Hari Kerja
+            
+              </p>
+            </a>
+          </li>
           @endif
 
           @if (Auth::user()->role_id == 3)
@@ -311,6 +323,9 @@
 
 <!-- tempus dominus clock -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/js/tempusdominus-bootstrap-4.min.js" crossorigin="anonymous"></script>
+
+<!-- select with search-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 
 <!-- Clock Picker -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clockpicker/0.0.7/bootstrap-clockpicker.min.js"></script>

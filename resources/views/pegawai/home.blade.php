@@ -17,7 +17,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="card bg-info rounded">
-              <div class="row card-body">
+              <div class="row card-body ">
                  <div class="col-sm-8">
                     <h5 class="card-title"><input type="date" class="form-control bg-white" style="opacity: 0.5"></h5>
                     <br/><br/><br/><br/><br/><br/>
@@ -51,7 +51,7 @@
                     <p class="card-text">Have a nice day!</p>
                   </div>
                   <div class="col-sm-4">
-                    <img src="{{asset('img/hello.png')}}" alt="doctor" height="50"/>
+                    <img class="img-fluid" src="{{asset('img/hello.png')}}" alt="doctor" height="50"/>
                   </div>
               </div>
           </div>
@@ -67,7 +67,7 @@
                     <p class="card-text">Have a nice day!</p>
                   </div>
                   <div class="col-sm-4">
-                    <img src="{{asset('img/hello.png')}}" alt="doctor" height="50"/>
+                    <img class="img-fluid" src="{{asset('img/hello.png')}}" alt="doctor" height="50"/>
                   </div>
               </div>
           </div>
@@ -83,7 +83,7 @@
                     <p class="card-text">Have a nice day!</p>
                   </div>
                   <div class="col-sm-4">
-                    <img src="{{asset('img/hello.png')}}" alt="doctor" height="50"/>
+                    <img class="img-fluid" src="{{asset('img/hello.png')}}" alt="doctor" height="50"/>
                   </div>
               </div>
           </div>

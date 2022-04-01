@@ -125,17 +125,37 @@
                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                     </div>
                 </div> --}}
-
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label>Aktivitas Umum</label>
                     <div class="input-group mb-3">
-                        <div class="form-group">
-                        <select class="custom-select">
-                            {{-- <?php foreach ($data as $data): ?>
-                                <option value="<?php echo $data->act_id?>" ><?php echo $data->act_name.' - <b>'.$data->act_effectivetime.'</b><b>  '.$data->act_duration.'</b>'?></option>
-                            <?php endforeach ?> --}}
+                        <select class="">
+                        
                         </select>
-                      </div>
+                    </div>
+                </div> --}}
+                <div class ="form-group">
+                    <label>Aktivitas Umum</label>
+                    <div class="input-group mb-3" >
+                        <select class="form-control selectpicker"  data-live-search="true" data-size="5" >
+                        <option style= "width: 100px; 
+                        white-space: wrap;" >Pilih Kegiatan</option>
+
+                        @forelse($aktivitas as $data)
+                            <option data-option="<?php 
+                            $a =$data->act_nama;
+                            $b = substr($a, 0, 55);
+                            $y = $b . "";
+                            if($a > $b)echo $y; 
+                            else echo $a;
+                            ?>"> 
+                            {{$data->act_nama}}
+                            
+                            </option>
+                        @empty
+                            <option>Data Aktivitas belum ada </option>
+                        @endforelse
+                            
+                        </select>
                     </div>
                 </div>
         
@@ -268,7 +288,8 @@ function timeclick(data){
 
 $(document).ready(function(){
 
-
+    //select picker
+    // $('.selectpicker').selectpicker();
 
     //Clock Picker
     $('.clockpicker').clockpicker({
@@ -558,6 +579,8 @@ function buttonEdit(ids) {
 //     });
 
 // });
+
+
 </script>
 
 @endsection
