@@ -181,7 +181,7 @@
           @if (Auth::user()->role_id == 3)
           <li class="nav-item">
             <a href="{{route('pegawai.kegiatan')}}" class="nav-link {{ Request::is('pegawai/kegiatan') ? 'active' : ''}}">
-              <i class="nav-icon fas fa-pen-field"></i>
+              <i class="nav-icon fas fa-pen-to-square"></i>
               <p>
                 Kegiatan
                 {{-- <span class="right badge badge-danger">New</span> --}}
