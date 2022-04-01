@@ -198,7 +198,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('aktivitas.keg_get')}}" class="nav-link {{ Request::is('aktivitas') ? 'active' : ''}}">
+            <a href="{{route('aktivitas.dash')}}" class="nav-link {{ Request::is('aktivitas') ? 'active' : ''}}">
               <i class="nav-icon fas fa-file"></i>
               <p>
                 Aktivitas

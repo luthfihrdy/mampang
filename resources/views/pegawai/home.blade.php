@@ -18,7 +18,7 @@
         <div class="col-sm-12">
           <div class="card bg-info rounded">
               <div class="row card-body">
-                 <div class="col-sm-4">
+                 <div class="col-sm-8">
                     <h5 class="card-title"><input type="date" class="form-control bg-white" style="opacity: 0.5"></h5>
                     <br/><br/><br/><br/><br/><br/>
                     <p class="card-text"><h2>Good Day,   
@@ -29,15 +29,16 @@
                     @endphp {{ $name[0] }} </h2></p>
                     <p class="card-text">Have a nice day!</p>
                   </div>
-                  <div class="col-sm-8">
+                  <div class="col-sm-4">
                     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                    <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_pzprncar.json"  background="transparent"  speed="1"  style="height: 400px;"  loop  autoplay></lottie-player>
+                    <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_pzprncar.json"  background="transparent"  speed="1" loop  autoplay style="height:350px;"></lottie-player>
                     {{-- <img src="{{asset('img/hello.png')}}" alt="doctor" height="250"/> --}}
                   </div>
               </div>
           </div>
         </div>
       </div><!-- end row -->
+      <!-- row -->
       <div class="row">
         <div class="col-md-4">
           <div class="card bg-info rounded">

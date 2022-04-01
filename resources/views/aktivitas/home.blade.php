@@ -75,6 +75,8 @@
 //     });
 // });
 
+//tambahin document ready function
+$(document).ready(function(){
     dTable = $('#myTable').DataTable({
         // columnDefs: [
         //     { width: '12.5%', targets:1},
@@ -93,8 +95,8 @@
         columns: [
             // { data: 'IdType', name: 'IdType' },
             {
-                data: 'id',
-                name: 'id'
+                data: 'act_id',
+                name: 'act_id'
             },
             {
                 data: 'act_nama',
@@ -131,6 +133,7 @@
             // },
             ]
     });
+});
 
 
  

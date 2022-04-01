@@ -56,4 +56,5 @@ Route::get('/pegawai/cuti', [App\Http\Controllers\CutiController::class, 'index'
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/aktivitas', [App\Http\Controllers\AktivitasController::class, 'showAktivitas'])->name('aktivitas.dash')->middleware('pegawai');
-Route::get('/aktivitas', [App\Http\Controllers\AktivitasController::class, 'getAktivitas'])->name('aktivitas.keg_get')->middleware('pegawai');
+//bedakan parameter /aktivitas dan /aktivitas/data, saya tambahkan /data untuk membedakan
+Route::get('/aktivitas/data', [App\Http\Controllers\AktivitasController::class, 'getAktivitas'])->name('aktivitas.keg_get')->middleware('pegawai');
