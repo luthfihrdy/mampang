@@ -50,9 +50,10 @@
                   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
                   <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_IVkOMK.json"  background="transparent"  speed="1"  style="width: 150px; height: 150px;"  loop  autoplay></lottie-player>
                   </div>
-                  <br/><br/><br/>
+                  <br/>
                     <p class="card-text"><h2>Birthday Today!</h2></p><br/>
-                    <p class="card-text">None.</p>
+                    <p class="card-text">None.</p><br/>
+                    <button type="button" class="btn btn-light" data-dismiss="modal" id="close-modal">More</button>
                   </div>
               </div>
           </div>
@@ -66,9 +67,10 @@
                     <br/>
                     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
                     <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_x9h8ar8l.json"  background="transparent"  speed="1"  style="width: 120px; height: 120px;"  loop autoplay></lottie-player>
-                    <br/><br/><br/>
-                    <p class="card-text"><h2>Cuti </h2></p><br/>
-                    <p class="card-text">None.</p>
+                    <br/><br/>
+                    <p class="card-text"><h2>Cuti <br/> </h2></p><br/>
+                    <p class="card-text">None.</p><br/>
+                    <button type="button" class="btn btn-light" data-dismiss="modal" id="close-modal">More</button>
                     </div>
               </div>
           </div>
@@ -81,9 +83,9 @@
                     {{-- <input type="date" class="form-control bg-white" style="opacity: 0.5"></h5> --}}
                     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
                     <lottie-player src="https://assets8.lottiefiles.com/private_files/lf30_zzItmF.json"  background="transparent"  speed="1"  style="width: 180px; height: 180px;"  loop  autoplay></lottie-player>
-                    <br/><br/><br/>
                     <p class="card-text"><h2>Sakit <br/> Ijin </h2></p><br/>
-                    <p class="card-text">None.</p>
+                    <p class="card-text">None.</p><br/>
+                    <button type="button" class="btn btn-light" data-dismiss="modal" id="close-modal">More</button>
               </div>
           </div>
         </div>
