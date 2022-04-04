@@ -25,13 +25,9 @@ class CreateCutiTable extends Migration
             $table->integer('nrkpengganti');
             $table->integer('cuti_plicode');
             $table->integer('cuti_dscode');
-            $table->integer('cuti_mplid');
             $table->enum('status_kasatpel',['Waiting','Approved', 'Rejected'])->default('Waiting');
-            $table->timestamp('timestamp_kasatpel');
             $table->enum('status_kasubag',['Waiting','Approved', 'Rejected'])->default('Waiting');
-            $table->timestamp('timestamp_kasubag');
             $table->enum('status_kapus',['Waiting','Approved', 'Rejected'])->default('Waiting');
-            $table->timestamp('timestamp_kapus');
             $table->timestamps();
 
 

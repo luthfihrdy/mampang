@@ -55,7 +55,10 @@ Route::get('/pegawai/kegiatan/update', [App\Http\Controllers\KegiatanController:
 Route::post('/pegawai/kegiatan/edit', [App\Http\Controllers\KegiatanController::class, 'editKegiatan'])->name('pegawai.kegiatan_edit')->middleware('pegawai');
 Route::post('/pegawai/kegiatan/delete/{ids}', [App\Http\Controllers\KegiatanController::class, 'destroyKegiatan'])->name('pegawai.kegiatan_destroy')->middleware('pegawai');
 
+Route::get('/pegawai/kinerja', [App\Http\Controllers\KinerjaController::class, 'index'])->name('pegawai.ckinerja')->middleware('pegawai');
+
 Route::get('/pegawai/cuti', [App\Http\Controllers\CutiController::class, 'index'])->name('pegawai.cuti')->middleware(['pegawai']);
+Route::get('/pegawai/cuti/data', [App\Http\Controllers\CutiController::class, 'create'])->name('pegawai.cuti_get')->middleware('pegawai');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

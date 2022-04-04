@@ -181,7 +181,7 @@
           </li>
           <li class="nav-item">
             <a href="{{route('admin.harikerja')}}" class="nav-link {{ Request::is('admin/harikerja') ? 'active' : ''}}">
-              <i class="nav-icon fas fa-file"></i>
+              <i class="nav-icon fas fa-calendar"></i>
               <p>
                 Hari Kerja
             
@@ -214,6 +214,15 @@
               <i class="nav-icon fas fa-file"></i>
               <p>
                 Aktivitas
+                {{-- <span class="right badge badge-danger">New</span> --}}
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('pegawai.ckinerja')}}" class="nav-link {{ Request::is('pegawai/kinerja') ? 'active' : ''}}">
+              <i class="nav-icon fas fa-file"></i>
+              <p>
+                Capaian Kinerja
                 {{-- <span class="right badge badge-danger">New</span> --}}
               </p>
             </a>

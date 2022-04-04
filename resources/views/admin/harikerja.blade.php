@@ -22,44 +22,54 @@
 <!-- Main content -->
 <section class="content">
 <div class="container-fluid">
-    <!-- /.row -->
     <!-- Main row -->
-    <div class="form-group">
-        <label>Tahun</label>
-            <div class="input-group mb-3 ">
-                <select class="custom-select form-control" id="date-dropdown">
-                </select>
+    <div class="row">
+    
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-lg">
+                <b>+</b> Tambah Hari Kerja
+            </button>
             </div>
-    </div>
-    <div class="form-group">
-        <label>Bulan</label>
-        <div class="input-group mb-3">
-            <select class="custom-select form-control" placeholder="Bulan">
-                <option name="January" value="Jan">January</option>
-                <option name="February" value="Feb">February</option>
-                <option name="March" value="Mar">March</option>
-                <option name="April" value="Apr">April</option>
-                <option name="May" value="May">May</option>
-                <option name="June" value="Jun">June</option>
-                <option name="July" value="Jul">July</option>
-                <option name="August" value="Aug">August</option>
-                <option name="September" value="Sep">September</option>
-                <option name="October" value="Oct">October</option>
-                <option name="November" value="Nov">November</option>
-                <option name="December" value="Dec">December</option>
-            </select>
+            <!-- /.card-header -->
+            <div class="card-body">
+            <table id="myTable" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Tahun</th>
+                        <th>Bulan</th>
+                        <th>Hari Kerja</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{-- @foreach($users as $user)
+                        <tr>
+                            <td>{{ $user->name}}</td>
+                            <td>{{ $user->email}}</td>
+                            <td>
+                                @if($user->role_id == 1)
+                                    Admin
+                                @elseif($user->role_id == 2)
+                                    Validator
+                                @elseif($user->role_id == 3)
+                                    Pegawai
+                                @endif
+                            </td>
+                            <td>ACT</td>
+                        </tr>
+                    @endforeach --}}
+                </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
         </div>
-    </div>
-    <div class="form-group">
-        <label>Jumlah Hari</label>
-        <div class="input-group mb-3">
-            <input type="text" class="form-control @error('jmlhari') is-invalid @enderror" name="jmlhari" value="{{ old('jmlhari') }}" required autocomplete="jmlhari" autofocus placeholder="Jumlah Hari" id="jmlhari">
+        <!-- /.card -->
         </div>
-    </div>    
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary" ><span class="fas fa-save"></span> Simpan</button>  
-    </div>
 
+    </div>
+    
 </div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
@@ -69,7 +79,7 @@
 <div class="modal-dialog modal-lg">
     <div class="modal-content">
     <div class="modal-header">
-        <h4 class="modal-title">Tambah User</h4>
+        <h4 class="modal-title">Input Hari</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
@@ -78,70 +88,38 @@
         <form method="POST" action="" id="form-create">
             @csrf
             <div class="input-group mb-3">
-                <select class="custom-select" name="role_id" id="role_id">
-                    <option value="3">Pegawai</option>
-                    <option value="2">Validator</option>
-                    <option value="1">Admin</option>
-                </select>
-                <div class="input-group-append">
-                    <div class="input-group-text">
-                    <span class="fas fa-user-friends"></span>
+                <label>Tahun</label>
+                    <div class="input-group mb-3 ">
+                        <select class="custom-select form-control" id="date-dropdown">
+                        </select>
                     </div>
-                </div>
             </div>
 
             <div class="input-group mb-3">
-                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Full Name" id="name">
-                <div class="input-group-append">
-                <div class="input-group-text">
-                    <span class="fas fa-user"></span>
-                </div>
+                <label>Bulan</label>
+                <div class="input-group mb-3">
+                    <select class="custom-select form-control" placeholder="Bulan">
+                        <option name="Januari" value="Jan">Januari</option>
+                        <option name="Februari" value="Feb">Februari</option>
+                        <option name="Maret" value="Mar">Maret</option>
+                        <option name="April" value="Apr">April</option>
+                        <option name="Mei" value="Mei">Mei</option>
+                        <option name="Juni" value="Jun">Juni</option>
+                        <option name="Juli" value="Jul">Juli</option>
+                        <option name="Agustus" value="Agu">Agustus</option>
+                        <option name="September" value="Sep">September</option>
+                        <option name="Oktober" value="Okt">Oktober</option>
+                        <option name="November" value="Nov">November</option>
+                        <option name="Desember" value="Des">Desember</option>
+                    </select>
                 </div>
             </div>
-    
-            @error('name')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-    
             <div class="input-group mb-3">
-                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email" id="email">
-                <div class="input-group-append">
-                <div class="input-group-text">
-                    <span class="fas fa-envelope"></span>
+            <label>Jumlah Hari</label>
+                <div class="input-group mb-3">
+                    <input type="number" class="form-control @error('jmlhari') is-invalid @enderror" name="jmlhari" value="{{ old('jmlhari') }}" required autocomplete="jmlhari" autofocus placeholder="Jumlah Hari" id="jmlhari">
                 </div>
-                </div>
-            </div>
-    
-            @error('email')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-    
-            <div class="input-group mb-3">
-                <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password" id="password">
-                <div class="input-group-append">
-                <div class="input-group-text">
-                    <span class="fas fa-lock"></span>
-                </div>
-                </div>
-            </div>
-    
-            <div class="row">
-                <!-- <div class="col-8">
-                <div class="icheck-primary">
-                    <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-                    <label for="agreeTerms">
-                    I agree to the <a href="#">terms</a>
-                    </label>
-                </div>
-                </div> -->
-                <!-- /.col -->
-                <!-- /.col -->
-            </div>
-        
+            </div>  
     </div>
     <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-default" data-dismiss="modal" id="close-modal">Close</button>
@@ -155,97 +133,6 @@
 </div>
 <!-- /.modal -->
 
-<!-- Modal Update -->
-<div class="modal fade" id="modal-update">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h4 class="modal-title">Ubah User</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <form method="POST" action="" id="form-update">
-                @csrf
-                <input type="hidden" class="form-control" id="update_id" name="id" required>
-                <div class="input-group mb-3">
-                    <select class="custom-select" name="role_id" id="update_role_id">
-                        <option value="3">Pegawai</option>
-                        <option value="2">Validator</option>
-                        <option value="1">Admin</option>
-                    </select>
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                        <span class="fas fa-user-friends"></span>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Full Name" id="update_name">
-                    <div class="input-group-append">
-                    <div class="input-group-text">
-                        <span class="fas fa-user"></span>
-                    </div>
-                    </div>
-                </div>
-        
-                @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-        
-                <div class="input-group mb-3">
-                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email" id="update_email">
-                    <div class="input-group-append">
-                    <div class="input-group-text">
-                        <span class="fas fa-envelope"></span>
-                    </div>
-                    </div>
-                </div>
-        
-                @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-        
-                <div class="input-group mb-3">
-                    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password" id="update_password">
-                    <div class="input-group-append">
-                    <div class="input-group-text">
-                        <span class="fas fa-lock"></span>
-                    </div>
-                    </div>
-                </div>
-        
-                <div class="row">
-                    <!-- <div class="col-8">
-                    <div class="icheck-primary">
-                        <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-                        <label for="agreeTerms">
-                        I agree to the <a href="#">terms</a>
-                        </label>
-                    </div>
-                    </div> -->
-                    <!-- /.col -->
-                    <!-- /.col -->
-                </div>
-            
-        </div>
-        <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="close-modal-update">Close</button>
-            <button type="submit" class="btn btn-primary" ><span class="fas fa-save"></span> Simpan</button>
-        </div>
-        </form>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal update -->
 @endsection
 
 
@@ -283,10 +170,6 @@
                         }
                     }
                 },
-                // {
-                //     data: 'role_id',
-                //     name: 'role_id'
-                // },
                 {
                     data: 'id',
                     render: function (data, type, row) {
