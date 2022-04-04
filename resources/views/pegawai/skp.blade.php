@@ -3,19 +3,6 @@
 @section('content')
 
 <!-- Content Header (Page header) -->
-<style>
-select {
-  width: 100px;
-  overflow: hidden;
-  white-space: pre;
-  text-overflow: ellipsis;
-  -webkit-appearance: none;
-}
-
-option {
-  border: solid 1px #DDDDDD;
-}
-</style>
 <div class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
@@ -43,7 +30,7 @@ option {
         <div class="card">
             <div class="card-header">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-lg">
-                <b>+</b> Tambah Kegiatan
+                <b>+</b> Tambah SKP
             </button>
             </div>
             <!-- /.card-header -->
@@ -52,15 +39,11 @@ option {
                     <table id="myTable" class="table table-bordered table-hover" width="100%">
                     <thead>
                         <tr>
-                            <th>Tanggal</th>
-                            <th>Jam Mulai</th>
-                            <th>Jam Selesai</th>
-                            <th>Kegiatan</th>
-                            <th>Uraian</th>
-                            <th>Point Menit</th>
-                            <th>Jenis Aktivitas</th>
+                            <th>Tahun</th>
+                            <th>Aktivitas</th>
+                            <th>Jumlah target</th>
+                            <th>Hasil target</th>
                             <th>Status</th>
-                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -85,7 +68,7 @@ option {
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
         <div class="modal-header">
-            <h4 class="modal-title">Tambah Kegiatan</h4>
+            <h4 class="modal-title">Tambah SKP</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
@@ -95,95 +78,40 @@ option {
                 {{-- <input type="hidden" value="{{ csrf_token() }}" name="_token" /> --}}
                 @csrf
                 <div class="form-group">
-                    <label>Tanggal Kegiatan</label>
-                    <div class="input-group mb-3">
-                        <input type="date" class="form-control" name="keg_date" value="{{ old('keg_date') }}" required autocomplete="name" autofocus>
-                        {{-- <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-calendar"></span>
-                        </div>
-                        </div> --}}
+                    <label>Tahun SKP</label>
+                    <div class="input-group mb-3 ">
+                        <select class="custom-select form-control" id="date-dropdown">
+                        </select>
                     </div>
                 </div>
                 
                 <div class="form-group">
-                    <label>Jam Mulai</label>
-                    {{-- <div class="input-group mb-3">
-                        <input type="time" class="form-control" name="jam_awal" value="{{ old('jam_awal') }}" required autocomplete="jam_awal" autofocus min="08:00" max="18:00" id="jamMulai">
-                    </div> --}}
-
-                    <div class="input-group clockpicker pull-center"> 
-                        <input type="text" class="form-control" value="08:00" name="keg_jamawal" data-placement="bottom" data-align="left" data-autoclose="true" id="keg_jamawal"> 
-                        <div class="input-group-append" data-target="#keg_jamawal" onclick="timeclick('keg_jamawal')"> 
-                            <div class="input-group-text"><i class="fas fa-clock"></i> </div>
-                        </div> 
-                    </div>
-
-
-                </div>
-                <div class="form-group">
-                    <label>Jam Selesai</label>
-                    <div class="input-group mb-3">
-                        <input type="time" name="keg_jamselesai" class="form-control @error('keg_jamselesai') is-invalid @enderror"  value="{{ old('keg_jamselesai') }}" required autocomplete="jam_akhir" autofocus min="08:00" max="17:00" id="jamSelesai">
-                        {{-- <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-calendar"></span>
-                        </div>
-                        </div> --}}
-                    </div>
-                </div>
-                {{-- <div class="input-group date mb-3" id="reservationdate" data-target-input="nearest">
-                    <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" placeholder="Tanggal Kegiatan | 12/30/2022"/>
-                    <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                    </div>
-                </div> --}}
-                {{-- <div class="form-group">
-                    <label>Aktivitas Umum</label>
-                    <div class="input-group mb-3">
-                        <select class="">
-                        
+                    <label>Aktivitas</label>
+                    <div class="input-group"> 
+                        <select class="form-control selectpicker"  data-live-search="true" data-size="5" >
+                        <option style= "width: 100px; 
+                        white-space: wrap;" >Pilih Kegiatan</option>
                         </select>
                     </div>
-                </div> --}}
+                </div>
+                <div class="form-group">
+                    <label>Jumlah Target</label>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" >
+                    </div>
+                </div>
                 <div class ="form-group">
-                    <label>Aktivitas Umum</label>
+                    <label>Hasil Target</label>
                     <div class="input-group mb-3" >
                         <select class="form-control selectpicker"  data-live-search="true" data-size="5" >
                         <option style= "width: 100px; 
                         white-space: wrap;" >Pilih Kegiatan</option>
 
-                        @forelse($aktivitas as $data)
-                            <option data-option="<?php 
-                            $a =$data->act_nama;
-                            $b = substr($a, 0, 55);
-                            $y = $b . "";
-                            if($a > $b)echo $y; 
-                            else echo $a;
-                            ?>"> 
-                            {{$data->act_nama}}
-                            
-                            </option>
-                        @empty
-                            <option>Data Aktivitas belum ada </option>
-                        @endforelse
+                        
                             
                         </select>
                     </div>
                 </div>
-        
-                <div class="form-group">
-                    <label>Kegiatan</label>
-                    <div class="input-group mb-3">
-                        <textarea name="keg_notes" id="" class="form-control" rows="5">{{ old('keg_notes') }}</textarea>
-                        {{-- <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-envelope"></span>
-                        </div>
-                        </div> --}}
-                    </div>
-                </div>
-        
         
                 <div class="row">
                     <!-- <div class="col-8">
@@ -592,6 +520,20 @@ function buttonEdit(ids) {
 //     });
 
 // });
+
+ //Year Dropdown
+    let dateDropdown = document.getElementById('date-dropdown');
+
+    let currentYear = new Date().getFullYear();
+    let earliestYear = 2020;
+
+    while (currentYear >= earliestYear) {
+      let dateOption = document.createElement('option');
+      dateOption.text = currentYear;
+      dateOption.value = currentYear;
+      dateDropdown.add(dateOption);
+      currentYear -= 1;
+    }
 
 
 </script>

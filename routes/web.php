@@ -60,6 +60,8 @@ Route::get('/pegawai/kinerja', [App\Http\Controllers\KinerjaController::class, '
 Route::get('/pegawai/cuti', [App\Http\Controllers\CutiController::class, 'index'])->name('pegawai.cuti')->middleware(['pegawai']);
 Route::get('/pegawai/cuti/data', [App\Http\Controllers\CutiController::class, 'create'])->name('pegawai.cuti_get')->middleware('pegawai');
 
+Route::get('/pegawai/skp', [App\Http\Controllers\SkpController::class, 'index'])->name('pegawai.skp')->middleware('pegawai');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/aktivitas', [App\Http\Controllers\AktivitasController::class, 'showAktivitas'])->name('aktivitas.dash')->middleware('pegawai');
