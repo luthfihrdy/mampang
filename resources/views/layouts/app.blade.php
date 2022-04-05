@@ -71,12 +71,11 @@
           <a href="#" class="dropdown-item">
             <i class="fas fa-cog mr-2"></i> Settings
           </a>
-          <!-- <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
           <div class="dropdown-divider"></div>
+          <a href="{{route('pegawai.profile')}}" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> Profile
+          </a>
+          <!-- <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
             <i class="fas fa-file mr-2"></i> 3 new reports
             <span class="float-right text-muted text-sm">2 days</span>
@@ -229,7 +228,7 @@
           </li>
           <li class="nav-item">
             <a href="{{route('pegawai.ckinerja')}}" class="nav-link {{ Request::is('pegawai/kinerja') ? 'active' : ''}}">
-              <i class="nav-icon fas fa-file"></i>
+              <i class="nav-icon fa fa-chart-pie"></i>
               <p>
                 Capaian Kinerja
                 {{-- <span class="right badge badge-danger">New</span> --}}
