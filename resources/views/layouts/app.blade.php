@@ -183,20 +183,19 @@
               <i class="nav-icon fas fa-calendar"></i>
               <p>
                 Hari Kerja
-            
               </p>
             </a>
           </li>
           @endif
 
           @if (Auth::user()->role_id == 3)
-          <li class="nav-item menu-open">
+          <li class="nav-item menu-close">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Kinerja
                 <i class="right fas fa-angle-left"></i>
-              </p>,
+              </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
@@ -248,6 +247,15 @@
               <i class="nav-icon fas fa-clipboard-list"></i>
               <p>
                 Aktivitas
+                {{-- <span class="right badge badge-danger">New</span> --}}
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('validator.skpvalidasi')}}" class="nav-link {{ Request::is('validator/skpvalidasi') ? 'active' : ''}}">
+              <i class="nav-icon fas fa-clipboard-list"></i>
+              <p>
+                SKP
                 {{-- <span class="right badge badge-danger">New</span> --}}
               </p>
             </a>

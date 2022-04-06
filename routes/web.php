@@ -47,6 +47,8 @@ Route::get('/validator/aktivitas/data', [App\Http\Controllers\ValidatorControlle
 Route::post('/validator/aktivitas/approve/{ids}', [App\Http\Controllers\ValidatorController::class, 'approve'])->name('validator.aktivitas_approve')->middleware('validator');
 Route::post('/validator/aktivitas/reject/{ids}', [App\Http\Controllers\ValidatorController::class, 'reject'])->name('validator.aktivitas_reject')->middleware('validator');
 
+Route::get('/validator/skpvalidasi', [App\Http\Controllers\ValidatorskpController::class, 'index'])->name('validator.skpvalidasi')->middleware('validator');
+
 Route::get('/pegawai', [App\Http\Controllers\HomeController::class, 'pegawaiDash'])->name('pegawai.dash')->middleware('pegawai');
 Route::get('/pegawai/kegiatan', [App\Http\Controllers\KegiatanController::class, 'index'])->name('pegawai.kegiatan')->middleware(['pegawai','auth']);
 Route::get('/pegawai/kegiatan/data', [App\Http\Controllers\KegiatanController::class, 'create'])->name('pegawai.kegiatan_get')->middleware('pegawai');
