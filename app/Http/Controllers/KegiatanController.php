@@ -40,14 +40,14 @@ class KegiatanController extends Controller
     {
         Validator::make($request->all(), [
             'keg_date' => ['required', 'string', 'max:255'],
-            'keg_jammulai' => ['required', 'string'],
+            'keg_jamawal' => ['required', 'string'],
             'keg_jamselesai' => ['required', 'string'],
             'keg_notes' => ['required', 'string', 'max:255'],
         ]);
         
-        $keg_jammulai = strtotime($request->keg_jammulai);
+        $keg_jammulai = strtotime($request->keg_jamawal);
         $keg_jamselesai = strtotime($request->keg_jamselesai);
-        $point_menit = ($keg_jamselesai - $keg_jammulai)/60;
+        $point_menit = ($keg_jamselesai - $keg_jamawal)/60;
 
         if($point_menit <= 0) {
             return response()->json(['status'=>422,'message'=>'Waktu tidak valid!']);
