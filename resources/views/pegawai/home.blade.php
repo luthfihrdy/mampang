@@ -28,6 +28,7 @@
                     $name = explode(" ", $name);
                     @endphp {{ $name[0] }} </h2></p>
                     <p class="card-text">Have a nice day!</p>
+                    
                   </div>
                   <div class="col-sm-6">
                     <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_pzprncar.json"  background="transparent"  speed="1" loop  autoplay style="height:400px;"></lottie-player>
@@ -45,7 +46,8 @@
             <div class="row card-body">
               <div class="col-6 col-sm-6">
                 <h5 class="card-title">
-                  <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_IVkOMK.json"  background="transparent"  speed="1"  style="width: 150px; height: 150px;"  loop  autoplay></lottie-player>
+                  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                  <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_fgltupfx.json"  background="transparent"  speed="1"  style="width: 150px; height: 150px;"  loop  autoplay></lottie-player>
                 </h5>
               </div>
               <div class="col-6 col-sm-6">
@@ -85,7 +87,7 @@
             <div class="row card-body">
               <div class="col-6 col-sm-6">
                 <h5 class="card-title">
-                  <lottie-player src="https://assets8.lottiefiles.com/private_files/lf30_zzItmF.json"  background="transparent"  speed="1"  style="width: 150px; height: 150px;"  loop  autoplay></lottie-player>
+                  <lottie-player src="https://assets8.lottiefiles.com/private_files/lf30_zzItmF.json"  background="transparent"  speed="1"  style="width: 170px; height: 170px;"  loop  autoplay></lottie-player>
                 </h5>
               </div>
               <div class="col-6 col-sm-6">
@@ -100,6 +102,27 @@
           </div>
         </div>
       </div><!--end row-->
+      {{-- skp --}}
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="card bg-info rounded">
+              <div class="row card-body ">
+                 <div class="col-sm-4">
+                    <h5 class="card-title"></h5>
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_nm1huacl.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>
+                  </div>
+                  <div class="col-sm-4">
+                    <p class="card-text"><h3>STR </p>
+                  </div>
+                  <div class="col-sm-4">
+                    <p class="card-text"><h3>SIP </p>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      {{-- end row --}}
       
     </div><!-- /.container-fluid -->
 </div>

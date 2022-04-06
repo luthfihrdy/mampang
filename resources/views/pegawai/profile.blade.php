@@ -251,7 +251,7 @@
                   <button class="btn btn-primary" type="submit"> Submit</button>
                   </div>
                   <div class="col-sm-2">
-                  <button class="btn btn-primary  fa fa-eye" type="submit"> View</button>
+                  <button class="btn btn-primary fa fa-eye" type="submit"> View</button>
                   </div>
                   </div>
                   </div>
