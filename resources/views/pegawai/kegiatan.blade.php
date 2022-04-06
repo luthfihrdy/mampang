@@ -113,24 +113,32 @@ option {
                     </div> --}}
 
                     <div class="input-group clockpicker pull-center"> 
-                        <input type="text" class="form-control" value="08:00" name="keg_jamawal" data-placement="bottom" data-align="left" data-autoclose="true" id="keg_jamawal"> 
+                        <input type="text" class="form-control" name="keg_jamawal" data-placement="bottom" data-align="left" data-autoclose="true" id="keg_jamawal"> 
                         <div class="input-group-append" data-target="#keg_jamawal" onclick="timeclick('keg_jamawal')"> 
                             <div class="input-group-text"><i class="fas fa-clock"></i> </div>
                         </div> 
                     </div>
 
-
                 </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label>Jam Selesai</label>
                     <div class="input-group mb-3">
                         <input type="time" name="keg_jamselesai" class="form-control @error('keg_jamselesai') is-invalid @enderror"  value="{{ old('keg_jamselesai') }}" required autocomplete="jam_akhir" autofocus min="08:00" max="17:00" id="jamSelesai">
-                        {{-- <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-calendar"></span>
-                        </div>
-                        </div> --}}
                     </div>
+                </div> --}}
+                <div class="form-group">
+                    <label>Jam Selesai</label>
+                    {{-- <div class="input-group mb-3">
+                        <input type="time" class="form-control" name="jam_awal" value="{{ old('jam_awal') }}" required autocomplete="jam_awal" autofocus min="08:00" max="18:00" id="jamMulai">
+                    </div> --}}
+
+                    <div class="input-group clockpicker pull-center"> 
+                        <input type="text" class="form-control" name="keg_jamselesai" data-placement="bottom" data-align="left" data-autoclose="true" id="keg_jamselesai"> 
+                        <div class="input-group-append" data-target="#keg_jamselesai" onclick="timeclick('keg_jamselesai')"> 
+                            <div class="input-group-text"><i class="fas fa-clock"></i> </div>
+                        </div> 
+                    </div>
+
                 </div>
                 {{-- <div class="input-group date mb-3" id="reservationdate" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" placeholder="Tanggal Kegiatan | 12/30/2022"/>
@@ -150,18 +158,17 @@ option {
                     <label>Aktivitas Umum</label>
                     <div class="input-group mb-3" >
                         <select class="form-control selectpicker"  data-live-search="true" data-size="5" >
-                        <option style= "width: 100px; 
-                        white-space: wrap;" >Pilih Kegiatan</option>
 
                         @forelse($aktivitas as $data)
-                            <option data-option="<?php 
-                            $a =$data->act_nama;
-                            $b = substr($a, 0, 55);
-                            $y = $b . "";
-                            if($a > $b)echo $y; 
-                            else echo $a;
-                            ?>"> 
-                            {{$data->act_nama}}
+                            <option value="{{$data->act_id}}" class="" data-option="">
+                                <?php 
+                                    $a =$data->act_nama;
+                                    $b = substr($a, 0, 95);
+                                    $y = $b . "...";
+                                    if($a > $b)echo $y; 
+                                    else echo $a;
+                                ?>
+                                {{' | '.$data->act_waktu.' '.$data->act_durasi}} 
                             
                             </option>
                         @empty
@@ -299,19 +306,43 @@ function timeclick(data){
         $(data).click();
 } 
 
+    // // Handlers to toggle the "hiddenTicksDisabled"
+    // $(document).on("mouseenter",".clockpicker-hours>.clockpicker-tick-disabled",function(e){
+    //     ticksDisabled = true;  
+    // });
+            
+    // $(document).on("mouseenter",".clockpicker-hours>.clockpicker-tick",function(e){
+    //     ticksDisabled = false;  
+    // });
+
+
 $(document).ready(function(){
+
+    var choiches = ['00','01','02','03','04','05','06','07','18','19','20','21','22','23'];
+
+    $('#keg_jamawal').on('change', function() {
+        var hasil = document.getElementById('keg_jamawal').value;
+        var strip = hasil.substring(0,2);
+        for(let i = 0; i < choiches.length-1; i++){
+            if(strip == choiches[i]){
+                alert('tidak bisa');
+            }
+        }
+        
+    });
 
     //select picker
     // $('.selectpicker').selectpicker();
 
+    //var choiches = [00,15,30,45];
     //Clock Picker
     $('.clockpicker').clockpicker({
         autoclose: true,
-        'default': '08:00',
-        min: '08:00'
+        // 'default': '08:00',
+        'afterDone': function() {
+            console.log("after hour selected");
+        },
     });
-    //end clockpicker
-
 
      $("#keg_jammulai").val('08:00');
      $("#keg_jamselesai").val('08:00');
