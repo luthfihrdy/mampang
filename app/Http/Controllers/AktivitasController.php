@@ -17,4 +17,9 @@ class AktivitasController extends Controller
         $res = DB::table('aktivitas')->get();
         return Datatables::of($res)->make(true);
     }
+
+    public function getAktivitasJson($id) {
+        $res = DB::table('aktivitas')->where('act_id',$id)->get();
+        return response()->json($res);
+    }
 }

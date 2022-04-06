@@ -341,15 +341,15 @@ function timeclick(data){
 function dataEfektif(id) {
     $.ajax({
         type: "GET",
-        url : "{{route('aktivitas.json')}}",
+        url : "{{route('aktivitas.json',"+id+")}}",
         success: function (data) {
-            
+            console.log(data.act_id);
         }
     })
 }
 
 $('#aktivitas').on("change", function(){
-    alert(this.value);
+    dataEfektif(this.value);
 })
 
 $(document).ready(function(){
