@@ -183,54 +183,58 @@
               <i class="nav-icon fas fa-calendar"></i>
               <p>
                 Hari Kerja
-            
               </p>
             </a>
           </li>
           @endif
 
           @if (Auth::user()->role_id == 3)
-          <li class="nav-item">
-            <a href="{{route('pegawai.kegiatan')}}" class="nav-link {{ Request::is('pegawai/kegiatan') ? 'active' : ''}}">
-              <i class="nav-icon fas fa-book"></i>
+          <li class="nav-item menu-close">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Kegiatan
-                {{-- <span class="right badge badge-danger">New</span> --}}
+                Kinerja
+                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('aktivitas.dash')}}" class="nav-link {{ Request::is('aktivitas') ? 'active' : ''}}">
+                  <i class="nav-icon fas fa-file"></i>
+                  <p>Aktivitas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('pegawai.skp')}}" class="nav-link {{ Request::is('pegawai/skp') ? 'active' : ''}}">
+                  <i class="nav-icon fas fa-scroll"></i>
+                  <p>SKP Tahunan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./index3.html" class="nav-link">
+                  <i class="nav-icon fas fa-book"></i>
+                  <p>Kegiatan Utama</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('pegawai.kegiatan')}}" class="nav-link {{ Request::is('pegawai/kegiatan') ? 'active' : ''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kegiatan Umum</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('pegawai.ckinerja')}}" class="nav-link {{ Request::is('pegawai/kinerja') ? 'active' : ''}}">
+                  <i class="nav-icon fa fa-chart-pie"></i>
+                  <p>Capaian Kinerja</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a href="{{route('pegawai.cuti')}}" class="nav-link {{ Request::is('pegawai/cuti') ? 'active' : ''}}">
               <i class="nav-icon fas fa-business-time"></i>
               <p>
                 Cuti
-                {{-- <span class="right badge badge-danger">New</span> --}}
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{route('pegawai.skp')}}" class="nav-link {{ Request::is('pegawai/skp') ? 'active' : ''}}">
-              <i class="nav-icon fas fa-scroll"></i>
-              <p>
-                SKP
-                {{-- <span class="right badge badge-danger">New</span> --}}
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{route('aktivitas.dash')}}" class="nav-link {{ Request::is('aktivitas') ? 'active' : ''}}">
-              <i class="nav-icon fas fa-file"></i>
-              <p>
-                Aktivitas
-                {{-- <span class="right badge badge-danger">New</span> --}}
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{route('pegawai.ckinerja')}}" class="nav-link {{ Request::is('pegawai/kinerja') ? 'active' : ''}}">
-              <i class="nav-icon fa fa-chart-pie"></i>
-              <p>
-                Capaian Kinerja
                 {{-- <span class="right badge badge-danger">New</span> --}}
               </p>
             </a>
@@ -243,6 +247,15 @@
               <i class="nav-icon fas fa-clipboard-list"></i>
               <p>
                 Aktivitas
+                {{-- <span class="right badge badge-danger">New</span> --}}
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('validator.skpvalidasi')}}" class="nav-link {{ Request::is('validator/skpvalidasi') ? 'active' : ''}}">
+              <i class="nav-icon fas fa-clipboard-list"></i>
+              <p>
+                SKP
                 {{-- <span class="right badge badge-danger">New</span> --}}
               </p>
             </a>
@@ -346,6 +359,12 @@
 
 <!-- Clock Picker -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clockpicker/0.0.7/bootstrap-clockpicker.min.js"></script>
+
+<!-- ChartJS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+
+<!-- Sparkline -->
+<script src="plugins/sparklines/sparkline.js"></script>
 
 <script>
   // $(document).ready( function () {
