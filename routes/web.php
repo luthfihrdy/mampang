@@ -72,4 +72,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/aktivitas', [App\Http\Controllers\AktivitasController::class, 'showAktivitas'])->name('aktivitas.dash')->middleware('pegawai');
 //bedakan parameter /aktivitas dan /aktivitas/data, saya tambahkan /data untuk membedakan
 Route::get('/aktivitas/data', [App\Http\Controllers\AktivitasController::class, 'getAktivitas'])->name('aktivitas.keg_get')->middleware('pegawai');
-Route::get('/aktivitas/json/{id}', [App\Http\Controllers\AktivitasController::class, 'getAktivitasJson'])->name('aktivitas.json')->middleware('pegawai');
+Route::get('/aktivitas/json', [App\Http\Controllers\AktivitasController::class, 'getAktivitasJson'])->name('aktivitas.json')->middleware('pegawai');

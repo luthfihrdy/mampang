@@ -167,7 +167,7 @@ option {
                 <div class ="form-group">
                     <label>Aktivitas Umum</label>
                     <div class="input-group mb-3" >
-                        <select class="form-control selectpicker"  data-live-search="true" data-size="5" id="aktivitas">
+                        <select class="form-control selectpicker"  data-live-search="true" data-size="5" id="aktivitas" onchange="dataEfektif(this.value)">
 
                         @forelse($aktivitas as $data)
                             <option value="{{$data->act_id}}" class="" data-option="">
@@ -193,7 +193,7 @@ option {
                         <div class="form-group">
                             <label for="">Waktu Efektif</label>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" id="efektif" readonly="true">
+                                <input type="text" class="form-control" id="waktu_efektif" readonly="true">
                             </div>
                         </div>
                     </div>
@@ -341,16 +341,14 @@ function timeclick(data){
 function dataEfektif(id) {
     $.ajax({
         type: "GET",
-        url : "{{route('aktivitas.json',"+id+")}}",
+        url: "{{ route('aktivitas.json') }}?id="+id,
         success: function (data) {
-            console.log(data.act_id);
+            $.each(data, function (index, value) {
+                    $('#waktu_efektif').val(value.act_waktu)
+                });
         }
     })
 }
-
-$('#aktivitas').on("change", function(){
-    dataEfektif(this.value);
-})
 
 $(document).ready(function(){
 

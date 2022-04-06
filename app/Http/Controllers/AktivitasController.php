@@ -18,8 +18,8 @@ class AktivitasController extends Controller
         return Datatables::of($res)->make(true);
     }
 
-    public function getAktivitasJson($id) {
-        $res = DB::table('aktivitas')->where('act_id',$id)->get();
+    public function getAktivitasJson(Request $request) {
+        $res = DB::table('aktivitas')->where('act_id',$request->id)->get();
         return response()->json($res);
     }
 }
