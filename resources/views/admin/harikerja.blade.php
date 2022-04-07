@@ -76,60 +76,58 @@
 
 <!-- Modal Insert -->
 <div class="modal fade" id="modal-lg">
-<div class="modal-dialog modal-lg">
-    <div class="modal-content">
-    <div class="modal-header">
-        <h4 class="modal-title">Input Hari</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="modal-body">
-        <form method="POST" action="" id="form-create">
-            @csrf
-            <div class="input-group mb-3">
-                <label>Tahun</label>
-                    <div class="input-group mb-3 ">
-                        <select class="custom-select form-control" id="date-dropdown">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Input Hari</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="" id="form-create">
+                @csrf
+                    <div class="input-group mb-3">
+                        <label>Tahun</label>
+                        <div class="input-group mb-3 ">
+                            <select class="custom-select form-control" id="date-dropdown">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <label>Bulan</label>
+                    <div class="input-group mb-3">
+                        <select class="custom-select form-control" placeholder="Bulan">
+                            <option name="Januari" value="Jan">Januari</option>
+                            <option name="Februari" value="Feb">Februari</option>
+                            <option name="Maret" value="Mar">Maret</option>
+                            <option name="April" value="Apr">April</option>
+                            <option name="Mei" value="Mei">Mei</option>
+                            <option name="Juni" value="Jun">Juni</option>
+                            <option name="Juli" value="Jul">Juli</option>
+                            <option name="Agustus" value="Agu">Agustus</option>
+                            <option name="September" value="Sep">September</option>
+                            <option name="Oktober" value="Okt">Oktober</option>
+                            <option name="November" value="Nov">November</option>
+                            <option name="Desember" value="Des">Desember</option>
                         </select>
                     </div>
-            </div>
-
-            <div class="input-group mb-3">
-                <label>Bulan</label>
-                <div class="input-group mb-3">
-                    <select class="custom-select form-control" placeholder="Bulan">
-                        <option name="Januari" value="Jan">Januari</option>
-                        <option name="Februari" value="Feb">Februari</option>
-                        <option name="Maret" value="Mar">Maret</option>
-                        <option name="April" value="Apr">April</option>
-                        <option name="Mei" value="Mei">Mei</option>
-                        <option name="Juni" value="Jun">Juni</option>
-                        <option name="Juli" value="Jul">Juli</option>
-                        <option name="Agustus" value="Agu">Agustus</option>
-                        <option name="September" value="Sep">September</option>
-                        <option name="Oktober" value="Okt">Oktober</option>
-                        <option name="November" value="Nov">November</option>
-                        <option name="Desember" value="Des">Desember</option>
-                    </select>
+                    <div class="input-group mb-3">
+                        <label>Jumlah Hari</label>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control @error('jmlhari') is-invalid @enderror" name="jmlhari" value="{{ old('jmlhari') }}" required autocomplete="jmlhari" autofocus placeholder="Jumlah Hari" id="jmlhari">
+                    </div>
+                </div>  
+            </div>        
+            </form>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="close-modal">Close</button>
+                    <button type="submit" class="btn btn-primary" ><span class="fas fa-save"></span> Simpan</button>
                 </div>
-            </div>
-            <div class="input-group mb-3">
-            <label>Jumlah Hari</label>
-                <div class="input-group mb-3">
-                    <input type="number" class="form-control @error('jmlhari') is-invalid @enderror" name="jmlhari" value="{{ old('jmlhari') }}" required autocomplete="jmlhari" autofocus placeholder="Jumlah Hari" id="jmlhari">
-                </div>
-            </div>  
+        </div>
+        <!-- /.modal-content -->
     </div>
-    <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-default" data-dismiss="modal" id="close-modal">Close</button>
-        <button type="submit" class="btn btn-primary" ><span class="fas fa-save"></span> Simpan</button>
-    </div>
-    </form>
-    </div>
-    <!-- /.modal-content -->
-</div>
-<!-- /.modal-dialog -->
+    <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
 
@@ -366,6 +364,5 @@
       currentYear -= 1;
     }
 
-    
 </script>
 @endsection

@@ -39,15 +39,87 @@
                 </div>
                 <div class="card-body">
                     <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div><!-- /.card-body -->
             </div>
-
-            <!-- /.card-body -->
+            <!-- /.card -->
         </div>
-        <!-- /.card -->
-        </div>
-
     </div>
+    <div class="progress" style="height: 100px;">
+        <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+    </div>
+    <br>
     <!-- /.row (main row) -->
+    <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Kinerja Bulan Lalu</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th style="width: 10px">Tahun</th>
+                      <th>Bulan</th>
+                      <th>Progres</th>
+                      <th style="width: 40px">Label</th>
+                      <th style="width: 120px">Point Menit</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>2022</td>
+                      <td>Januari</td>
+                      <td>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                        </div>
+                      </td>
+                      <td><span class="badge bg-danger">55%</span></td>
+                      <td><span class="badge bg-danger">1500 menit</span></td>
+                    </tr>
+                    <tr>
+                      <td>2022</td>
+                      <td>Februari</td>
+                      <td>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-warning" style="width: 70%"></div>
+                        </div>
+                      </td>
+                      <td><span class="badge bg-warning">70%</span></td>
+                      <td><span class="badge bg-warning">1500 menit</span></td>
+                    </tr>
+                    <tr>
+                      <td>2022</td>
+                      <td>Maret</td>
+                      <td>
+                        <div class="progress progress-xs progress-striped active">
+                          <div class="progress-bar bg-primary" style="width: 30%"></div>
+                        </div>
+                      </td>
+                      <td><span class="badge bg-primary">30%</span></td>
+                      <td><span class="badge bg-primary">1500 menit</span></td>
+                    </tr>
+                    <tr>
+                      <td>2022</td>
+                      <td>April</td>
+                      <td>
+                        <div class="progress progress-xs progress-striped active">
+                          <div class="progress-bar bg-success" style="width: 90%"></div>
+                        </div>
+                      </td>
+                      <td><span class="badge bg-success">90%</span></td>
+                      <td><span class="badge bg-success">1500 menit</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+
 </div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
@@ -59,7 +131,7 @@
         <div class="modal-header">
             <h4 class="modal-title">Tambah Kegiatan</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+                <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
@@ -122,14 +194,11 @@
                     <label>Aktivitas Umum</label>
                     <div class="input-group mb-3" >
                         <select class="form-control selectpicker"  data-live-search="true" data-size="5" >
-                        <option style= "width: 100px; 
-                        white-space: wrap;" >Pilih Kegiatan</option>
-
-                             
+                            <option style= "width: 100px; 
+                            white-space: wrap;" >Pilih Kegiatan</option>  
                         </select>
                     </div>
                 </div>
-        
                 <div class="form-group">
                     <label>Kegiatan</label>
                     <div class="input-group mb-3">
