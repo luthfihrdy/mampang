@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDataAlamat extends Migration
+class CreateDataStrTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateDataAlamat extends Migration
      */
     public function up()
     {
-        Schema::create('data_alamat', function (Blueprint $table) {
+        Schema::create('data_str', function (Blueprint $table) {
             $table->id();
-            $table->integer('users_id')->unique();
-            $table->text('alamat');
-            
-            $table->timestamps();
+            $table->integer('user_id')->unique();
+            $table->integer('str_no')->nullable();
+            $table->date('str_terbit')->nullable();
+            $table->date('str_akhir')->nullable();
+            $table->timestamps(); 
         });
     }
 
@@ -29,6 +30,6 @@ class CreateDataAlamat extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data_alamat');
+        Schema::dropIfExists('data_str');
     }
 }
