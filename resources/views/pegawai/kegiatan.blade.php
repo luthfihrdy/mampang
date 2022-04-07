@@ -167,7 +167,7 @@ option {
                 <div class ="form-group">
                     <label>Aktivitas Umum</label>
                     <div class="input-group mb-3" >
-                        <select class="form-control selectpicker"  data-live-search="true" data-size="5" id="aktivitas" onchange="dataEfektif(this.value)">
+                        <select class="form-control selectpicker"  data-live-search="true" data-size="5" id="aktivitas" onchange="dataEfektif(this.value)" title="== Pilih Aktivitas ==">
 
                         @forelse($aktivitas as $data)
                             <option value="{{$data->act_id}}" class="" data-option="">
@@ -206,7 +206,7 @@ option {
                     <div class="col">
                         <div class="form-group">
                             <label for="">Jenis Hasil</label>
-                            <input type="text" class="form-control" id="hasil" readonly="true">
+                            <input type="text" class="form-control" id="hasil" readonly="true" value="{{$data->act_unit}}">
                         </div>
                     </div>
                 </div>

@@ -190,7 +190,7 @@
 
           @if (Auth::user()->role_id == 3)
           <li class="nav-item menu-close">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Kinerja
