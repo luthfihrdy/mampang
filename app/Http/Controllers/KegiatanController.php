@@ -22,9 +22,9 @@ class KegiatanController extends Controller
         ]);
     }
 
-    public function create()
+    public function createUmum()
     {
-        $res = DB::table('kegiatanumum')->where('user_id',Auth::user()->id)->get();
+        $res = Kegiatan::with('getAct')->where('users_id',Auth::user()->id)->where('cacode','UMUM')->get();
         return Datatables::of($res)->editColumn('keg_date', function($date) {
             return Carbon::parse($date->keg_date)->format('Y-m-d');
          })->make(true);
@@ -36,30 +36,39 @@ class KegiatanController extends Controller
     //     return $query->result(); //setelah selesai pindah ke controller book
     // }
 
-    public function storeKegiatan(Request $request)
+    public function storeKegiatanUmum(Request $request)
     {
         Validator::make($request->all(), [
             'keg_date' => ['required', 'string', 'max:255'],
-            'keg_jamawal' => ['required', 'string'],
+            'keg_jammulai' => ['required', 'string'],
             'keg_jamselesai' => ['required', 'string'],
             'keg_notes' => ['required', 'string', 'max:255'],
+            'wkt_efektif'   => ['required'],
+            'totalunit' => ['required','integer'],
         ]);
         
-        $keg_jammulai = strtotime($request->keg_jamawal);
+        $keg_jammulai = strtotime($request->keg_jammulai);
         $keg_jamselesai = strtotime($request->keg_jamselesai);
-        $point_menit = ($keg_jamselesai - $keg_jamawal)/60;
-
-        if($point_menit <= 0) {
-            return response()->json(['status'=>422,'message'=>'Waktu tidak valid!']);
-        }
+        $point_menit = ($keg_jamselesai - $keg_jammulai)/60;
+        $wkt_efektif = $request->wkt_efektif;
+        $volume = $point_menit / $wkt_efektif;
+        
+        // if($point_menit <= 0) {
+        //     return response()->json(['status'=>422,'message'=>$request->keg_jammulai]);
+        // }
 
         $create = Kegiatan::create([
-            'user_id' => Auth::user()->id,
-            'keg_date' => $request->keg_date,
-            'keg_jammulai' => $request->keg_jammulai,
-            'keg_jamselesai' => $request->keg_jamselesai,
-            'point_menit' => $point_menit,
-            'kegiatan_notes' => $request->kegiatan_notes,
+            'users_id'      => Auth::user()->id,
+            'act_id'        => $request->act_id,
+            'keg_date'      => $request->keg_date,
+            'keg_jammulai'  => $request->keg_jammulai,
+            'keg_jamselesai'=> $request->keg_jamselesai,
+            'point_menit'   => $point_menit,
+            'keg_notes'     => $request->keg_notes,
+            'keg_volume'    => $volume,
+            'cacode'        => 'UMUM',
+            'status'        => 1,
+            'totalunit'     => $request->totalunit,
         ]);
 
         if($create){

@@ -9,18 +9,18 @@ class Kegiatan extends Model
 {
     use HasFactory;
 
+    protected $table = 'kegiatan';
+
     protected $fillable = [
-        'user_id',
-        'nrk',
+        'users_id',
         'act_id',
         'keg_date',
-        'keg_jammualai',
+        'keg_jammulai',
         'keg_jamselesai',
-        'poin_menit',
+        'point_menit',
         'keg_notes',
         'keg_volume',
         'cacode',
-        'dscode',
         'totalunit',
         'status',
     ];
@@ -28,6 +28,10 @@ class Kegiatan extends Model
     protected $dates = ['keg_date'];
 
     public function getUser() {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'users_id', 'id');
+    }
+
+    public function getAct() {
+        return $this->belongsTo(Aktivitas::class, 'act_id', 'act_id');
     }
 }

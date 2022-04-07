@@ -49,16 +49,18 @@ option {
             <!-- /.card-header -->
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="myTable" class="table table-bordered table-hover" width="100%">
+                    <table id="myTable" class="table table-bordered table-hover" style="width:100%">
                     <thead>
                         <tr>
                             <th>Tanggal</th>
-                            <th>Jam Mulai</th>
-                            <th>Jam Selesai</th>
+                            <th>Waktu</th>
+                            <th>Jam Selesai-Hide</th>
                             <th>Kegiatan</th>
                             <th>Uraian</th>
-                            <th>Point Menit</th>
-                            <th>Jenis Aktivitas</th>
+                            <th>Durasi</th>
+                            <th>Vol</th>
+                            <th>Hasil</th>
+                            <th>Aktivitas</th>
                             <th>Status</th>
                             <th>Aksi</th>
                         </tr>
@@ -117,8 +119,8 @@ option {
                             </div> --}}
         
                             <div class="input-group clockpicker pull-center"> 
-                                <input type="text" class="form-control" name="keg_jamawal" data-placement="bottom" data-align="left" data-autoclose="true" id="keg_jamawal"> 
-                                <div class="input-group-append" data-target="#keg_jamawal" onclick="timeclick('keg_jamawal')"> 
+                                <input type="text" class="form-control" name="keg_jammulai" data-placement="bottom" data-align="left" data-autoclose="true" id="keg_jammulai"> 
+                                <div class="input-group-append" data-target="#keg_jammulai" onclick="timeclick('keg_jammulai')"> 
                                     <div class="input-group-text"><i class="fas fa-clock"></i> </div>
                                 </div> 
                             </div>
@@ -167,7 +169,7 @@ option {
                 <div class ="form-group">
                     <label>Aktivitas Umum</label>
                     <div class="input-group mb-3" >
-                        <select class="form-control selectpicker"  data-live-search="true" data-size="5" id="aktivitas" onchange="dataEfektif(this.value)" title="== Pilih Aktivitas ==">
+                        <select class="form-control selectpicker" name="act_id" data-live-search="true" data-size="5" id="aktivitas" onchange="dataEfektif(this.value)" title="== Pilih Aktivitas ==">
 
                         @forelse($aktivitas as $data)
                             <option value="{{$data->act_id}}" class="" data-option="">
@@ -193,14 +195,14 @@ option {
                         <div class="form-group">
                             <label for="">Waktu Efektif</label>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" id="waktu_efektif" readonly="true">
+                                <input type="number" name="wkt_efektif" class="form-control" id="waktu_efektif" readonly="true">
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
                             <label for="">Jumlah Hasil</label>
-                            <input type="number" name="" id="" class="form-control" id="jumlah">
+                            <input type="number" name="totalunit" id="" class="form-control" id="jumlah">
                         </div>
                     </div>
                     <div class="col">
@@ -354,8 +356,8 @@ $(document).ready(function(){
 
     var choiches = ['00','01','02','03','04','05','06','07','18','19','20','21','22','23'];
 
-    $('#keg_jamawal').on('change', function() {
-        var hasil = document.getElementById('keg_jamawal').value;
+    $('#keg_jammulai').on('change', function() {
+        var hasil = document.getElementById('keg_jammulai').value;
         var strip = hasil.substring(0,2);
         for(let i = 0; i < choiches.length-1; i++){
             if(strip == choiches[i]){
@@ -367,7 +369,7 @@ $(document).ready(function(){
                     timer: 2500,
                     // footer: '<a href="">Why do I have this issue?</a>'
                 });
-                $('#keg_jamawal').val("08:00");
+                $('#keg_jammulai').val("08:00");
             }
         }
         
@@ -405,15 +407,10 @@ $(document).ready(function(){
         },
     });
 
-     $("#keg_jamawal").val('08:00');
+     $("#keg_jammulai").val('08:00');
      $("#keg_jamselesai").val('08:00');
 
     dTable = $('#myTable').DataTable({
-        columnDefs: [
-            { width: '12.5%', targets:1},
-            { width: '12.5%', targets:2},
-            { width: '12%', targets:4}
-        ],
         buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
         // order: [[2,'asc']],
         responsive: true,
@@ -422,7 +419,7 @@ $(document).ready(function(){
             "processing": "<img style='width:150px;' src='{{asset('img/loader-transparent.gif')}}' />" //add a loading image,simply putting <img src="loader.gif" /> tag.
         },
         serverSide: true,
-        ajax: "{{ route('pegawai.kegiatan_get')}}",
+        ajax: "{{ route('pegawai.kegiatan_umum_get')}}",
         columns: [
             // { data: 'IdType', name: 'IdType' },
             {
@@ -438,8 +435,14 @@ $(document).ready(function(){
                 name: 'keg_jamselesai'
             },
             {
-                data: 'keg_notes',
-                name: 'keg_notes'
+                data: 'get_act',
+                render: function(data, type, row, meta){
+                    if(data == null){
+                            return null;
+                        }else{
+                            return data.act_nama;
+                    }
+                }
             },
             {
                 data: 'keg_notes',
@@ -450,17 +453,25 @@ $(document).ready(function(){
                 name: 'point_menit'
             },
             {
-                data: 'point_menit',
-                name: 'point_menit'
+                data: 'keg_volume',
+                name: 'keg_volume'
+            },
+            {
+                data: 'totalunit',
+                name: 'totalunit'
+            },
+            {
+                data: 'cacode',
+                name: 'cacode'
             },
             {
                 data: 'status',
                 render: function(data, type, row) {
-                    if(row.status == 'Waiting') {
-                        return '<span class="badge badge-warning">' + data + '</span>'
-                    }else if(row.status == 'Approved') {
+                    if(row.status == 1) {
+                        return '<span class="badge badge-warning"><i class="fa fa-hourglass"></i> Waiting</span>'
+                    }else if(row.status == 2) {
                         return '<span class="badge badge-success">' + data + '</span>'
-                    }else if(row.status == 'Rejected') {
+                    }else if(row.status == 3) {
                         return '<span class="badge badge-danger">' + data + '</span>'
                     }
                 }
@@ -485,14 +496,14 @@ $(document).ready(function(){
                 data: 'id',
                 //name: 'id'
                 render: function (data, type, row) {
-                    if(row.status == 'Waiting'){
+                    if(row.status == '1'){
                         // console.log(type);
                         let buttonEdit =
                         '<a href="#" class="text-primary" data-toggle="modal" data-target="#modal-update" onclick="buttonEdit(\'' + data + '\');"><i class="fas fa-edit"></i></a>';
                             // '<button type="button" class="btn btn-success btn-rounded btn-icon" data-toggle="modal" data-placement="buttom" data-custom-class="tooltip-success" title="EDIT" data-target="#showModalUpdateLocation" style="margin-right:5px;" onclick="buttonEdit(\'' + data + '\');"><i style="font-size:1.5rem; margin-left:-7px;" class="ti-pencil-alt"></i></button>';
                         let buttonDelete = '<a href="#" class="text-danger ml-2" onclick="buttonDelete(\'' + data + '\')"><i class="fas fa-trash"></i></a>';
                         return buttonEdit + buttonDelete;
-                    }else if(row.status == 'Rejected'){
+                    }else if(row.status == '3'){
                         let buttonEdit = '';
                         let buttonDelete = '<a href="#" class="text-danger ml-2" onclick="buttonDelete(\'' + data + '\')"><i class="fas fa-trash"></i></a>';
                         return buttonEdit + buttonDelete;
@@ -503,6 +514,33 @@ $(document).ready(function(){
                     }
                 }
             }
+            ],
+            columnDefs:[
+                {
+                    "targets" : 1,
+                    "render" : function(data,type,row) {
+                        var awal = data.substring(0,5);
+                        var selesai = row.keg_jamselesai.substring(0,5);
+                        return awal +' - '+ selesai;
+                    },
+                },
+                {
+                    "targets" : 7,
+                    "render" : function(data,type,row) {
+                        return data +' '+ row.get_act.act_unit;
+                    },
+                },
+                {
+                    "targets" : 5,
+                    "render" : function(data,type,row) {
+                        return data +'  '+ row.get_act.act_durasi;
+                    },
+                },
+                {
+                    "visible": false, "targets": [ 2 ]
+                },
+                { width: '12%', targets:1},
+                { width: '10%', targets:7}
             ]
     });
 
@@ -524,7 +562,7 @@ $('#form-create').on('submit', function(e){
         //type yg akan di kirim => ada get atau post
         type: "POST",
         //url ini di sesuaikan dengan routing yg udah d bikin
-        url: "{{ route ('pegawai.kegiatan_store') }}",
+        url: "{{ route ('pegawai.kegiatan_umum_store') }}",
         //untuk data ini kalo semua isi form akan d kirimkan k controller amka menggunakan form serialize
         data: $(this).serialize(),
         //success cuma buat method ajax ajax , yg intinya di pake sh function(response) nya itu sesuai dengan yg kita kirimkan dari controller
@@ -533,7 +571,7 @@ $('#form-create').on('submit', function(e){
             if (response.status == 200) {
                 // autonumber();
                 $('#form-create').trigger("reset");
-                $("#keg_jamawal").val('08:00');
+                $("#keg_jammulai").val('08:00');
                 $("#keg_jamselesai").val('08:00');
                 dTable.ajax.reload();
                 Swal.fire({
@@ -555,7 +593,7 @@ $('#form-create').on('submit', function(e){
                     // footer: '<a href="">Why do I have this issue?</a>'
                 });
                 $('#form-create').trigger("reset");
-                $("#keg_jamawal").val('08:00');
+                $("#keg_jammulai").val('08:00');
                 $("#keg_jamselesai").val('08:00');
                 $('#close-modal').click();
             }
