@@ -145,7 +145,6 @@
                         {{ session('status') }}
                     </div>
                 @endif
-
                 {{ __('Logged in as Pegawai') }}
             </div>
         </div>

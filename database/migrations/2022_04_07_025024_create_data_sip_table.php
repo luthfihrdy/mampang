@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStrTable extends Migration
+class CreateDataSipTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateStrTable extends Migration
      */
     public function up()
     {
-        Schema::create('str', function (Blueprint $table) {
+        Schema::create('data_sip', function (Blueprint $table) {
             $table->id();
-            $table->integer('nrk');
-            $table->integer('str_no');
-            $table->date('str_terbit');
-            $table->date('str_akhir');
+            $table->integer('user_id')->unique();
+            $table->integer('sip_no')->nullable();
+            $table->date('sip_terbit')->nullable();
+            $table->date('sip_akhir')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateStrTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('str');
+        Schema::dropIfExists('data_sip');
     }
 }

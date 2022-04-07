@@ -87,10 +87,25 @@
                 
                 <div class="form-group">
                     <label>Aktivitas</label>
-                    <div class="input-group"> 
-                        <select class="form-control selectpicker"  data-live-search="true" data-size="5" >
-                        <option style= "width: 100px; 
-                        white-space: wrap;" >Pilih Kegiatan</option>
+                    <div class="input-group mb-3" >
+                        <select class="form-control selectpicker"  data-live-search="true" data-size="5" id="aktivitas" onchange="dataEfektif(this.value)" title="== Pilih Aktivitas ==">
+
+                        @forelse($aktivitas as $data)
+                            <option value="{{$data->act_id}}" class="" data-option="">
+                                <?php 
+                                    $a =$data->act_nama;
+                                    $b = substr($a, 0, 95);
+                                    $y = $b . "...";
+                                    if($a > $b)echo $y; 
+                                    else echo $a;
+                                ?>
+                                {{' | '.$data->act_waktu.' '.$data->act_durasi}} 
+                            
+                            </option>
+                        @empty
+                            <option>Data Aktivitas belum ada </option>
+                        @endforelse
+                            
                         </select>
                     </div>
                 </div>
@@ -104,11 +119,7 @@
                     <label>Hasil Target</label>
                     <div class="input-group mb-3" >
                         <select class="form-control selectpicker"  data-live-search="true" data-size="5" >
-                        <option style= "width: 100px; 
-                        white-space: wrap;" >Pilih Kegiatan</option>
-
-                        
-                            
+                        <option style= "width: 100px; white-space: wrap;" >Pilih Kegiatan</option>
                         </select>
                     </div>
                 </div>

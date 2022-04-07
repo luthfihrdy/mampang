@@ -82,8 +82,8 @@
           </a> -->
           <div class="dropdown-divider"></div>
           <a href="{{ route('logout') }}"
-          onclick="event.preventDefault();
-                          document.getElementById('logout-form').submit();" class="dropdown-item dropdown-footer"> <i class="fas fa-sign-out-alt mr-2"></i> Log Out</a>
+              onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();" class="dropdown-item dropdown-footer"> <i class="fas fa-sign-out-alt mr-2"></i> Log Out</a>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
           </form>
@@ -96,7 +96,12 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{url('/')}}" class="brand-link 
+            @if(Request::is('admin')) active
+            @elseif(Request::is('validator')) active
+            @elseif(Request::is('pegawai')) active
+            @endif
+            ">
       <img src="{{asset('img/logo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Sigara PKC Mampang</span>
     </a>
@@ -109,7 +114,7 @@
           <img src="{{asset('img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div> --}}
         <div class="info">
-          <a class="d-block">
+          <a href="{{route('pegawai.profile')}}" class="d-block">
             {{-- Ambil nama depan --}}
             @php
             $name = Auth::user()->name;
@@ -191,7 +196,7 @@
           @if (Auth::user()->role_id == 3)
           <li class="nav-item menu-close">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-briefcase"></i>
               <p>
                 Kinerja
                 <i class="right fas fa-angle-left"></i>
@@ -200,7 +205,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('aktivitas.dash')}}" class="nav-link {{ Request::is('aktivitas') ? 'active' : ''}}">
-                  <i class="nav-icon fas fa-file"></i>
+                  <i class="nav-icon fa fa-laptop"></i>
                   <p>Aktivitas</p>
                 </a>
               </li>
@@ -218,7 +223,7 @@
               </li>
               <li class="nav-item">
                 <a href="{{route('pegawai.kegiatan')}}" class="nav-link {{ Request::is('pegawai/kegiatan') ? 'active' : ''}}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-file nav-icon"></i>
                   <p>Kegiatan Umum</p>
                 </a>
               </li>
@@ -230,15 +235,24 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="{{route('pegawai.cuti')}}" class="nav-link {{ Request::is('pegawai/cuti') ? 'active' : ''}}">
+          <li class="nav-item menu-close">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-business-time"></i>
               <p>
-                Cuti
-                {{-- <span class="right badge badge-danger">New</span> --}}
+                Ijin dan Cuti
+                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('pegawai.cuti')}}" class="nav-link {{ Request::is('pegawai/cuti') ? 'active' : ''}}">
+                  <i class="nav-icon fas fa-plane"></i>
+                    <p>Cuti</p>
+                  </a>
+              </li>
+            </ul>
           </li>
+          
           @endif
 
           @if (Auth::user()->role_id == 2)
