@@ -53,9 +53,9 @@ Route::get('/pegawai', [App\Http\Controllers\HomeController::class, 'pegawaiDash
 Route::get('/pegawai/kegiatan/umum', [App\Http\Controllers\KegiatanController::class, 'index'])->name('pegawai.kegiatan')->middleware(['pegawai','auth']);
 Route::get('/pegawai/kegiatan/umum/data', [App\Http\Controllers\KegiatanController::class, 'createUmum'])->name('pegawai.kegiatan_umum_get')->middleware('pegawai');
 Route::post('/pegawai/kegiatan/umum/store', [App\Http\Controllers\KegiatanController::class, 'storeKegiatanUmum'])->name('pegawai.kegiatan_umum_store')->middleware('pegawai');
-Route::get('/pegawai/kegiatan/umum/update', [App\Http\Controllers\KegiatanController::class, 'updateKegiatan'])->name('pegawai.kegiatan_update')->middleware('pegawai');
-Route::post('/pegawai/kegiatan/umum/edit', [App\Http\Controllers\KegiatanController::class, 'editKegiatan'])->name('pegawai.kegiatan_edit')->middleware('pegawai');
-Route::post('/pegawai/kegiatan/umum/delete/{ids}', [App\Http\Controllers\KegiatanController::class, 'destroyKegiatan'])->name('pegawai.kegiatan_destroy')->middleware('pegawai');
+Route::get('/pegawai/kegiatan/umum/update', [App\Http\Controllers\KegiatanController::class, 'updateKegiatanUmum'])->name('pegawai.kegiatan_umum_update')->middleware('pegawai');
+Route::post('/pegawai/kegiatan/umum/edit', [App\Http\Controllers\KegiatanController::class, 'editKegiatanUmum'])->name('pegawai.kegiatan_umum_edit')->middleware('pegawai');
+Route::post('/pegawai/kegiatan/delete/{ids}', [App\Http\Controllers\KegiatanController::class, 'destroyKegiatan'])->name('pegawai.kegiatan_destroy')->middleware('pegawai');
 
 Route::get('/pegawai/kinerja', [App\Http\Controllers\KinerjaController::class, 'index'])->name('pegawai.ckinerja')->middleware('pegawai');
 

@@ -63,6 +63,7 @@ option {
                             <th>Aktivitas</th>
                             <th>Status</th>
                             <th>Aksi</th>
+                            <th>Dibuat-Hide</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -513,6 +514,10 @@ $(document).ready(function(){
                         return buttonEdit + buttonDelete;
                     }
                 }
+            },
+            {
+                data: 'created_at',
+                name: 'created_at'
             }
             ],
             columnDefs:[
@@ -537,11 +542,12 @@ $(document).ready(function(){
                     },
                 },
                 {
-                    "visible": false, "targets": [ 2 ]
+                    "visible": false, "targets": [ 2,11 ]
                 },
                 { width: '12%', targets:1},
                 { width: '10%', targets:7}
-            ]
+            ],
+            "order": [[11, 'desc']]
     });
 
 });
@@ -609,7 +615,7 @@ function buttonEdit(ids) {
         });
         $.ajax({
             type: "GET",
-            url: "{{ route('pegawai.kegiatan_update') }}",
+            url: "{{ route('pegawai.kegiatan_umum_update') }}",
             data: {
                 id: ids
             },
@@ -635,7 +641,7 @@ function buttonEdit(ids) {
 
         $.ajax({
             type: "POST",
-            url: "{{ route ('pegawai.kegiatan_edit') }}",
+            url: "{{ route ('pegawai.kegiatan_umum_edit') }}",
             data: $(this).serialize(),
             success: function (response) {
                 $('#close-modal-update').click();

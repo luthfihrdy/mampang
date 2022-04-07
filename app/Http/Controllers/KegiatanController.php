@@ -53,9 +53,9 @@ class KegiatanController extends Controller
         $wkt_efektif = $request->wkt_efektif;
         $volume = $point_menit / $wkt_efektif;
         
-        // if($point_menit <= 0) {
-        //     return response()->json(['status'=>422,'message'=>$request->keg_jammulai]);
-        // }
+        if($point_menit <= 0 && $volume < 1 ) {
+            return response()->json(['status'=>422,'message'=>'Masukkan Waktu dengan benar!']);
+        }
 
         $create = Kegiatan::create([
             'users_id'      => Auth::user()->id,
@@ -78,12 +78,12 @@ class KegiatanController extends Controller
         }
     }
 
-    public function updateKegiatan(Request $request) {
+    public function updateKegiatanUmum(Request $request) {
         $res = DB::table('kegiatanumum')->where('id',$request->id)->get();
         return response()->json($res);
     }
 
-    public function editKegiatan(Request $request) {
+    public function editKegiatanUmum(Request $request) {
         Validator::make($request->all(), [
             'keg_date' => ['required', 'string', 'max:255'],
             'keg_jammulai' => ['required', 'string'],
