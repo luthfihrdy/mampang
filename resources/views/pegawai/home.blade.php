@@ -46,7 +46,6 @@
             <div class="row card-body">
               <div class="col-6 col-sm-6">
                 <h5 class="card-title">
-                  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
                   <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_fgltupfx.json"  background="transparent"  speed="1"  style="width: 150px; height: 150px;"  loop  autoplay></lottie-player>
                 </h5>
               </div>
@@ -109,7 +108,6 @@
               <div class="row card-body ">
                  <div class="col-sm-4">
                     <h5 class="card-title"></h5>
-                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
                     <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_nm1huacl.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>
                   </div>
                   <div class="col-sm-4">

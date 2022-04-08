@@ -79,33 +79,40 @@ class KegiatanController extends Controller
     }
 
     public function updateKegiatanUmum(Request $request) {
-        $res = DB::table('kegiatanumum')->where('id',$request->id)->get();
+        $res = Kegiatan::with('getAct')->where('id',$request->id)->get();
         return response()->json($res);
     }
 
     public function editKegiatanUmum(Request $request) {
         Validator::make($request->all(), [
             'keg_date' => ['required', 'string', 'max:255'],
-            'keg_jammulai' => ['required', 'string'],
-            'keg_jamselesai' => ['required', 'string'],
+            'update_keg_jammulai' => ['required', 'string'],
+            'update_keg_jamselesai' => ['required', 'string'],
+            'act_id' => ['required', 'integer'],
             'keg_notes' => ['required', 'string', 'max:255'],
+            'wkt_efektif'   => ['required'],
+            'totalunit' => ['required','integer'],
         ]);
 
-        $keg_jammulai = strtotime($request->keg_jammulai);
-        $keg_jamakhir = strtotime($request->keg_jamakhir);
+        $keg_jammulai = strtotime($request->update_keg_jammulai);
+        $keg_jamakhir = strtotime($request->update_keg_jamselesai);
         $point_menit = ($keg_jamakhir - $keg_jammulai)/60;
+        $wkt_efektif = $request->wkt_efektif;
+        $volume = $point_menit / $wkt_efektif;
 
         if($point_menit <= 0) {
             return response()->json(['status'=>422,'message'=>'Waktu tidak valid!']);
         }
 
         $data = Kegiatan::find($request->id);
-
+        $data->act_id;
         $data->keg_date = $request->keg_date;
-        $data->keg_jammulai = $request->keg_jammulai;
-        $data->keg_jamakhir = $request->keg_jamakhir;
+        $data->keg_jammulai = $request->update_keg_jammulai;
+        $data->keg_jamselesai = $request->update_keg_jamselesai;
         $data->point_menit = $point_menit;
         $data->keg_notes = $request->keg_notes;
+        $data->keg_volume = $volume;
+        $data->totalunit = $request->totalunit;
         $success = $data->save();
 
         if($success){

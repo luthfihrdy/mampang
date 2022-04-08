@@ -103,26 +103,19 @@ option {
                         <div class="form-group">
                             <label>Tanggal Kegiatan</label>
                             <div class="input-group mb-3">
-                                <input type="date" class="form-control" name="keg_date" value="{{ old('keg_date') }}" required autocomplete="name" autofocus>
-                                {{-- <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-calendar"></span>
-                                </div>
-                                </div> --}}
+                                <input type="date" class="form-control" name="keg_date" value="{{ old('keg_date') }}" required autocomplete="name" id="keg_date" autofocus>
+
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
                             <label>Jam Mulai</label>
-                            {{-- <div class="input-group mb-3">
-                                <input type="time" class="form-control" name="jam_awal" value="{{ old('jam_awal') }}" required autocomplete="jam_awal" autofocus min="08:00" max="18:00" id="jamMulai">
-                            </div> --}}
-        
+
                             <div class="input-group clockpicker pull-center"> 
                                 <input type="text" class="form-control" name="keg_jammulai" data-placement="bottom" data-align="left" data-autoclose="true" id="keg_jammulai"> 
-                                <div class="input-group-append" data-target="#keg_jammulai" onclick="timeclick('keg_jammulai')"> 
-                                    <div class="input-group-text"><i class="fas fa-clock"></i> </div>
+                                <div class="input-group-append" data-target="#keg_jammulai"> 
+                                    <a class="input-group-text" id="jammulai"><i class="fas fa-clock"></i> </a>
                                 </div> 
                             </div>
         
@@ -131,14 +124,11 @@ option {
                     <div class="col">
                         <div class="form-group">
                             <label>Jam Selesai</label>
-                            {{-- <div class="input-group mb-3">
-                                <input type="time" class="form-control" name="jam_awal" value="{{ old('jam_awal') }}" required autocomplete="jam_awal" autofocus min="08:00" max="18:00" id="jamMulai">
-                            </div> --}}
         
                             <div class="input-group clockpicker pull-center"> 
                                 <input type="text" class="form-control" name="keg_jamselesai" data-placement="bottom" data-align="left" data-autoclose="true" id="keg_jamselesai"> 
                                 <div class="input-group-append" data-target="#keg_jamselesai" onclick="timeclick('keg_jamselesai')"> 
-                                    <div class="input-group-text"><i class="fas fa-clock"></i> </div>
+                                    <a class="input-group-text" id="jamselesai"><i class="fas fa-clock"></i> </a>
                                 </div> 
                             </div>
         
@@ -146,27 +136,6 @@ option {
                     </div>
                 </div>
                 
-                {{-- <div class="form-group">
-                    <label>Jam Selesai</label>
-                    <div class="input-group mb-3">
-                        <input type="time" name="keg_jamselesai" class="form-control @error('keg_jamselesai') is-invalid @enderror"  value="{{ old('keg_jamselesai') }}" required autocomplete="jam_akhir" autofocus min="08:00" max="17:00" id="jamSelesai">
-                    </div>
-                </div> --}}
-                
-                {{-- <div class="input-group date mb-3" id="reservationdate" data-target-input="nearest">
-                    <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" placeholder="Tanggal Kegiatan | 12/30/2022"/>
-                    <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                    </div>
-                </div> --}}
-                {{-- <div class="form-group">
-                    <label>Aktivitas Umum</label>
-                    <div class="input-group mb-3">
-                        <select class="">
-                        
-                        </select>
-                    </div>
-                </div> --}}
                 <div class ="form-group">
                     <label>Aktivitas Umum</label>
                     <div class="input-group mb-3" >
@@ -209,7 +178,7 @@ option {
                     <div class="col">
                         <div class="form-group">
                             <label for="">Jenis Hasil</label>
-                            <input type="text" class="form-control" id="hasil" readonly="true" value="{{$data->act_unit}}">
+                            <input type="text" class="form-control" id="hasil" readonly="true">
                         </div>
                     </div>
                 </div>
@@ -267,33 +236,91 @@ option {
         <div class="modal-body">
             <form method="POST" action="" id="form-update">
                 @csrf
-                <input type="hidden" class="form-control" id="update_id" name="id" required>
-                <div class="form-group">
-                    <label>Tanggal Kegiatan</label>
-                    <div class="input-group mb-3">
-                        <input type="date" class="form-control" name="keg_date" id="update_keg_date" value="{{ old('keg_date') }}" required autocomplete="keg_date" autofocus>
+                <div class="row">
+                    <div class="col">
+                        <input type="hidden" class="form-control" id="update_id" name="id" required>
+                        <div class="form-group">
+                            <label>Tanggal Kegiatan</label>
+                            <div class="input-group mb-3">
+                                <input type="date" class="form-control" name="keg_date" id="update_keg_date"  required autocomplete="keg_date" autofocus>
+        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Jam Mulai</label>
 
+                            <div class="input-group pull-center"> 
+                                <input type="text" class="form-control" name="update_keg_jammulai" data-placement="bottom" data-align="left" data-autoclose="true" id="update_keg_jammulai" value="{{ old('keg_jammulai')}}" required autocomplete="keg_jammulai" autofocus min="08:00" max="17:00"> 
+                                <div class="input-group-append" data-target="#update_keg_jammulai"> 
+                                    <a class="input-group-text" id="updatejammulai"><i class="fas fa-clock"></i> </a>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Jam Selesai</label>
+                            <div class="input-group pull-center"> 
+                                <input type="text" class="form-control" name="update_keg_jamselesai" data-placement="bottom" data-align="left" data-autoclose="true" id="update_keg_jamselesai" value="{{ old('keg_jamselesai')}}" required autocomplete="keg_jamselesai" autofocus min="08:00" max="17:00"> 
+                                <div class="input-group-append" data-target="#update_keg_jamselesai"> 
+                                    <a class="input-group-text" id="updatejamselesai"><i class="fas fa-clock"></i> </a>
+                                </div> 
+                            </div>
+                            
+                        </div>
                     </div>
                 </div>
-                
-                <div class="form-group">
-                    <label>Jam Mulai</label>
-                    <div class="input-group mb-3">
-                        <input type="time" class="form-control" name="keg_jammulai" id="update_keg_jammulai" value="{{ old('keg_jammulai') }}" required autocomplete="keg_jammulai" autofocus min="08:00" max="17:00">
+                <div class ="form-group">
+                    <label>Aktivitas Umum</label>
+                    <div class="input-group mb-3" >
+                        <select class="form-control selectpicker" name="act_id" data-live-search="true" data-size="5" onchange="dataEfektifUpdate(this.value)" title="== Pilih Aktivitas ==" id="updateActid">
 
+                        @forelse($aktivitas as $data)
+                            <option value="{{$data->act_id}}" class="" data-option="">
+                                <?php 
+                                    $a =$data->act_nama;
+                                    $b = substr($a, 0, 95);
+                                    $y = $b . "...";
+                                    if($a > $b)echo $y; 
+                                    else echo $a;
+                                ?>
+                                {{' | '.$data->act_waktu.' '.$data->act_durasi}} 
+                            
+                            </option>
+                        @empty
+                            <option>Data Aktivitas belum ada </option>
+                        @endforelse
+                            
+                        </select>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label>Jam Selesai</label>
-                    <div class="input-group mb-3">
-                        <input type="time" name="keg_jamselesai" id="update_keg_jamselesai" class="form-control @error('keg_jamselesai') is-invalid @enderror"  value="{{ old('keg_jamselesai') }}" required autocomplete="keg_jamselesai" autofocus min="08:00" max="17:00">
-
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="">Waktu Efektif</label>
+                            <div class="input-group mb-3">
+                                <input type="number" name="wkt_efektif" class="form-control" id="update_waktu_efektif" readonly="true" value="{{old('wkt_efektif')}}">
+                            </div>
+                        </div>
                     </div>
-                    
-                </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="">Jumlah Hasil</label>
+                            <input type="number" name="totalunit" class="form-control" id="update_jumlah">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="">Jenis Hasil</label>
+                            <input type="text" class="form-control" id="update_hasil" readonly="true">
+                        </div>
+                    </div>
+                </div>       
 
                 <div class="form-group">
-                    <label>Kegiatan</label>
+                    <label>Deskripsi</label>
                     <div class="input-group mb-3">
                         <textarea name="keg_notes" id="update_keg_notes" class="form-control" rows="5">{{ old('keg_notes') }}</textarea>
                     </div>
@@ -337,17 +364,28 @@ option {
 //     });
 // });
 
-function timeclick(data){
-        $(data).click();
-}
-
 function dataEfektif(id) {
     $.ajax({
         type: "GET",
         url: "{{ route('aktivitas.json') }}?id="+id,
         success: function (data) {
             $.each(data, function (index, value) {
-                    $('#waktu_efektif').val(value.act_waktu)
+                    $('#waktu_efektif').val(value.act_waktu);
+                    $('#hasil').val(value.act_unit);
+                });
+            
+        }
+    })
+}
+
+function dataEfektifUpdate(id) {
+    $.ajax({
+        type: "GET",
+        url: "{{ route('aktivitas.json') }}?id="+id,
+        success: function (data) {
+            $.each(data, function (index, value) {
+                    $('#update_waktu_efektif').val(value.act_waktu);
+                    $('#update_hasil').val(value.act_unit);
                 });
         }
     })
@@ -355,7 +393,7 @@ function dataEfektif(id) {
 
 $(document).ready(function(){
 
-    var choiches = ['00','01','02','03','04','05','06','07','18','19','20','21','22','23'];
+    var choiches = ['00','01','02','03','04','05','06','07','19','20','21','22','23'];
 
     $('#keg_jammulai').on('change', function() {
         var hasil = document.getElementById('keg_jammulai').value;
@@ -400,13 +438,46 @@ $(document).ready(function(){
 
     //var choiches = [00,15,30,45];
     //Clock Picker
-    $('.clockpicker').clockpicker({
-        autoclose: true,
+    var jammulai = $('#keg_jammulai').clockpicker({
+        donetext: 'Done'
         // 'default': '08:00',
-        'afterDone': function() {
-            console.log("after hour selected");
-        },
     });
+
+    var jamselesai = $('#keg_jamselesai').clockpicker({
+        donetext: 'Done'
+        // 'default': '08:00',
+    });
+
+    var updatejammulai = $('#update_keg_jammulai').clockpicker({
+        donetext: 'Done'
+        // 'default': '08:00',
+    });
+
+    var updatejamselesai = $('#update_keg_jamselesai').clockpicker({
+        donetext: 'Done'
+        // 'default': '08:00',
+    });
+
+    $('#jammulai').click(function(e){
+        e.stopPropagation();
+        jammulai.clockpicker('show');
+    });
+    
+    $('#jamselesai').click(function(e){
+        e.stopPropagation();
+        jamselesai.clockpicker('show');
+    });
+
+    $('#updatejammulai').click(function(e){
+        e.stopPropagation();
+        updatejammulai.clockpicker('show');
+    });
+
+    $('#updatejamselesai').click(function(e){
+        e.stopPropagation();
+        updatejamselesai.clockpicker('show');
+    });
+    
 
      $("#keg_jammulai").val('08:00');
      $("#keg_jamselesai").val('08:00');
@@ -622,10 +693,14 @@ function buttonEdit(ids) {
             success: function (datas) {
                 console.log(datas);
                     $("#update_id").val(datas[0].id);
-                    $("#update_keg_date").val(datas[0].keg_date);
-                    $("#update_keg_jammulai").val(datas[0].keg_jammulai);
-                    $("#update_keg_jamselesai").val(datas[0].keg_jamselesai);
+                    $("#update_keg_date").val((datas[0].keg_date).substring(0,10));
+                    $("#update_keg_jammulai").val((datas[0].keg_jammulai).substring(0,5));
+                    $("#update_keg_jamselesai").val((datas[0].keg_jamselesai).substring(0,5));
                     $("#update_keg_notes").val(datas[0].keg_notes);
+                    $("#updateActid").val(datas[0].act_id);
+                    $("#update_waktu_efektif").val(datas[0].get_act.act_waktu);
+                    $("#update_jumlah").val(datas[0].totalunit);
+                    $("#update_hasil").val(datas[0].get_act.act_unit);
             } 
         });
     }
