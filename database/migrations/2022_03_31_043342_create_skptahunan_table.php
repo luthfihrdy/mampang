@@ -15,7 +15,7 @@ class CreateSkptahunanTable extends Migration
     {
         Schema::create('skptahunan', function (Blueprint $table) {
             $table->id();
-            $table->integer('nrk');
+            $table->integer('users_id');
             $table->integer('act_id');
             $table->date('skp_date');
             $table->date('skp_tahun');

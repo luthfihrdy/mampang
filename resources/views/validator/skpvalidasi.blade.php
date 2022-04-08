@@ -144,10 +144,6 @@
 <script src="{{asset('plugins/datatabljs/buttons.html5.min.js')}}"></script>
 <script src="{{asset('plugins/datatabljs/buttons.print.min.js')}}"></script>
 <script src="{{asset('plugins/datatabljs/buttons.colVis.min.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('js/adminlte.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('js/demo.js')}}"></script>
 <!-- Page specific script -->
 <script>
   $(function () {
