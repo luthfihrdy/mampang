@@ -90,7 +90,7 @@
                     <div class="input-group mb-3" >
                         <select class="form-control"  data-live-search="true" data-size="5" id="aktivitas" onchange="dataEfektif(this.value)" title="== Pilih Aktivitas ==">
 
-                        @forelse($aktivitas as $data)
+                        {{-- @forelse($aktivitas as $data)
                             <option value="{{$data->act_id}}" class="" data-option="">
                                 <?php 
                                     $a =$data->act_nama;
@@ -103,7 +103,7 @@
                             </option>
                         @empty
                             <option>Data Aktivitas belum ada </option>
-                        @endforelse
+                        @endforelse --}}
                             
                         </select>
                     </div>
@@ -268,7 +268,7 @@ $(document).ready(function(){
             "processing": "<img style='width:150px;' src='{{asset('img/loader-transparent.gif')}}' />" //add a loading image,simply putting <img src="loader.gif" /> tag.
         },
         serverSide: true,
-        ajax: "{{ route('pegawai.kegiatan_get')}}",
+        ajax: "{{ route('pegawai.kegiatan_umum_get')}}",
         columns: [
             // { data: 'IdType', name: 'IdType' },
             {
@@ -370,7 +370,7 @@ $('#form-create').on('submit', function(e){
         //type yg akan di kirim => ada get atau post
         type: "POST",
         //url ini di sesuaikan dengan routing yg udah d bikin
-        url: "{{ route ('pegawai.kegiatan_store') }}",
+        url: "{{ route ('pegawai.kegiatan_umum_store') }}",
         //untuk data ini kalo semua isi form akan d kirimkan k controller amka menggunakan form serialize
         data: $(this).serialize(),
         //success cuma buat method ajax ajax , yg intinya di pake sh function(response) nya itu sesuai dengan yg kita kirimkan dari controller
@@ -417,7 +417,7 @@ function buttonEdit(ids) {
         });
         $.ajax({
             type: "GET",
-            url: "{{ route('pegawai.kegiatan_update') }}",
+            url: "{{ route('pegawai.kegiatan_umum_update') }}",
             data: {
                 id: ids
             },
@@ -443,7 +443,7 @@ function buttonEdit(ids) {
 
         $.ajax({
             type: "POST",
-            url: "{{ route ('pegawai.kegiatan_edit') }}",
+            url: "{{ route ('pegawai.kegiatan_umum_edit') }}",
             data: $(this).serialize(),
             success: function (response) {
                 $('#close-modal-update').click();
@@ -494,7 +494,7 @@ function buttonEdit(ids) {
                     }
                 });
                 // let token = $('meta[name="csrf-token"]').attr('content');
-                let _url = `/pegawai/kegiatan/delete/${ids}`;
+                let _url = `/pegawai/kegiatan/umum/delete/${ids}`;
 
                 $.ajax({
                     type: 'POST',

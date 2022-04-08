@@ -178,7 +178,7 @@ option {
                     <div class="col">
                         <div class="form-group">
                             <label for="">Jenis Hasil</label>
-                            <input type="text" class="form-control" id="hasil" readonly="true" value="{{$data->act_unit}}">
+                            <input type="text" class="form-control" id="hasil" readonly="true">
                         </div>
                     </div>
                 </div>
@@ -242,7 +242,7 @@ option {
                         <div class="form-group">
                             <label>Tanggal Kegiatan</label>
                             <div class="input-group mb-3">
-                                <input type="date" class="form-control" name="keg_date" id="update_keg_date" value="{{ old('keg_date') }}" required autocomplete="keg_date" autofocus>
+                                <input type="date" class="form-control" name="keg_date" id="update_keg_date"  required autocomplete="keg_date" autofocus>
         
                             </div>
                         </div>
@@ -275,7 +275,7 @@ option {
                 <div class ="form-group">
                     <label>Aktivitas Umum</label>
                     <div class="input-group mb-3" >
-                        <select class="form-control selectpicker" name="act_id" data-live-search="true" data-size="5" onchange="dataEfektif(this.value)" title="== Pilih Aktivitas ==" id="updateActid">
+                        <select class="form-control selectpicker" name="act_id" data-live-search="true" data-size="5" onchange="dataEfektifUpdate(this.value)" title="== Pilih Aktivitas ==" id="updateActid">
 
                         @forelse($aktivitas as $data)
                             <option value="{{$data->act_id}}" class="" data-option="">
@@ -301,26 +301,26 @@ option {
                         <div class="form-group">
                             <label for="">Waktu Efektif</label>
                             <div class="input-group mb-3">
-                                <input type="number" name="wkt_efektif" class="form-control" id="waktu_efektif" readonly="true" value="{{old('wkt_efektif')}}">
+                                <input type="number" name="wkt_efektif" class="form-control" id="update_waktu_efektif" readonly="true" value="{{old('wkt_efektif')}}">
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
                             <label for="">Jumlah Hasil</label>
-                            <input type="number" name="totalunit" id="" class="form-control" id="jumlah" value="{{old('totalunit')}}">
+                            <input type="number" name="totalunit" class="form-control" id="update_jumlah">
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
                             <label for="">Jenis Hasil</label>
-                            <input type="text" class="form-control" id="hasil" readonly="true">
+                            <input type="text" class="form-control" id="update_hasil" readonly="true">
                         </div>
                     </div>
                 </div>       
 
                 <div class="form-group">
-                    <label>Kegiatan</label>
+                    <label>Deskripsi</label>
                     <div class="input-group mb-3">
                         <textarea name="keg_notes" id="update_keg_notes" class="form-control" rows="5">{{ old('keg_notes') }}</textarea>
                     </div>
@@ -370,7 +370,22 @@ function dataEfektif(id) {
         url: "{{ route('aktivitas.json') }}?id="+id,
         success: function (data) {
             $.each(data, function (index, value) {
-                    $('#waktu_efektif').val(value.act_waktu)
+                    $('#waktu_efektif').val(value.act_waktu);
+                    $('#hasil').val(value.act_unit);
+                });
+            
+        }
+    })
+}
+
+function dataEfektifUpdate(id) {
+    $.ajax({
+        type: "GET",
+        url: "{{ route('aktivitas.json') }}?id="+id,
+        success: function (data) {
+            $.each(data, function (index, value) {
+                    $('#update_waktu_efektif').val(value.act_waktu);
+                    $('#update_hasil').val(value.act_unit);
                 });
         }
     })
@@ -424,22 +439,22 @@ $(document).ready(function(){
     //var choiches = [00,15,30,45];
     //Clock Picker
     var jammulai = $('#keg_jammulai').clockpicker({
-        autoclose: true,
+        donetext: 'Done'
         // 'default': '08:00',
     });
 
     var jamselesai = $('#keg_jamselesai').clockpicker({
-        autoclose: true,
+        donetext: 'Done'
         // 'default': '08:00',
     });
 
     var updatejammulai = $('#update_keg_jammulai').clockpicker({
-        autoclose: true,
+        donetext: 'Done'
         // 'default': '08:00',
     });
 
     var updatejamselesai = $('#update_keg_jamselesai').clockpicker({
-        autoclose: true,
+        donetext: 'Done'
         // 'default': '08:00',
     });
 
@@ -678,11 +693,14 @@ function buttonEdit(ids) {
             success: function (datas) {
                 console.log(datas);
                     $("#update_id").val(datas[0].id);
-                    $("#update_keg_date").val(datas[0].keg_date);
+                    $("#update_keg_date").val((datas[0].keg_date).substring(0,10));
                     $("#update_keg_jammulai").val((datas[0].keg_jammulai).substring(0,5));
                     $("#update_keg_jamselesai").val((datas[0].keg_jamselesai).substring(0,5));
                     $("#update_keg_notes").val(datas[0].keg_notes);
                     $("#updateActid").val(datas[0].act_id);
+                    $("#update_waktu_efektif").val(datas[0].get_act.act_waktu);
+                    $("#update_jumlah").val(datas[0].totalunit);
+                    $("#update_hasil").val(datas[0].get_act.act_unit);
             } 
         });
     }
