@@ -79,7 +79,7 @@ class KegiatanController extends Controller
     }
 
     public function updateKegiatanUmum(Request $request) {
-        $res = DB::table('kegiatanumum')->where('id',$request->id)->get();
+        $res = DB::table('kegiatan')->where('id',$request->id)->get();
         return response()->json($res);
     }
 
