@@ -35,10 +35,12 @@
                 <div class="card-header">
                     <h3 class="card-title">Statistik Capaian Kegiatan</h3>
                         <div class="card-tools">
-                        </div>
                 </div>
+            </div>
                 <div class="card-body">
                     <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                    <div class="justify-content-between">
+                    </div>
                 </div><!-- /.card-body -->
             </div>
             <!-- /.card -->
@@ -70,11 +72,11 @@
                       <td>2022</td>
                       <td>Januari</td>
                       <td>
-                        <div class="progress progress-xs">
-                          <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                        <div class="progress progress-xs progress-striped active">
+                          <div class="progress-bar bg-danger" style="width: 30%"></div>
                         </div>
                       </td>
-                      <td><span class="badge bg-danger">55%</span></td>
+                      <td><span class="badge bg-danger">30%</span></td>
                       <td><span class="badge bg-danger">1500 menit</span></td>
                     </tr>
                     <tr>
@@ -93,21 +95,21 @@
                       <td>Maret</td>
                       <td>
                         <div class="progress progress-xs progress-striped active">
-                          <div class="progress-bar bg-primary" style="width: 30%"></div>
+                          <div class="progress-bar bg-danger" style="width: 30%"></div>
                         </div>
                       </td>
-                      <td><span class="badge bg-primary">30%</span></td>
-                      <td><span class="badge bg-primary">1500 menit</span></td>
+                      <td><span class="badge bg-danger">30%</span></td>
+                      <td><span class="badge bg-danger">1500 menit</span></td>
                     </tr>
                     <tr>
                       <td>2022</td>
                       <td>April</td>
                       <td>
                         <div class="progress progress-xs progress-striped active">
-                          <div class="progress-bar bg-success" style="width: 90%"></div>
+                          <div class="progress-bar bg-success" style="width: 100%"></div>
                         </div>
                       </td>
-                      <td><span class="badge bg-success">90%</span></td>
+                      <td><span class="badge bg-success">100%</span></td>
                       <td><span class="badge bg-success">1500 menit</span></td>
                     </tr>
                   </tbody>
@@ -357,7 +359,7 @@ $(document).ready(function(){
             "processing": "<img style='width:150px;' src='{{asset('img/loader-transparent.gif')}}' />" //add a loading image,simply putting <img src="loader.gif" /> tag.
         },
         serverSide: true,
-        ajax: "{{ route('pegawai.kegiatan_get')}}",
+        ajax: "{{ route('pegawai.kegiatan_umum_get')}}",
         columns: [
             // { data: 'IdType', name: 'IdType' },
             {
@@ -459,7 +461,7 @@ $('#form-create').on('submit', function(e){
         //type yg akan di kirim => ada get atau post
         type: "POST",
         //url ini di sesuaikan dengan routing yg udah d bikin
-        url: "{{ route ('pegawai.kegiatan_store') }}",
+        url: "{{ route ('pegawai.kegiatan_umum_store') }}",
         //untuk data ini kalo semua isi form akan d kirimkan k controller amka menggunakan form serialize
         data: $(this).serialize(),
         //success cuma buat method ajax ajax , yg intinya di pake sh function(response) nya itu sesuai dengan yg kita kirimkan dari controller
@@ -506,7 +508,7 @@ function buttonEdit(ids) {
         });
         $.ajax({
             type: "GET",
-            url: "{{ route('pegawai.kegiatan_update') }}",
+            url: "{{ route('pegawai.kegiatan_umum_update') }}",
             data: {
                 id: ids
             },
@@ -532,7 +534,7 @@ function buttonEdit(ids) {
 
         $.ajax({
             type: "POST",
-            url: "{{ route ('pegawai.kegiatan_edit') }}",
+            url: "{{ route ('pegawai.kegiatan_umum_edit') }}",
             data: $(this).serialize(),
             success: function (response) {
                 $('#close-modal-update').click();
@@ -610,6 +612,37 @@ function buttonEdit(ids) {
             return false;
         })
     }
+
+   var donutData        = {
+      labels: [
+          'Tercapai',
+          'Belum tercapai',
+      ],
+      datasets: [
+        {
+          data: [300,100],
+          backgroundColor : ['#3c8dbc', '#d2d6de'],
+        }
+      ]
+    }
+    //-------------
+    //- PIE CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+    var pieData        = donutData;
+    var pieOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    new Chart(pieChartCanvas, {
+      type: 'pie',
+      data: pieData,
+      options: pieOptions
+    })
+
 
 // $(function () {
 
