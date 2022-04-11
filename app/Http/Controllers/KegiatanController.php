@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kegiatan;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use Carbon\Carbon;
 use App\Models\Aktivitas;
+use \App\Models\Kegiatan;
 use Validator;
 use Auth;
 use DB;
