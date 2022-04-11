@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('content')
 <head>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -15,7 +16,6 @@
   <link rel="stylesheet" href="{{asset('css/adminlte.min.css')}}">
 </head>
 
-@section('content')
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -81,7 +81,7 @@
                     <td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-tolak">1</button></td>
                   </tr>
                   <tr>
-                    <td>1</td>
+                    <td>2</td>
                     <td>2021</td>
                     <td>test 1</td>
                     <td>PKC Mampang Prapatan</td>
@@ -91,7 +91,7 @@
                     <td><button type="button" class="btn btn-danger btn-sm ">2</button></td>
                   </tr>
                   <tr>
-                    <td>1</td>
+                    <td>3</td>
                     <td>2021</td>
                     <td>test2</td>
                     <td>PKC Mampang Prapatan</td>
@@ -156,8 +156,8 @@
                     <td>2021</td>
                     <td>Ngoding</td>
                     <td>152 menit</td>
-                    <td><button type="button" class="btn btn-warning btn-sm text-white"><i class="fa fa-hourglass"></button></td>
-                    <td><button type="button" class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i></button></td>
+                    <td><button type="button" class="btn btn-warning btn-sm text-white" title="Waiting"><i class="fa fa-hourglass"></button></td>
+                    <td><button type="button" class="btn btn-danger btn-sm disabled "><i class="fa fa-trash"></i></button></td>
                   </tr>
                   <tr>
                     <tr>
@@ -165,7 +165,7 @@
                     <td>2021</td>
                     <td>Ngoding</td>
                     <td>152 menit</td>
-                    <td><button type="button" class="btn btn-warning btn-sm text-white"><i class="fa fa-hourglass"></button></td>
+                    <td><button type="button" class="btn btn-warning btn-sm text-white" title="Waiting"><i class="fa fa-hourglass"></button></td>
                     <td><button type="button" class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></button></td>
                   </tr>
                  <tr>
@@ -173,7 +173,7 @@
                     <td>2021</td>
                     <td>Ngoding</td>
                     <td>152 menit</td>
-                    <td><button type="button" class="btn btn-warning btn-sm text-white"><i class="fa fa-hourglass"></i></button></td>
+                    <td><button type="button" class="btn btn-warning btn-sm text-white" title="Waiting"><i class="fa fa-hourglass"></i></button></td>
                     <td><button type="button" class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></button></td>
                   </tr>
                   </tbody>
@@ -230,7 +230,7 @@
                     <td>2021</td>
                     <td>Ngoding</td>
                     <td>152 menit</td>
-                    <td><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-ban"></button></td>
+                    <td><button type="button" class="btn btn-danger btn-sm" title="Rejected"><i class="fa fa-ban"></button></td>
                     <td><button type="button" class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i></button></td>
                   </tr>
                   <tr>
@@ -239,7 +239,7 @@
                     <td>2021</td>
                     <td>Ngoding</td>
                     <td>152 menit</td>
-                    <td><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-ban"></button></td>
+                    <td><button type="button" class="btn btn-danger btn-sm" title="Rejected"><i class="fa fa-ban"></button></td>
                     <td><button type="button" class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></button></td>
                   </tr>
                  <tr>
@@ -247,7 +247,7 @@
                     <td>2021</td>
                     <td>Ngoding</td>
                     <td>152 menit</td>
-                    <td><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-ban"></i></button></td>
+                    <td><button type="button" class="btn btn-danger btn-sm" title="Rejected"><i class="fa fa-ban"></i></button></td>
                     <td><button type="button" class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></button></td>
                   </tr>
                   </tbody>
@@ -304,7 +304,7 @@
                     <td>2021</td>
                     <td>Ngoding</td>
                     <td>152 menit</td>
-                    <td><button type="button" class="btn btn-success btn-sm"><i class="fa fa-thumbs-up"></button></td>
+                    <td><button type="button" class="btn btn-success btn-sm " title="Verified"><i class="fa fa-thumbs-up"></button></td>
                     <td><button type="button" class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i></button></td>
                   </tr>
                   <tr>
@@ -313,7 +313,7 @@
                     <td>2021</td>
                     <td>Ngoding</td>
                     <td>152 menit</td>
-                    <td><button type="button" class="btn btn-success btn-sm"><i class="fa fa-thumbs-up"></button></td>
+                    <td><button type="button" class="btn btn-success btn-sm" title="Verified"><i class="fa fa-thumbs-up"></button></td>
                     <td><button type="button" class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></button></td>
                   </tr>
                  <tr>
@@ -321,7 +321,7 @@
                     <td>2021</td>
                     <td>Ngoding</td>
                     <td>152 menit</td>
-                    <td><button type="button" class="btn btn-success btn-sm "><i class="fa fa-thumbs-up"></i></button></td>
+                    <td><button type="button" class="btn btn-success btn-sm" title="Verified"><i class="fa fa-thumbs-up"></i></button></td>
                     <td><button type="button" class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></button></td>
                   </tr>
                   </tbody>
@@ -369,6 +369,8 @@
 <script src="{{asset('plugins/datatabljs/buttons.html5.min.js')}}"></script>
 <script src="{{asset('plugins/datatabljs/buttons.print.min.js')}}"></script>
 <script src="{{asset('plugins/datatabljs/buttons.colVis.min.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{asset('js/adminlte.js')}}"></script>
 <!-- Page specific script -->
 <script>
   $(function () {
