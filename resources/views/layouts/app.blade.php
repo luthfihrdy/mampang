@@ -338,10 +338,10 @@
 <!-- jQuery -->
 <script src="{{asset('jquery/jquery.min.js')}}"></script>
 
-<!-- jQuery UI 1.11.4 -->
+{{-- <!-- jQuery UI 1.11.4 -->
 <script src="{{asset('jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
 <!-- <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script> -->
@@ -361,10 +361,10 @@
 <!-- datatable -->
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.11.5/datatables.min.js"></script>
 {{-- <script src="{{asset('js/datatables/dataTables.bootstrap4.min.js')}}"></script> --}}
-<script src="{{asset('datatables/dataTables.responsive.min.js')}}"></script>
+{{-- <script src="{{asset('datatables/dataTables.responsive.min.js')}}"></script>
 <script src="{{asset('datatables/responsive.bootstrap4.min.js')}}"></script>
 <script src="{{asset('datatables/dataTables.buttons.js')}}"></script>
-<script src="{{asset('datatables/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{asset('datatables/buttons.bootstrap4.min.js')}}"></script> --}}
 
 <!-- DataTables  & Plugins -->
 <script src="{{asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
