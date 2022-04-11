@@ -4,16 +4,7 @@
 <head>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{asset('css/all.min.css')}}">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap4.min.css')}}">
-  <link rel="stylesheet" href="{{asset('css/responsive.bootstrap4.min.css')}}">
-  <link rel="stylesheet" href="{{asset('css/buttons.bootstrap4.min.css')}}">
   
-  
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('css/adminlte.min.css')}}">
 </head>
 
 <!-- Content Header (Page header) -->
@@ -352,30 +343,18 @@
 @endsection
 
 @section('script')
-<!-- jQuery -->
-<script src="{{asset('jquery/jquery.min.js')}}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
-<!-- DataTables  & Plugins -->
-<script src="{{asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('plugins/djs/dataTables.bootstrap4.min.js')}}"></script>
-<script src="{{asset('plugins/datatabljs/dataTables.responsive.min.js')}}"></script>
-<script src="{{asset('plugins/datatabljs/responsive.bootstrap4.min.js')}}"></script>
-<script src="{{asset('plugins/datatabljs/dataTables.buttons.min.js')}}"></script>
-<script src="{{asset('plugins/datatabljs/buttons.bootstrap4.min.js')}}"></script>
-<script src="{{asset('plugins/jszip/jszip.min.js')}}"></script>
-<script src="{{asset('plugins/pdfmake/pdfmake.min.js')}}"></script>
-<script src="{{asset('plugins/pdfmake/vfs_fonts.js')}}"></script>
-<script src="{{asset('plugins/datatabljs/buttons.html5.min.js')}}"></script>
-<script src="{{asset('plugins/datatabljs/buttons.print.min.js')}}"></script>
-<script src="{{asset('plugins/datatabljs/buttons.colVis.min.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('js/adminlte.js')}}"></script>
+{{-- <!-- jQuery -->
+<script src="{{asset('jquery/jquery.min.js')}}"></script> --}}
+
+{{-- <!-- Bootstrap 4 -->
+<script src="{{asset('js/bootstrap.bundle.min.js')}}"></script> --}}
+
 <!-- Page specific script -->
 <script>
   $(function () {
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
+      "dom": 'Bfrtip',
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
   });

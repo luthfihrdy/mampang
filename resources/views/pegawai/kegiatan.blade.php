@@ -3,6 +3,8 @@
 @section('content')
 
 <!-- Content Header (Page header) -->
+<link rel="stylesheet" href="{{asset('datatables/dataTables.bootstrap4.min.css')}}">
+<link rel="stylesheet" href="{{asset('datatables/buttons.bootstrap4.min.css')}}">
 <style>
 select {
   width: 100px;
@@ -357,6 +359,8 @@ option {
 @section('script')
 
 <script>
+
+    
 // Kalo mau make tempus dominus js
 // $(function () {
 //     $('#datetimepicker3').datetimepicker({
@@ -483,6 +487,7 @@ $(document).ready(function(){
      $("#keg_jamselesai").val('08:00');
 
     dTable = $('#myTable').DataTable({
+        dom: 'Bfrtip',
         buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
         // order: [[2,'asc']],
         responsive: true,

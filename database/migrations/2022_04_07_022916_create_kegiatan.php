@@ -26,6 +26,7 @@ class CreateKegiatan extends Migration
             $table->enum('cacode',['UTAMA','UMUM']);
             $table->integer('status');
             $table->integer('totalunit')->nullable;
+            $table->integer('verified_by')->nullable;
             $table->timestamps();
         });
     }

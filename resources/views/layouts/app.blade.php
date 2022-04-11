@@ -337,6 +337,7 @@
 
 <!-- jQuery -->
 <script src="{{asset('jquery/jquery.min.js')}}"></script>
+
 <!-- jQuery UI 1.11.4 -->
 <script src="{{asset('jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -364,6 +365,20 @@
 <script src="{{asset('datatables/responsive.bootstrap4.min.js')}}"></script>
 <script src="{{asset('datatables/dataTables.buttons.js')}}"></script>
 <script src="{{asset('datatables/buttons.bootstrap4.min.js')}}"></script>
+
+<!-- DataTables  & Plugins -->
+<script src="{{asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('plugins/djs/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('plugins/datatabljs/dataTables.responsive.min.js')}}"></script>
+<script src="{{asset('plugins/datatabljs/responsive.bootstrap4.min.js')}}"></script>
+<script src="{{asset('plugins/datatabljs/dataTables.buttons.min.js')}}"></script>
+<script src="{{asset('plugins/datatabljs/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{asset('plugins/jszip/jszip.min.js')}}"></script>
+<script src="{{asset('plugins/pdfmake/pdfmake.min.js')}}"></script>
+<script src="{{asset('plugins/pdfmake/vfs_fonts.js')}}"></script>
+<script src="{{asset('plugins/datatabljs/buttons.html5.min.js')}}"></script>
+<script src="{{asset('plugins/datatabljs/buttons.print.min.js')}}"></script>
+<script src="{{asset('plugins/datatabljs/buttons.colVis.min.js')}}"></script>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

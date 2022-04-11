@@ -23,6 +23,7 @@ class Kegiatan extends Model
         'cacode',
         'totalunit',
         'status',
+        'verified_by',
     ];
 
     protected $dates = ['keg_date'];
