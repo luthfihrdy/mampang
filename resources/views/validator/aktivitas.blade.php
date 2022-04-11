@@ -78,7 +78,7 @@
                     <td>PKC Mampang Prapatan</td>
                     <td>Management</td>
                     <td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-xl">10</button></td>
-                    <td><button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modal-belum">2</button></td>
+                    <td><button type="button" class="btn btn-warning text-white btn-sm" data-toggle="modal" data-target="#modal-belum">2</button></td>
                     <td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-tolak">1</button></td>
                     <td class="text-warning">120/1300</td>
                   </tr>
@@ -237,6 +237,7 @@
                     <th>Hasil</th>
                     <th>Jenis Aktivitas</th>
                     <th style="width: 20px;">Status</th>
+                    <th>Validator</th>
                     <th style="width: 100px;">Aksi</th>
                   </tr>
                   </thead>
@@ -252,6 +253,7 @@
                     <td>152 menit</td>
                     <td>152 menit</td>
                     <td><button type="button" class="btn btn-danger btn-sm" title="Rejected"><i class="fa fa-ban"></button></td>
+                    <td>Benazheer</td>
                     <td><button type="button" class="btn btn-danger btn-sm" title="Delete"><i class="fa fa-trash"></i></button></td>
                   </tr>
                   </tbody>
@@ -267,6 +269,7 @@
                     <th>Hasil</th>
                     <th>Jenis Aktivitas</th>
                     <th>Status</th>
+                    <th>Validator</th>
                     <th>Aksi</th>
                   </tr>
                   </tfoot>
@@ -309,6 +312,7 @@
                     <th>Hasil</th>
                     <th>Jenis Aktivitas</th>
                     <th style="width: 20px;">Status</th>
+                    <th>Validator</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -323,6 +327,7 @@
                     <td>152 menit</td>
                     <td>152 menit</td>
                     <td><button type="button" class="btn btn-success btn-sm" title="Verified"><i class="fa fa-thumbs-up"></button></td>
+                    <td>Benazheer</td>
                 </tr>
                 <tr>
                     <td>14/03/2022</td>
@@ -335,6 +340,7 @@
                     <td>152 menit</td>
                     <td>152 menit</td>
                     <td><button type="button" class="btn btn-success btn-sm" title="Verified"><i class="fa fa-thumbs-up"></button></td>
+                    <td>Benazheer</td>
                 </tr>
                 <tr>
                     <td>14/03/2022</td>
@@ -347,6 +353,7 @@
                     <td>152 menit</td>
                     <td>152 menit</td>
                     <td><button type="button" class="btn btn-success btn-sm" title="Verified"><i class="fa fa-thumbs-up"></button></td>
+                    <td>Benazheer</td>
                 </tr>
                   </tbody>
                   <tfoot>
@@ -360,6 +367,7 @@
                     <th>Vol</th>
                     <th>Hasil</th>
                     <th>Jenis Aktivitas</th>
+                    <th>Validator</th>
                     <th>Status</th>
                   </tr>
                   </tfoot>
@@ -368,7 +376,6 @@
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              
             </div>
           </div>
           <!-- /.modal-content -->
