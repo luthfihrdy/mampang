@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<head>
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-</head>
 
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -144,7 +140,6 @@
                     <button type="button" class="btn btn-danger btn-sm" title="reject"><i class="fa fa-ban"></i></button></td>
                   </tr>
                   <tr>
-                    <tr>
                     <td>13/03/2022</td>
                     <td>Januari 2021</td>
                     <td>Ngoding</td>
@@ -240,7 +235,7 @@
                     <td>12/03/2022</td>
                     <td>Januari 2021</td>
                     <td>Ngoding</td>
-                    <td>152 menit</td>
+                    <td>1</td>
                     <td>152 menit</td>
                     <td><button type="button" class="btn btn-danger btn-sm" title="Rejected"><i class="fa fa-ban"></button></td>
                     <td>Benazheer</td>

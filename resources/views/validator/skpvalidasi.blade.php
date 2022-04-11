@@ -68,28 +68,8 @@
                     <td>PKC Mampang Prapatan</td>
                     <td>Management</td>
                     <td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-xl">10</button></td>
-                    <td><button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#modal-belum">2</button></td>
+                    <td><button type="button" class="btn btn-warning text-white btn-sm" data-toggle="modal" data-target="#modal-belum">2</button></td>
                     <td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-tolak">1</button></td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>2021</td>
-                    <td>test 1</td>
-                    <td>PKC Mampang Prapatan</td>
-                    <td>Management</td>
-                    <td><button type="button" class="btn btn-success btn-sm">1</button></td>
-                    <td><button type="button" class="btn btn-secondary btn-sm">12</button></td>
-                    <td><button type="button" class="btn btn-danger btn-sm ">2</button></td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>2021</td>
-                    <td>test2</td>
-                    <td>PKC Mampang Prapatan</td>
-                    <td>Management</td>
-                    <td><button type="button" class="btn btn-success btn-sm">1</button></td>
-                    <td><button type="button" class="btn btn-secondary btn-sm">12</button></td>
-                    <td><button type="button" class="btn btn-danger btn-sm">2</button></td>
                   </tr>
                   </tbody>
                   <tfoot>
@@ -148,16 +128,17 @@
                     <td>Ngoding</td>
                     <td>152 menit</td>
                     <td><button type="button" class="btn btn-warning btn-sm text-white" title="Waiting"><i class="fa fa-hourglass"></button></td>
-                    <td><button type="button" class="btn btn-danger btn-sm disabled "><i class="fa fa-trash"></i></button></td>
+                    <td><button type="button" class="btn btn-success btn-sm" title="approve"><i class="fa fa-check"></i></button>
+                    <button type="button" class="btn btn-danger btn-sm" title="reject"><i class="fa fa-ban"></i></button></td>
                   </tr>
-                  <tr>
                     <tr>
                     <td>13/03/2022</td>
                     <td>2021</td>
                     <td>Ngoding</td>
                     <td>152 menit</td>
                     <td><button type="button" class="btn btn-warning btn-sm text-white" title="Waiting"><i class="fa fa-hourglass"></button></td>
-                    <td><button type="button" class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></button></td>
+                    <td><button type="button" class="btn btn-success btn-sm" title="approve"><i class="fa fa-check"></i></button>
+                    <button type="button" class="btn btn-danger btn-sm" title="reject"><i class="fa fa-ban"></i></button></td>
                   </tr>
                  <tr>
                     <td>14/03/2022</td>
@@ -165,7 +146,8 @@
                     <td>Ngoding</td>
                     <td>152 menit</td>
                     <td><button type="button" class="btn btn-warning btn-sm text-white" title="Waiting"><i class="fa fa-hourglass"></i></button></td>
-                    <td><button type="button" class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></button></td>
+                    <td><button type="button" class="btn btn-success btn-sm" title="approve"><i class="fa fa-check"></i></button>
+                    <button type="button" class="btn btn-danger btn-sm" title="reject"><i class="fa fa-ban"></i></button></td>
                   </tr>
                   </tbody>
                   <tfoot>
@@ -212,6 +194,7 @@
                     <th >Kegiatan</th>
                     <th>Target</th>
                     <th style="width: 20px;">Status</th>
+                    <th>Validator</th>
                     <th style="width: 150px;">Aksi</th>
                   </tr>
                   </thead>
@@ -222,16 +205,17 @@
                     <td>Ngoding</td>
                     <td>152 menit</td>
                     <td><button type="button" class="btn btn-danger btn-sm" title="Rejected"><i class="fa fa-ban"></button></td>
-                    <td><button type="button" class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i></button></td>
+                    <td>Benazheer</td>
+                    <td><button type="button" class="btn btn-danger btn-sm "><i class="fa fa-trash"></i></button></td>
                   </tr>
-                  <tr>
                     <tr>
                     <td>13/03/2022</td>
                     <td>2021</td>
                     <td>Ngoding</td>
                     <td>152 menit</td>
                     <td><button type="button" class="btn btn-danger btn-sm" title="Rejected"><i class="fa fa-ban"></button></td>
-                    <td><button type="button" class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></button></td>
+                    <td>Benazheer</td>
+                    <td><button type="button" class="btn btn-danger btn-sm "><i class="fa fa-trash"></button></td>
                   </tr>
                  <tr>
                     <td>14/03/2022</td>
@@ -239,7 +223,8 @@
                     <td>Ngoding</td>
                     <td>152 menit</td>
                     <td><button type="button" class="btn btn-danger btn-sm" title="Rejected"><i class="fa fa-ban"></i></button></td>
-                    <td><button type="button" class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></button></td>
+                    <td>Benazheer</td>
+                    <td><button type="button" class="btn btn-danger btn-sm "><i class="fa fa-trash"></button></td>
                   </tr>
                   </tbody>
                   <tfoot>
@@ -249,6 +234,7 @@
                     <th>Kegiatan</th>
                     <th>Target</th>
                     <th>Status</th>
+                    <th>Validator</th>
                     <th>Aksi</th>
                   </tr>
                   </tfoot>
@@ -286,7 +272,7 @@
                     <th >Kegiatan</th>
                     <th>Target</th>
                     <th style="width: 20px;">Status</th>
-                    <th style="width: 150px;">Aksi</th>
+                    <th>Validator</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -296,25 +282,24 @@
                     <td>Ngoding</td>
                     <td>152 menit</td>
                     <td><button type="button" class="btn btn-success btn-sm " title="Verified"><i class="fa fa-thumbs-up"></button></td>
-                    <td><button type="button" class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></i></button></td>
+                    <td>Benazheer</td>
                   </tr>
                   <tr>
-                    <tr>
                     <td>13/03/2022</td>
                     <td>2021</td>
                     <td>Ngoding</td>
                     <td>152 menit</td>
                     <td><button type="button" class="btn btn-success btn-sm" title="Verified"><i class="fa fa-thumbs-up"></button></td>
-                    <td><button type="button" class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></button></td>
-                  </tr>
+                    <td>Benazheer</td>
+                 </tr>
                  <tr>
                     <td>14/03/2022</td>
                     <td>2021</td>
                     <td>Ngoding</td>
                     <td>152 menit</td>
                     <td><button type="button" class="btn btn-success btn-sm" title="Verified"><i class="fa fa-thumbs-up"></i></button></td>
-                    <td><button type="button" class="btn btn-danger btn-sm disabled"><i class="fa fa-trash"></button></td>
-                  </tr>
+                    <td>Benazheer</td>
+                 </tr>
                   </tbody>
                   <tfoot>
                   <tr>
@@ -323,7 +308,7 @@
                     <th>Kegiatan</th>
                     <th>Target</th>
                     <th>Status</th>
-                    <th>Aksi</th>
+                    <th>Validator</th>
                   </tr>
                   </tfoot>
                 </table>
