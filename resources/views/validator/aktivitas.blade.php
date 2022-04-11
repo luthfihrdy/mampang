@@ -73,19 +73,6 @@
                     <td class="text-warning">120/1300</td>
                   </tr>
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>No.</th>
-                    <th>Bulan</th>
-                    <th>Nama</th>
-                    <th>Fasyankes</th>
-                    <th>Unit</th>
-                    <th>Sudah divalidasi</th>
-                    <th>Belum divalidasi</th>
-                    <th>Aktivitas ditolak</th>
-                    <th>Target</th>
-                  </tr>
-                  </tfoot>
                 </table>
               </div>
             </div>
@@ -112,7 +99,7 @@
               </button>
             </div>
             <div class="modal-body">
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="example2" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th style="width: 100px;">Timestamp</th>
@@ -129,7 +116,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
+                  {{-- <tr>
                     <td>12/03/2022</td>
                     <td>Januari 2021</td>
                     <td>Ngoding</td>
@@ -142,22 +129,21 @@
                     <td><button type="button" class="btn btn-warning btn-sm text-white" title="Waiting"><i class="fa fa-hourglass"></button></td>
                     <td><button type="button" class="btn btn-success btn-sm" title="approve"><i class="fa fa-check"></i></button>
                     <button type="button" class="btn btn-danger btn-sm" title="reject"><i class="fa fa-ban"></i></button></td>
-                  </tr>
-                  <tr>
+                  </tr> --}}
                     <tr>
-                    <td>13/03/2022</td>
-                    <td>Januari 2021</td>
-                    <td>Ngoding</td>
-                    <td>152 menit</td>
-                    <td>12/03/2022</td>
-                    <td>Januari 2021</td>
-                    <td>Ngoding</td>
-                    <td>152 menit</td>
-                    <td>152 menit</td>
-                    <td><button type="button" class="btn btn-warning btn-sm text-white" title="Waiting"><i class="fa fa-hourglass"></button></td>
-                    <td><button type="button" class="btn btn-success btn-sm" title="approve"><i class="fa fa-check"></i></button>
-                    <button type="button" class="btn btn-danger btn-sm" title="reject"><i class="fa fa-ban"></i></button></td>
-                  </tr>
+                      <td>13/03/2022</td>
+                      <td>Januari 2021</td>
+                      <td>Ngoding</td>
+                      <td>152 menit</td>
+                      <td>12/03/2022</td>
+                      <td>Januari 2021</td>
+                      <td>Ngoding</td>
+                      <td>152 menit</td>
+                      <td>152 menit</td>
+                      <td><button type="button" class="btn btn-warning btn-sm text-white" title="Waiting"><i class="fa fa-hourglass"></button></td>
+                      <td><button type="button" class="btn btn-success btn-sm" title="approve"><i class="fa fa-check"></i></button>
+                      <button type="button" class="btn btn-danger btn-sm" title="reject"><i class="fa fa-ban"></i></button></td>
+                    </tr>
                  <tr>
                     <td>14/03/2022</td>
                     <td>Januari 2021</td>
@@ -173,21 +159,6 @@
                     <button type="button" class="btn btn-danger btn-sm" title="reject"><i class="fa fa-ban"></i></button></td>
                   </tr>
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>Timestamp</th>
-                    <th>Nama</th>
-                    <th>Kegiatan</th>
-                    <th>Uraian</th>
-                    <th>Waktu</th>
-                    <th>Durasi</th>
-                    <th>Vol</th>
-                    <th>Hasil</th>
-                    <th>Jenis Aktivitas</th>
-                    <th>Status</th>
-                    <th>Aksi</th>
-                  </tr>
-                  </tfoot>
                 </table>
               
             </div>
@@ -214,7 +185,7 @@
               </button>
             </div>
             <div class="modal-body">
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="example3" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th style="width: 100px;">Timestamp</th>
@@ -247,22 +218,6 @@
                     <td><button type="button" class="btn btn-danger btn-sm" title="Delete"><i class="fa fa-trash"></i></button></td>
                   </tr>
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>Timestamp</th>
-                    <th>Nama</th>
-                    <th>Kegiatan</th>
-                    <th>Uraian</th>
-                    <th>Waktu</th>
-                    <th>Durasi</th>
-                    <th>Vol</th>
-                    <th>Hasil</th>
-                    <th>Jenis Aktivitas</th>
-                    <th>Status</th>
-                    <th>Validator</th>
-                    <th>Aksi</th>
-                  </tr>
-                  </tfoot>
                 </table>
               
             </div>
@@ -289,7 +244,7 @@
               </button>
             </div>
             <div class="modal-body">
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="example4" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th style="width: 100px;">Timestamp</th>
@@ -346,21 +301,6 @@
                     <td>Benazheer</td>
                 </tr>
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>Timestamp</th>
-                    <th>Nama</th>
-                    <th>Kegiatan</th>
-                    <th>Uraian</th>
-                    <th>Waktu</th>
-                    <th>Durasi</th>
-                    <th>Vol</th>
-                    <th>Hasil</th>
-                    <th>Jenis Aktivitas</th>
-                    <th>Validator</th>
-                    <th>Status</th>
-                  </tr>
-                  </tfoot>
                 </table>
               
             </div>
@@ -379,13 +319,34 @@
 @section('script')
 
 <script>
-  $(function () {
-    $("#example1").DataTable({
+
+$(document).ready(function(){
+
+  dTable = $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "dom": 'Brftip',
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-  });
+
+  bTable = $("#example2").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "dom": 'Brftip',
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example2_wrapper .col-md-6:eq(0)');
+
+  rTable = $("#example3").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "dom": 'Brftip',
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example3_wrapper .col-md-6:eq(0)');
+
+  aTable = $("#example4").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "dom": 'Brftip',
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+  }).buttons().container().appendTo('#example4_wrapper .col-md-6:eq(0)');
+
+});
 </script>
 
 @endsection
