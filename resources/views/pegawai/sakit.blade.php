@@ -6,12 +6,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Cuti</h1>
+          <h1 class="m-0">Ijin / Sakit</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-            <li class="breadcrumb-item active">Cuti</li>
+            <li class="breadcrumb-item active">Sakit</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -30,7 +30,7 @@
         <div class="card">
             <div class="card-header">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-lg">
-                <b>+</b> Tambah Cuti
+                <b>+</b> Tambah Ijin / Sakit
             </button>
             </div>
             <!-- /.card-header -->
@@ -38,25 +38,21 @@
             <table id="myTable" class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th>Mulai Cuti</th>
-                        <th>Selesai Cuti</th>
-                        <th>Jumlah Hari</th>
-                        <th>Jenis Cuti</th>
-                        <th>Saldo Cuti</th>
-                        <th>Alasan Cuti</th>
-                        <th>Pengganti</th>
+                        <th>Tanggal Awal Ijin</th>
+                        <th>Tanggal Awal Ijin</th>
+                        <th>Waktu Cuti</th>
+                        <th>Jenis Ijin</th>
+                        <th>Alasan</th>
                         <th>Aksi</th>
                     </tr>
                     <tr>
                         <td>12/02/2022</td>
                         <td>14/02/2022</td>
                         <td>2 Hari</td>
-                        <td>Cuti Tahunan</td>
-                        <td>Cuti Tahunan</td>
-                        <td>Liburan</td>
-                        <td>Luthfi</td>
-                         <td><button type="button" data-toggle="modal" data-target="#modal-detail" class="btn btn-warning text-white btn-sm" title="detail"><i class="fa fa-info-circle"></i></button>
-                    <button type="button" class="btn btn-danger btn-sm" title="delete"><i class="fa fa-trash"></i></button></td>
+                        <td>Ijin Tidak Masuk Bekerja</td>
+                        <td>Acara Penting</td>
+                        <td><button type="button" data-toggle="modal" data-target="#modal-detail" class="btn btn-warning text-white btn-sm" title="detail"><i class="fa fa-info-circle"></i></button>
+                        <button type="button" class="btn btn-danger btn-sm" title="delete"><i class="fa fa-trash"></i></button></td>
                     </tr>
                 </thead>
                 <tbody>
@@ -95,7 +91,7 @@
 <div class="modal-dialog modal-lg">
     <div class="modal-content">
     <div class="modal-header">
-        <h4 class="modal-title">Ajukan Cuti</h4>
+        <h4 class="modal-title">Ajukan Ijin / Sakit</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -104,59 +100,38 @@
         <form method="POST" action="" id="form-create">
             @csrf
             <div class="form-group">
-                    <label>Tanggal Mulai Cuti</label>
+                    <label>Tanggal Mulai</label>
                     <div class="input-group mb-3">
                         <input id="mulai" type="date" class="form-control" name="cuti_mulai" value="{{ old('cuti_mulai') }}" required autocomplete="name" autofocus>
                     </div>
             </div>
             <div class="form-group">
-                    <label>Tanggal Akhir Cuti</label>
+                    <label>Tanggal Akhir</label>
                     <div class="input-group mb-3">
                         <input id="selesai" type="date" class="form-control" name="cuti_selesai" value="{{ old('cuti_selesai') }}" required autocomplete="name" autofocus>
                     </div>
             </div>
             <div class="form-group">
-                <label> Jumlah Hari Cuti </label>
+                <label> Jumlah Hari</label>
                 <div class="input-group-mb3">
                     <input id="jumlah" class="form-control" type="text"  readonly>
                 </div>
             </div>
             <div class="form-group">
-                <label>Jenis Cuti</label>
+                <label>Jenis Pengajuan</label>
                 <div class="input-group mb-3">
                     <select class="custom-select" name="jcuti" id="jcuti">
-                        <option value="1">Cuti Tahunan</option>
-                        <option value="2">Cuti Besar</option>
-                        <option value="3">Cuti Sakit</option>
-                        <option value="4">Cuti Melahirkan</option>
-                        <option value="5">Cuti Karena Alasan Penting</option>
-                        <option value="6">Cuti di Luar Tanggungan Negara</option>
+                        <option value="1">Pengajuan Ijin Tidak Masuk Bekerja</option>
+                        <option value="2">Pengajuan Ijin Sakit</option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
-                <label> Saldo Cuti </label>
-                <div class="input-group-mb3">
-                    <select class="custom-select" name="jcuti" id="jcuti">
-                        <option value="1">Cuti Tahunan</option>
-                        <option value="2">Cuti Melahirkan</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label> Alasan Cuti </label>
+                <label> Alasan Ijin </label>
                 <div class="input-group-mb3">
                     <textarea name="cuti_alasan" id="" class="form-control" rows="3">{{ old('cuti_alasan') }}</textarea>
                 </div>
-            </div>
-            <div class="form-group">
-                <label>Pengganti Cuti</label>
-                <div class="input-group mb-3">
-                    <select class="custom-select" name="nrkpengganti" id="nrkpengganti">
-                        <option value="1">test</option>
-                    </select>
-                </div>
-            </div>        
+            </div>  
     </div>
     <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-default" data-dismiss="modal" id="close-modal">Close</button>
@@ -175,22 +150,12 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" >Detail Cuti</h5>
+        <h5 class="modal-title" >Detail Ijin / Sakit</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-          <div class="col-12">
-            <div class="info-box bg-gradient-success">
-              <span class="info-box-icon"><i class="fa fa-thumbs-up"></i></span>
-            <div class="info-box-content">
-                <span class="info-box-text">Pengganti</span>
-                <span class="info-box-number">Delegasi Pekerjaan diterima</span>
-            </div>
-            <!-- /.info-box -->
-          </div>
-          </div>
           <!-- /.col -->
           <div class="col-12">
             <div class="info-box bg-gradient-danger">
@@ -208,17 +173,6 @@
               <span class="info-box-icon"><i class="fas fa-hourglass-half"></i></span>
             <div class="info-box-content">
                 <span class="info-box-text">Kasubag</span>
-                <span class="info-box-number">Data belum diverifikasi</span>
-            </div>
-            <!-- /.info-box -->
-          </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-12">
-            <div class="info-box bg-gradient-warning text-white">
-              <span class="info-box-icon"><i class="fas fa-hourglass-half"></i></span>
-            <div class="info-box-content">
-                <span class="info-box-text">Kepala Puskesmas</span>
                 <span class="info-box-number">Data belum diverifikasi</span>
             </div>
             <!-- /.info-box -->

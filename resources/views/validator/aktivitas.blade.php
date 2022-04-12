@@ -112,7 +112,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                  {{-- <tr>
+                  <tr>
                     <td>12/03/2022</td>
                     <td>Januari 2021</td>
                     <td>Ngoding</td>

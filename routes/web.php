@@ -61,6 +61,7 @@ Route::get('/pegawai/kinerja', [App\Http\Controllers\KinerjaController::class, '
 
 Route::get('/pegawai/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('pegawai.profile')->middleware('pegawai');
 
+Route::get('/pegawai/sakit', [App\Http\Controllers\SakitController::class, 'index'])->name('pegawai.sakit')->middleware(['pegawai']);
 
 Route::get('/pegawai/cuti', [App\Http\Controllers\CutiController::class, 'index'])->name('pegawai.cuti')->middleware(['pegawai']);
 Route::get('/pegawai/cuti/data', [App\Http\Controllers\CutiController::class, 'create'])->name('pegawai.cuti_get')->middleware('pegawai');

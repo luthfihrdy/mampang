@@ -254,6 +254,14 @@
                   </a>
               </li>
             </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('pegawai.sakit')}}" class="nav-link {{ Request::is('pegawai/sakit') ? 'active' : ''}}">
+                  <i class="nav-icon fas fa-syringe"></i>
+                    <p>Ijin/Sakit</p>
+                  </a>
+              </li>
+            </ul>
           </li>
           
           @endif

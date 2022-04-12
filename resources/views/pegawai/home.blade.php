@@ -86,7 +86,7 @@
             <div class="row card-body">
               <div class="col-6 col-sm-6">
                 <h5 class="card-title">
-                  <lottie-player src="https://assets8.lottiefiles.com/private_files/lf30_zzItmF.json"  background="transparent"  speed="1"  style="width: 170px; height: 170px;"  loop  autoplay></lottie-player>
+                  <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_42B8LS.json"  background="transparent"  speed="1"  style="width: 150px; height: 150px;"  loop  autoplay></lottie-player>
                 </h5>
               </div>
               <div class="col-6 col-sm-6">
