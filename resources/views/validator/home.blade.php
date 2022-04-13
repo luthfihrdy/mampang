@@ -29,7 +29,6 @@
             <div class="small-box bg-info">
               <div class="inner">
                 <h3>53<sup style="font-size: 20px">input</sup></h3>
-
                 <p>Aktivitas</p>
               </div>
               <div class="icon">
@@ -46,7 +45,6 @@
             <div class="small-box bg-info">
               <div class="inner">
                 <h3>53<sup style="font-size: 20px">input</sup></h3>
-
                 <p>SKP Tahunan</p>
               </div>
               <div class="icon">
@@ -59,26 +57,21 @@
           </div>
         </div>
         <!-- /.row -->
-
     <div class="row">
-    
     <div class="col-12">
         <div class="card">
             <div class="card-header">{{ __('Dashboard') }}</div>
-
             <div class="card-body">
                 @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
                     </div>
                 @endif
-
                 {{ __('Logged in as Validator') }}
             </div>
         </div>
         <!-- /.card -->
         </div>
-
     </div>
     <!-- /.row (main row) -->
 </div><!-- /.container-fluid -->

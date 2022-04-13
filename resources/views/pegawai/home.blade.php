@@ -28,7 +28,6 @@
                     $name = explode(" ", $name);
                     @endphp {{ $name[0] }} </h2></p>
                     <p class="card-text">Have a nice day!</p>
-                    
                   </div>
                   <div class="col-sm-6">
                     <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_pzprncar.json"  background="transparent"  speed="1" loop  autoplay style="height:400px;"></lottie-player>
@@ -52,15 +51,12 @@
               <div class="col-6 col-sm-6">
                 <h2 class="py-3">Birthday Today!</h2>
               </div>
-              
             </div>
-            
             <div class="card-body">
               None.
             </div>
           </div>
         </div>
-
         <div class="col-md-4 mb-3">
           <div class="card bg-info rounded h-100">
             <div class="row card-body">
@@ -72,15 +68,12 @@
               <div class="col-6 col-sm-6">
                 <h2 class="py-3">Cuti</h2>
               </div>
-              
             </div>
-            
             <div class="card-body">
               None.
             </div>
           </div>
         </div>
-
         <div class="col-md-4 mb-3">
           <div class="card bg-info rounded h-100">
             <div class="row card-body">
@@ -92,9 +85,7 @@
               <div class="col-6 col-sm-6">
                 <h2 class="py-3">Sakit / Ijin</h2>
               </div>
-              
             </div>
-            
             <div class="card-body">
               None.
             </div>
@@ -121,37 +112,33 @@
         </div>
       </div>
       {{-- end row --}}
-      
     </div><!-- /.container-fluid -->
 </div>
 <!-- /.content-header -->
 
 <!-- Main content -->
 <section class="content">
-<div class="container-fluid">
-    <!-- /.row -->
-    <!-- Main row -->
-    <div class="row">
-    
-    <div class="col-12">
-        <div class="card">
-            <div class="card-header">{{ __('Dashboard') }}</div>
-
-            <div class="card-body">
-                @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                @endif
-                {{ __('Logged in as Pegawai') }}
+  <div class="container-fluid">
+      <!-- /.row -->
+      <!-- Main row -->
+      <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                    {{ __('Logged in as Pegawai') }}
+                </div>
             </div>
+            <!-- /.card -->
         </div>
-        <!-- /.card -->
-        </div>
-
-    </div>
-    <!-- /.row (main row) -->
-</div><!-- /.container-fluid -->
+      </div>
+      <!-- /.row (main row) -->
+  </div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
 @endsection

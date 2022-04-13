@@ -25,78 +25,93 @@
     <!-- /.row -->
     <!-- Main row -->
     <div class="row">
-    
     <div class="col-12">
         <div class="card">
             <div class="card-header">
                 <form action="#" id="filterasset">
-                <div class="row">
-                    
-                    <div class="col-3">
-                        <select class="custom-select" name="user_id" id="selectPegawai" onchange="table_reload()">
-                            <option value="0">Pilih Pegawai</option>
-                        </select>
-                    </div>
-                    <div class="col-3">
-                        <select class="custom-select" id="selectTime" onchange="setTime()">
-                            <option>Pilih Waktu</option>
-                            <option value="week">1 Minggu Terakhir</option>
-                            <option value="month">1 Bulan Terakhir</option>
-                        </select>
-                    </div>
-                    <div class="col-3">
-                        <input type="date" class="form-control" name="awal" id="tgl_awal" onchange="table_reload()">
-                        {{-- <select class="custom-select" name="time" onchange="table_reload()">
-                            <option>Pilih Waktu</option>
-                            <option value="weeks">7 Hari Terakhir</option>
-                            <option value="month">1 Bulan Terakhir</option>
-                        </select> --}}
-                    </div>
-                    <div class="col-3">
-                        <div class="row">
-                            <div class="col-2 align-center"><span>To : </span></div>
-                            <div class="col"><input type="date" class="form-control" name="akhir" id="tgl_akhir" onchange="table_reload()"> </div>
-                            
+                    <div class="row">
+                        <div class="col-3">
+                            <select class="custom-select" name="user_id" id="selectPegawai" onchange="table_reload()">
+                                <option value="0">Pilih Pegawai</option>
+                            </select>
                         </div>
-                        
+                        <div class="col-3">
+                            <select class="custom-select" id="selectTime" onchange="setTime()">
+                                <option>Pilih Waktu</option>
+                                <option value="week">1 Minggu Terakhir</option>
+                                <option value="month">1 Bulan Terakhir</option>
+                            </select>
+                        </div>
+                        <div class="col-3">
+                            <input type="date" class="form-control" name="awal" id="tgl_awal" onchange="table_reload()">
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-2 align-center"><span>To : </span></div>
+                                    <div class="col">
+                                        <input type="date" class="form-control" name="akhir" id="tgl_akhir" onchange="table_reload()">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                </div>
                 </form>
-                
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-            <table id="myTable" class="table table-bordered table-hover">
+            <table id="example1" class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th>Pegawai</th>
-                        <th>Tanggal</th>
-                        <th>Jam Mulai</th>
-                        <th>Jam Selesai</th>
+                        <th style="width: 100px;">Timestamp</th>
+                        <th>Nama</th>
                         <th>Kegiatan</th>
-                        <th>Status</th>
-                        {{-- <th>Aksi</th> --}}
+                        <th>Uraian</th>
+                        <th>Waktu</th>
+                        <th>Durasi</th>
+                        <th>Vol</th>
+                        <th>Hasil</th>
+                        <th>Jenis Aktivitas</th>
+                        <th style="width: 20px;">Status</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach($users as $user)
-                        <tr>
-                            <td>{{ $user->name}}</td>
-                            <td>{{ $user->email}}</td>
-                            <td>
-                                @if($user->role_id == 1)
-                                    Admin
-                                @elseif($user->role_id == 2)
-                                    Validator
-                                @elseif($user->role_id == 3)
-                                    Pegawai
-                                @endif
-                            </td>
-                            <td>ACT</td>
-                        </tr>
-                    @endforeach --}}
-                </tbody>
+                    <tr>
+                        <td>12/03/2022</td>
+                        <td>Benazheer</td>
+                        <td>Ngoding</td>
+                        <td>Ngoding</td>
+                        <td>08:00 - 09:00</td>
+                        <td>152 menit</td>
+                        <td>1</td>
+                        <td>1 Laporan</td>
+                        <td>Umum</td>
+                        <td><button type="button" class="btn btn-warning btn-sm text-white" title="Waiting"><i class="fa fa-hourglass"></button></td>
+                    </tr>
+                    <tr>
+                        <td>12/03/2022</td>
+                        <td>Benazheer</td>
+                        <td>Ngoding</td>
+                        <td>Ngoding</td>
+                        <td>08:00 - 09:00</td>
+                        <td>152 menit</td>
+                        <td>1</td>
+                        <td>1 Laporan</td>
+                        <td>Utama</td>
+                        <td><button type="button" class="btn btn-success btn-sm" title="approve"><i class="fa fa-check"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>12/03/2022</td>
+                        <td>Benazheer</td>
+                        <td>Ngoding</td>
+                        <td>Ngoding</td>
+                        <td>08:00 - 09:00</td>
+                        <td>152 menit</td>
+                        <td>1</td>
+                        <td>1 Laporan</td>
+                        <td>Umum</td>
+                        <td><button type="button" class="btn btn-danger btn-sm" title="rejected"><i class="fa fa-ban"></i></button></td>
+                  </tr>
+                  </tbody>
                 </table>
             </div>
             <!-- /.card-body -->
@@ -154,10 +169,6 @@
             data: 'kegiatan',
             name: 'kegiatan'
         },
-        // {
-        //     data: 'point_menit',
-        //     name: 'point_menit'
-        // },
         {
             data: 'status',
             render: function(data, type, row) {
@@ -250,11 +261,15 @@ function setTime() {
     }
     
     table_reload();
-    
-    // let convert2 = now.toISOString().split('T')[0]
-    // document.getElementById("tgl_awal").value = convert1;
-    // document.getElementById("tgl_akhir").value = convert2;
 }
+
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "dom": 'Bfrtip',
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+  });
 </script>
 
 @endsection

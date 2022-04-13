@@ -29,25 +29,25 @@
     <div class="col-12">
         <div class="card">
             <!-- /.card-header -->
-            <div class="card-body">
-                <!-- PIE CHART -->
             <div class="card card-primary">
                 <div class="card-header">
                     <h3 class="card-title">Statistik Capaian Kegiatan</h3>
-                        <div class="card-tools">
                 </div>
-            </div>
                 <div class="card-body">
-                    <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                    <div class="justify-content-between">
+                    <div class="chart">
+                        <canvas id="stackedBarChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                     </div>
-                </div><!-- /.card-body -->
+                </div>
+              <!-- /.card-body -->
             </div>
             <!-- /.card -->
         </div>
     </div>
+    <div class="col-12">
     <div class="progress" style="height: 100px;">
         <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+    </div>
+    </div>
     </div>
     <br>
     <!-- /.row (main row) -->
@@ -130,12 +130,12 @@
 <div class="modal fade" id="modal-lg">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-        <div class="modal-header">
-            <h4 class="modal-title">Tambah Kegiatan</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
+            <div class="modal-header">
+                <h4 class="modal-title">Tambah Kegiatan</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         <div class="modal-body">
             <form action="" id="form-create">
                 {{-- <input type="hidden" value="{{ csrf_token() }}" name="_token" /> --}}
@@ -157,15 +157,13 @@
                     {{-- <div class="input-group mb-3">
                         <input type="time" class="form-control" name="jam_awal" value="{{ old('jam_awal') }}" required autocomplete="jam_awal" autofocus min="08:00" max="18:00" id="jamMulai">
                     </div> --}}
-
                     <div class="input-group clockpicker pull-center"> 
                         <input type="text" class="form-control" value="08:00" name="keg_jamawal" data-placement="bottom" data-align="left" data-autoclose="true" id="keg_jamawal"> 
                         <div class="input-group-append" data-target="#keg_jamawal" onclick="timeclick('keg_jamawal')"> 
-                            <div class="input-group-text"><i class="fas fa-clock"></i> </div>
+                            <div class="input-group-text"><i class="fas fa-clock"></i>
+                            </div>
                         </div> 
                     </div>
-
-
                 </div>
                 <div class="form-group">
                     <label>Jam Selesai</label>
@@ -196,8 +194,7 @@
                     <label>Aktivitas Umum</label>
                     <div class="input-group mb-3" >
                         <select class="form-control selectpicker"  data-live-search="true" data-size="5" >
-                            <option style= "width: 100px; 
-                            white-space: wrap;" >Pilih Kegiatan</option>  
+                            <option style= "width: 100px; white-space: wrap;" >Pilih Kegiatan</option>  
                         </select>
                     </div>
                 </div>
@@ -212,21 +209,6 @@
                         </div> --}}
                     </div>
                 </div>
-        
-        
-                <div class="row">
-                    <!-- <div class="col-8">
-                    <div class="icheck-primary">
-                        <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-                        <label for="agreeTerms">
-                        I agree to the <a href="#">terms</a>
-                        </label>
-                    </div>
-                    </div> -->
-                    <!-- /.col -->
-                    <!-- /.col -->
-                </div>
-            
         </div>
         <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-default" data-dismiss="modal" id="close-modal">Close</button>
@@ -245,12 +227,12 @@
 <div class="modal fade" id="modal-update">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-        <div class="modal-header">
-            <h4 class="modal-title">Ubah User</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
+            <div class="modal-header">
+                <h4 class="modal-title">Ubah User</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         <div class="modal-body">
             <form method="POST" action="" id="form-update">
                 @csrf
@@ -259,34 +241,26 @@
                     <label>Tanggal Kegiatan</label>
                     <div class="input-group mb-3">
                         <input type="date" class="form-control" name="keg_date" id="update_keg_date" value="{{ old('keg_date') }}" required autocomplete="keg_date" autofocus>
-
                     </div>
                 </div>
-                
                 <div class="form-group">
                     <label>Jam Mulai</label>
                     <div class="input-group mb-3">
                         <input type="time" class="form-control" name="keg_jammulai" id="update_keg_jammulai" value="{{ old('keg_jammulai') }}" required autocomplete="keg_jammulai" autofocus min="08:00" max="17:00">
-
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Jam Selesai</label>
                     <div class="input-group mb-3">
                         <input type="time" name="keg_jamselesai" id="update_keg_jamselesai" class="form-control @error('keg_jamselesai') is-invalid @enderror"  value="{{ old('keg_jamselesai') }}" required autocomplete="keg_jamselesai" autofocus min="08:00" max="17:00">
-
                     </div>
-                    
                 </div>
-
                 <div class="form-group">
                     <label>Kegiatan</label>
                     <div class="input-group mb-3">
                         <textarea name="keg_notes" id="update_keg_notes" class="form-control" rows="5">{{ old('keg_notes') }}</textarea>
                     </div>
                 </div>
-        
-        
                 <div class="row">
                     <!-- <div class="col-8">
                     <div class="icheck-primary">
@@ -299,7 +273,6 @@
                     <!-- /.col -->
                     <!-- /.col -->
                 </div>
-            
         </div>
         <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-default" data-dismiss="modal" id="close-modal-update">Close</button>
@@ -625,22 +598,29 @@ function buttonEdit(ids) {
         }
       ]
     }
-    //-------------
-    //- PIE CHART -
-    //-------------
-    // Get context with jQuery - using jQuery's .get() method.
-    var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-    var pieData        = donutData;
-    var pieOptions     = {
-      maintainAspectRatio : false,
-      responsive : true,
+    //---------------------
+    //- STACKED BAR CHART -
+    //---------------------
+    var stackedBarChartCanvas = $('#stackedBarChart').get(0).getContext('2d')
+    var stackedBarChartData = $.extend(true, {}, barChartData)
+
+    var stackedBarChartOptions = {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      scales: {
+        xAxes: [{
+          stacked: true,
+        }],
+        yAxes: [{
+          stacked: true
+        }]
+      }
     }
-    //Create pie or douhnut chart
-    // You can switch between pie and douhnut using the method below.
-    new Chart(pieChartCanvas, {
-      type: 'pie',
-      data: pieData,
-      options: pieOptions
+
+    new Chart(stackedBarChartCanvas, {
+      type: 'bar',
+      data: stackedBarChartData,
+      options: stackedBarChartOptions
     })
 
 

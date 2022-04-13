@@ -44,9 +44,9 @@ option {
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-lg">
-                    <b>+</b> Tambah Kegiatan
-                </button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-lg">
+                <b>+</b> Tambah Kegiatan
+            </button>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -70,6 +70,7 @@ option {
                     </thead>
                     <tbody>
                     </tbody>
+
                     </table>
                 </div>
             </div>
@@ -98,56 +99,51 @@ option {
             <form action="" id="form-create">
                 {{-- <input type="hidden" value="{{ csrf_token() }}" name="_token" /> --}}
                 @csrf
+                
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
                             <label>Tanggal Kegiatan</label>
                             <div class="input-group mb-3">
                                 <input type="date" class="form-control" name="keg_date" value="{{ old('keg_date') }}" required autocomplete="name" id="keg_date" autofocus>
+
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
                             <label>Jam Mulai</label>
+
                             <div class="input-group clockpicker pull-center"> 
                                 <input type="text" class="form-control" name="keg_jammulai" data-placement="bottom" data-align="left" data-autoclose="true" id="keg_jammulai"> 
                                 <div class="input-group-append" data-target="#keg_jammulai"> 
                                     <a class="input-group-text" id="jammulai"><i class="fas fa-clock"></i> </a>
                                 </div> 
                             </div>
+        
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
                             <label>Jam Selesai</label>
+        
                             <div class="input-group clockpicker pull-center"> 
                                 <input type="text" class="form-control" name="keg_jamselesai" data-placement="bottom" data-align="left" data-autoclose="true" id="keg_jamselesai"> 
                                 <div class="input-group-append" data-target="#keg_jamselesai" onclick="timeclick('keg_jamselesai')"> 
                                     <a class="input-group-text" id="jamselesai"><i class="fas fa-clock"></i> </a>
                                 </div> 
                             </div>
+        
                         </div>
                     </div>
                 </div>
+                
                 <div class ="form-group">
                     <label>Aktivitas Umum</label>
                     <div class="input-group mb-3" >
                         <select class="form-control selectpicker" name="act_id" data-live-search="true" data-size="5" id="aktivitas" onchange="dataEfektif(this.value)" title="== Pilih Aktivitas ==">
-                            @forelse($aktivitas as $data)
-                                <option value="{{$data->act_id}}" class="" data-option="">
-                                    <?php 
-                                        $a =$data->act_nama;
-                                        $b = substr($a, 0, 95);
-                                        $y = $b . "...";
-                                        if($a > $b)echo $y; 
-                                        else echo $a;
-                                    ?>
-                                    {{' | '.$data->act_waktu.' '.$data->act_durasi}} 
-                                </option>
-                            @empty
-                                <option>Data Aktivitas belum ada </option>
-                            @endforelse
+
+                       
                         </select>
                     </div>
                 </div>
@@ -173,6 +169,7 @@ option {
                         </div>
                     </div>
                 </div>
+                
                 <div class="form-group">
                     <label>Deskripsi</label>
                     <div class="input-group mb-3">
@@ -184,6 +181,8 @@ option {
                         </div> --}}
                     </div>
                 </div>
+        
+        
                 <div class="row">
                     <!-- <div class="col-8">
                     <div class="icheck-primary">
@@ -196,14 +195,15 @@ option {
                     <!-- /.col -->
                     <!-- /.col -->
                 </div>
+            
         </div>
         <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-default" data-dismiss="modal" id="close-modal">Close</button>
             <button type="submit" class="btn btn-primary" ><span class="fas fa-save"></span> Simpan</button>
         </div>
-    </form>
-    </div>
-    <!-- /.modal-content -->
+        </form>
+        </div>
+        <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->
 </div>
@@ -217,7 +217,7 @@ option {
         <div class="modal-header">
             <h4 class="modal-title">Ubah User</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
@@ -230,12 +230,14 @@ option {
                             <label>Tanggal Kegiatan</label>
                             <div class="input-group mb-3">
                                 <input type="date" class="form-control" name="keg_date" id="update_keg_date"  required autocomplete="keg_date" autofocus>
+        
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
                             <label>Jam Mulai</label>
+
                             <div class="input-group pull-center"> 
                                 <input type="text" class="form-control" name="update_keg_jammulai" data-placement="bottom" data-align="left" data-autoclose="true" id="update_keg_jammulai" value="{{ old('keg_jammulai')}}" required autocomplete="keg_jammulai" autofocus min="08:00" max="17:00"> 
                                 <div class="input-group-append" data-target="#update_keg_jammulai"> 
@@ -253,6 +255,7 @@ option {
                                     <a class="input-group-text" id="updatejamselesai"><i class="fas fa-clock"></i> </a>
                                 </div> 
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -260,20 +263,7 @@ option {
                     <label>Aktivitas Umum</label>
                     <div class="input-group mb-3" >
                         <select class="form-control selectpicker" name="act_id" data-live-search="true" data-size="5" onchange="dataEfektifUpdate(this.value)" title="== Pilih Aktivitas ==" id="updateActid">
-                            @forelse($aktivitas as $data)
-                                <option value="{{$data->act_id}}" class="" data-option="">
-                                    <?php 
-                                        $a =$data->act_nama;
-                                        $b = substr($a, 0, 95);
-                                        $y = $b . "...";
-                                        if($a > $b)echo $y; 
-                                        else echo $a;
-                                    ?>
-                                    {{' | '.$data->act_waktu.' '.$data->act_durasi}} 
-                                </option>
-                            @empty
-                                <option>Data Aktivitas belum ada </option>
-                            @endforelse
+                            
                         </select>
                     </div>
                 </div>
@@ -298,13 +288,16 @@ option {
                             <input type="text" class="form-control" id="update_hasil" readonly="true">
                         </div>
                     </div>
-                </div>
+                </div>       
+
                 <div class="form-group">
                     <label>Deskripsi</label>
                     <div class="input-group mb-3">
                         <textarea name="keg_notes" id="update_keg_notes" class="form-control" rows="5">{{ old('keg_notes') }}</textarea>
                     </div>
                 </div>
+        
+        
                 <div class="row">
                     <!-- <div class="col-8">
                     <div class="icheck-primary">
@@ -317,6 +310,7 @@ option {
                     <!-- /.col -->
                     <!-- /.col -->
                 </div>
+            
         </div>
         <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-default" data-dismiss="modal" id="close-modal-update">Close</button>
@@ -389,8 +383,10 @@ $(document).ready(function(){
                 });
                 $('#keg_jammulai').val("08:00");
             }
-        } 
+        }
+        
     });
+
     $('#keg_jamselesai').on('change', function() {
         var hasil = document.getElementById('keg_jamselesai').value;
         var strip = hasil.substring(0,2);
@@ -407,6 +403,7 @@ $(document).ready(function(){
                 $('#keg_jamselesai').val("08:00");
             }
         }
+        
     });
 
     //select picker
@@ -454,8 +451,9 @@ $(document).ready(function(){
         updatejamselesai.clockpicker('show');
     });
     
-    $("#keg_jammulai").val('08:00');
-    $("#keg_jamselesai").val('08:00');
+
+     $("#keg_jammulai").val('08:00');
+     $("#keg_jamselesai").val('08:00');
 
     dTable = $('#myTable').DataTable({
         dom: 'Bfrtip',
@@ -770,6 +768,16 @@ function buttonEdit(ids) {
             return false;
         })
     }
+
+// $(function () {
+
+//     //Date picker
+//     $('#reservationdate').datetimepicker({
+//         format: 'L'
+//     });
+
+// });
+
 
 </script>
 

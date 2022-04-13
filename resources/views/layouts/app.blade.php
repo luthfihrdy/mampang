@@ -158,8 +158,7 @@
             @if(Request::is('admin')) active
             @elseif(Request::is('validator')) active
             @elseif(Request::is('pegawai')) active
-            @endif
-            ">
+            @endif">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Dashboard
@@ -219,7 +218,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="{{route('pegawai.kegutama')}}" class="nav-link">
                   <i class="nav-icon fas fa-book"></i>
                   <p>Kegiatan Utama</p>
                 </a>

@@ -31,9 +31,9 @@
             <div class="card card-primary card-outline">
                 <div class="card-body box-profile">
                     <div class="text-center">
-                    <img class="profile-user-img img-fluid img-circle"
-                       src="{{asset('img/logo.png')}}"
-                       alt="User profile picture">
+                        <img class="profile-user-img img-fluid img-circle"
+                        src="{{asset('img/logo.png')}}"
+                        alt="User profile picture">
                     </div>
                     <h3 class="profile-username text-center">
                     {{Auth::user()->name}}</h3>
@@ -46,31 +46,31 @@
             <!-- Box Informasi Kontak -->
             <div class="card card-primary">
                 <div class="card-header">
-                <h3 class="card-title">Informasi Kontak</h3>
+                    <h3 class="card-title">Informasi Kontak</h3>
                 </div>
               <!-- /.card-header -->
                 <div class="card-body">
-                <strong><i class="fas fa-user"></i> Nama Lengkap</strong>
-                <p class="text-muted">  
-                    {{-- Ambil nama --}}
-                   {{Auth::user()->name}}</p>
-                <hr>
-                {{-- Email --}}
-                <strong><i class="fas fa-at"></i> Email</strong>
-                <p class="text-muted">bena@gmail.com</p>
-                <hr>
-                {{-- No Hp --}}
-                <strong><i class="fas fa-phone mr-1"></i> No. Telp</strong>
-                <p class="text-muted">08455156565</p>
-                <hr>
-                {{-- Alamat --}}
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Alamat</strong>
-                <p class="text-muted">Alamat</p>
-                <p class="text-muted">Kelurahan</p>
-                <p class="text-muted">Kecamatan</p>
-                <p class="text-muted">Kota</p>
-                <p class="text-muted">Provinsi</p>
-                <hr>
+                    <strong><i class="fas fa-user"></i> Nama Lengkap</strong>
+                    <p class="text-muted">  
+                        {{-- Ambil nama --}}
+                    {{Auth::user()->name}}</p>
+                    <hr>
+                    {{-- Email --}}
+                    <strong><i class="fas fa-at"></i> Email</strong>
+                    <p class="text-muted">bena@gmail.com</p>
+                    <hr>
+                    {{-- No Hp --}}
+                    <strong><i class="fas fa-phone mr-1"></i> No. Telp</strong>
+                    <p class="text-muted">08455156565</p>
+                    <hr>
+                    {{-- Alamat --}}
+                    <strong><i class="fas fa-map-marker-alt mr-1"></i> Alamat</strong>
+                    <p class="text-muted">Alamat</p>
+                    <p class="text-muted">Kelurahan</p>
+                    <p class="text-muted">Kecamatan</p>
+                    <p class="text-muted">Kota</p>
+                    <p class="text-muted">Provinsi</p>
+                    <hr>
               </div>
               <!-- /.card-body -->
             </div>
@@ -121,15 +121,15 @@
                     <div class="col-6">
                     <label class="form-label">Medis</label>
                         <div class="list-group" id="list-tab" role="tablist">
-                        <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">STR</a>
-                        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">SIP</a>
+                            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">STR</a>
+                            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">SIP</a>
                         </div>
                     </div>
                     <div class="col-6">
                     <label class="form-label"></label>
                         <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">no str : 82392749237492847924 <br> terbit : 22/02/20 <br> berakhir : 22/02/20</div>
-                        <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">no sip : 82392749237492847924 <br> terbit : 22/02/20 <br> berakhir : 22/02/20</div>
+                            <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">no str : 82392749237492847924 <br> terbit : 22/02/20 <br> berakhir : 22/02/20</div>
+                            <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">no sip : 82392749237492847924 <br> terbit : 22/02/20 <br> berakhir : 22/02/20</div>
                         </div>
                     </div>
                     </div>
@@ -226,10 +226,11 @@
                     <label >KTP</label>
                         <div class="row">
                             <div class="col-sm-8">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-                                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                                    <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                                    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                    <div class="invalid-feedback">Example invalid custom file feedback
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-2">
@@ -247,7 +248,8 @@
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="validatedCustomFile" required>
                                     <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                                <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                    <div class="invalid-feedback">Example invalid custom file feedback
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-2">
@@ -256,7 +258,7 @@
                             <div class="col-sm-2">
                                 <button class="btn btn-primary  fa fa-eye" type="submit"> View</button>
                             </div>
-                            </div>
+                        </div>
                     </div>
                     <div class="col-bg-12">
                     <label class="form-label" >SIP</label>
@@ -265,9 +267,10 @@
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="validatedCustomFile" required>
                                     <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                                <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                    <div class="invalid-feedback">Example invalid custom file feedback
+                                    </div>
+                                </div>
                             </div>
-                        </div>
                             <div class="col-sm-2">
                                 <button class="btn btn-primary" type="submit"> Submit</button>
                             </div>
@@ -275,15 +278,16 @@
                                 <button class="btn btn-primary  fa fa-eye" type="submit"> View</button>
                             </div>
                         </div>
-                  </div>
-                  <div class="col-bg-12">
-                  <label class="form-label" >Ijazah</label>
+                    </div>
+                    <div class="col-bg-12">
+                    <label class="form-label" >Ijazah</label>
                         <div class="row">
                             <div class="col-sm-8">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="validatedCustomFile" required>
                                     <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                                <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                    <div class="invalid-feedback">Example invalid custom file feedback
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-2">
@@ -301,7 +305,8 @@
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="validatedCustomFile" required>
                                     <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                                <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                    <div class="invalid-feedback">Example invalid custom file feedback
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-2">
