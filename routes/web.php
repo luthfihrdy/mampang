@@ -39,6 +39,9 @@ Route::get('/admin/report/filter', [App\Http\Controllers\AdminController::class,
 
 Route::get('/harikerja/data', [App\Http\Controllers\AdminController::class, 'getHariKerja'])->name('hari_kerja')->middleware('auth');
 Route::post('/admin/harikerja/create', [App\Http\Controllers\AdminController::class, 'createHariKerja'])->name('admin.harikerja_create')->middleware('admin');
+Route::get('/admin/harikerja/update', [App\Http\Controllers\AdminController::class, 'updateHariKerja'])->name('admin.harikerja_update')->middleware('admin');
+Route::post('/admin/harikerja/edit', [App\Http\Controllers\AdminController::class, 'editHariKerja'])->name('admin.harikerja_edit')->middleware('admin');
+Route::post('/admin/harikerja/delete/{ids}', [App\Http\Controllers\AdminController::class, 'destroyHariKerja'])->name('admin.harikerja_destroy')->middleware('admin');
 
 Route::get('/admin/harikerja', [App\Http\Controllers\AdminController::class, 'showHari'])->name('admin.harikerja')->middleware('admin');
 // Route::get('/admin/harikerja/data', [App\Http\Controllers\AdminController::class, 'getHari'])->name('admin.hari_get')->middleware('admin');
