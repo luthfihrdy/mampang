@@ -82,7 +82,7 @@
 
 <!-- Modal Insert -->
 <div class="modal fade" id="modal-lg">
-<div class="modal-dialog modal-lg col-12">
+<div class="modal-dialog modal-lg" style="max-width: 90%;height:100%;">
     <div class="modal-content">
     <div class="modal-header">
         <h4 class="modal-title">Tambah User</h4>
@@ -163,10 +163,6 @@
                         <input type="email" class="form-control" placeholder="Enter email">
                       </div>
                       <div class="form-group">
-                        <label>NIK</label>
-                        <input type="text" class="form-control" placeholder="32XXXXXXXXXXXXX">
-                      </div>
-                      <div class="form-group">
                         <label>NRK</label>
                         <input type="text" class="form-control" placeholder="XXXXXX">
                       </div>
@@ -214,40 +210,64 @@
                     </div>
                     <div id="dokumen-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
                       <div class="form-group">
-                        <label>Jenjang</label>
-                        <select class="custom-select" name="jenjang" id="jenjang">
-                            <option value="D1">D1</option>
-                            <option value="D2">D2</option>
-                            <option value="D3">D3</option>
-                            <option value="D4">D4</option>
-                            <option value="S1">S1</option>
-                            <option value="S2">S2</option>
-                            <option value="S3">S3</option>
-                        </select>
+                        <label>NIK</label>
+                        <input type="text" class="form-control" placeholder="32XXXXXXXXXXXXX">
                       </div>
                       <div class="form-group">
-                        <label>Pendidikan</label>
-                        <input type="text" class="form-control" placeholder="Teknik Informatika">
+                        <label>BPJS Kesehatan</label>
+                        <input type="number" class="form-control" placeholder="123456">
+                      </div>
+                      <div class="form-group">
+                        <label>BPJS Ketenagakerjaan</label>
+                        <input type="number" class="form-control" placeholder="123456">
+                      </div>
+                      <div class="form-group">
+                        <label>NPWP</label>
+                        <input type="number" class="form-control" placeholder="123456">
+                      </div>
+                      <div class="form-group">
+                        <label>Nomor Rekening</label>
+                        <input type="number" class="form-control" placeholder="000000">
                       </div>
                       <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
                       <button class="btn btn-primary" onclick="stepper.next()">Next</button>
                     </div>
                     <div id="posisi-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
                       <div class="form-group">
-                        <label>Jenjang</label>
-                        <select class="custom-select" name="jenjang" id="jenjang">
-                            <option value="D1">D1</option>
-                            <option value="D2">D2</option>
-                            <option value="D3">D3</option>
-                            <option value="D4">D4</option>
-                            <option value="S1">S1</option>
-                            <option value="S2">S2</option>
-                            <option value="S3">S3</option>
-                        </select>
+                        <label>Jabatan</label>
+                        <input type="text" class="form-control" placeholder="000000">
                       </div>
                       <div class="form-group">
-                        <label>Pendidikan</label>
-                        <input type="text" class="form-control" placeholder="Teknik Informatika">
+                        <label>Unit Kerja</label>
+                        <input type="text" class="form-control" placeholder="000000">
+                      </div>
+                      <div class="form-group">
+                        <label>Formasi Jabatan</label>
+                        <input type="text" class="form-control" placeholder="000000">
+                      </div>
+                      <div class="form-group">
+                        <label>Jenis Jabatan</label>
+                        <input type="text" class="form-control" placeholder="">
+                      </div>
+                      <div class="form-group">
+                        <label>Status Pegawai</label>
+                        <input type="text" class="form-control" placeholder="">
+                      </div>
+                      <div class="form-group">
+                        <label>Rank</label>
+                        <input type="text" class="form-control" placeholder="">
+                      </div>
+                      <div class="form-group">
+                        <label>Group</label>
+                        <input type="text" class="form-control" placeholder="">
+                      </div>
+                      <div class="form-group">
+                        <label>TMT</label>
+                        <input type="date" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label>TMT Akhir</label>
+                        <input type="date" class="form-control">
                       </div>
                       <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
                       <button class="btn btn-primary" onclick="stepper.next()">Next</button>
