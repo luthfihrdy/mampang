@@ -18,22 +18,7 @@ class ValidatorController extends Controller
 
     public function create() {
         $res = DB::select("
-        SELECT kegiatan.id, 
-        keg_date, 
-        YEAR(keg_date) AS tahun, 
-        MONTHNAME(keg_date) AS bulan , 
-        users.name, 
-        SUM(point_menit) as menit, 
-        (SELECT count(*) FROM kegiatan WHERE status = 1 AND MONTHNAME(keg_date) = bulan AND YEAR(keg_date) = tahun) AS waiting,
-        (SELECT count(*) FROM kegiatan WHERE status = 2 AND MONTHNAME(keg_date) = bulan AND YEAR(keg_date) = tahun) AS approved,
-        (SELECT count(*) FROM kegiatan WHERE status = 3 AND MONTHNAME(keg_date) = bulan AND YEAR(keg_date) = tahun) AS rejected,
-        (SELECT sum(point_menit) FROM kegiatan WHERE status = 2 AND MONTHNAME(keg_date) = bulan AND YEAR(keg_date) = tahun) as total,
-        (SELECT harikerja.jmlhari WHERE harikerja.bulan = bulan AND harikerja.tahun) as target
-        FROM kegiatan
-        JOIN harikerja
-        JOIN users
-        ON users.id = kegiatan.users_id
-        GROUP BY tahun, bulan;");
+        D");
 
         return Datatables::of($res)->editColumn('keg_date', function($date) {
             return Carbon::parse($date->keg_date)->format('Y-m-d');

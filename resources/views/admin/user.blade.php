@@ -1,6 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+
+<style>
+.disable_section {
+  pointer-events: none;
+  opacity: 0.4;
+}
+</style>
+
+
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -73,7 +82,7 @@
 
 <!-- Modal Insert -->
 <div class="modal fade" id="modal-lg">
-<div class="modal-dialog modal-lg">
+<div class="modal-dialog modal-lg col-12">
     <div class="modal-content">
     <div class="modal-header">
         <h4 class="modal-title">Tambah User</h4>
@@ -82,6 +91,231 @@
         </button>
     </div>
     <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-default">
+              <div class="card-body p-0">
+                <div class="bs-stepper">
+                  <div class="bs-stepper-header" role="tablist">
+                    <!-- your steps here -->
+                    <div class="step" data-target="#logins-part">
+                      <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger">
+                        <span class="bs-stepper-circle">1</span>
+                        <span class="bs-stepper-label">Data Diri</span>
+                      </button>
+                    </div>
+                    <div class="line"></div>
+                    <div class="step" data-target="#information-part">
+                      <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+                        <span class="bs-stepper-circle">2</span>
+                        <span class="bs-stepper-label">Informasi Kontak</span>
+                      </button>
+                    </div>
+                    <div class="line"></div>
+                    <div class="step" data-target="#dokumen-part">
+                      <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+                        <span class="bs-stepper-circle">3</span>
+                        <span class="bs-stepper-label">Nomor Dokumen</span>
+                      </button>
+                    </div>
+                    <div class="line"></div>
+                    <div class="step" data-target="#posisi-part">
+                      <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+                        <span class="bs-stepper-circle">4</span>
+                        <span class="bs-stepper-label">Posisi</span>
+                      </button>
+                    </div>
+                    <div class="line"></div>
+                    <div class="step" data-target="#tiga-part">
+                      <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+                        <span class="bs-stepper-circle">5</span>
+                        <span class="bs-stepper-label">Pendidikan</span>
+                      </button>
+                    </div>
+                    <div class="line"></div>
+                    <div class="step" data-target="#empat-part">
+                      <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+                        <span class="bs-stepper-circle">6</span>
+                        <span class="bs-stepper-label">Medis</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="bs-stepper-content">
+                    <!-- your steps content here -->
+                    <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
+                      <div class="form-group">
+                        <label>Nama Lengkap</label>
+                        <input type="text" class="form-control" placeholder="Benazheer Salsabila">
+                      </div>
+                      <div class="form-group">
+                        <label>Nama dengan Gelar</label>
+                        <input type="text" class="form-control" placeholder="Benazheer Salsabila, A.md">
+                      </div>
+                      <div class="form-group">
+                        <label>Jenis Kelamin</label>
+                        <select class="custom-select" name="jk" id="jk">
+                            <option value="Laki laki">L</option>
+                            <option value="Perempuan">P</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label>Email address</label>
+                        <input type="email" class="form-control" placeholder="Enter email">
+                      </div>
+                      <div class="form-group">
+                        <label>NIK</label>
+                        <input type="text" class="form-control" placeholder="32XXXXXXXXXXXXX">
+                      </div>
+                      <div class="form-group">
+                        <label>NRK</label>
+                        <input type="text" class="form-control" placeholder="XXXXXX">
+                      </div>
+                      <div class="form-group">
+                        <label>ID/NI/NRP</label>
+                        <input type="text" class="form-control" placeholder="XXXXXXXXXXx">
+                      </div>
+                      <div class="form-group">
+                        <label>Tempat Lahir</label>
+                        <input type="text" class="form-control" placeholder="Jakarta">
+                      </div>
+                      <div class="form-group">
+                        <label>Tanggal Lahir</label>
+                        <input type="date" class="form-control">
+                      </div>
+                      <button class="btn btn-primary" onclick="stepper.next()">Next</button>
+                    </div>
+                    <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
+                      <div class="form-group">
+                        <label>No. Telp</label>
+                        <input type="number" class="form-control" placeholder="08XXXXXXXXXX">
+                      </div>
+                      <div class="form-group">
+                        <label>Provinsi</label>
+                        <input type="text" class="form-control" placeholder="Jakarta">
+                      </div>
+                      <div class="form-group">
+                        <label>Kota</label>
+                        <input type="text" class="form-control" placeholder="Jakarta">
+                      </div>
+                      <div class="form-group">
+                        <label>Kecamatan</label>
+                        <input type="text" class="form-control" placeholder="Jakarta">
+                      </div>
+                      <div class="form-group">
+                        <label>Kelurahan</label>
+                        <input type="text" class="form-control" placeholder="Jakarta">
+                      </div>
+                      <div class="form-group">
+                        <label>Alamat</label>
+                        <textarea  class="form-control" rows="2"></textarea>
+                      </div>
+                      <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
+                      <button class="btn btn-primary" onclick="stepper.next()">Next</button>
+                    </div>
+                    <div id="dokumen-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
+                      <div class="form-group">
+                        <label>Jenjang</label>
+                        <select class="custom-select" name="jenjang" id="jenjang">
+                            <option value="D1">D1</option>
+                            <option value="D2">D2</option>
+                            <option value="D3">D3</option>
+                            <option value="D4">D4</option>
+                            <option value="S1">S1</option>
+                            <option value="S2">S2</option>
+                            <option value="S3">S3</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label>Pendidikan</label>
+                        <input type="text" class="form-control" placeholder="Teknik Informatika">
+                      </div>
+                      <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
+                      <button class="btn btn-primary" onclick="stepper.next()">Next</button>
+                    </div>
+                    <div id="posisi-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
+                      <div class="form-group">
+                        <label>Jenjang</label>
+                        <select class="custom-select" name="jenjang" id="jenjang">
+                            <option value="D1">D1</option>
+                            <option value="D2">D2</option>
+                            <option value="D3">D3</option>
+                            <option value="D4">D4</option>
+                            <option value="S1">S1</option>
+                            <option value="S2">S2</option>
+                            <option value="S3">S3</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label>Pendidikan</label>
+                        <input type="text" class="form-control" placeholder="Teknik Informatika">
+                      </div>
+                      <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
+                      <button class="btn btn-primary" onclick="stepper.next()">Next</button>
+                    </div>
+                    <div id="tiga-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
+                      <div class="form-group">
+                        <label>Jenjang</label>
+                        <select class="custom-select" name="jenjang" id="jenjang">
+                            <option value="D1">D1</option>
+                            <option value="D2">D2</option>
+                            <option value="D3">D3</option>
+                            <option value="D4">D4</option>
+                            <option value="S1">S1</option>
+                            <option value="S2">S2</option>
+                            <option value="S3">S3</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label>Pendidikan</label>
+                        <input type="text" class="form-control" placeholder="Teknik Informatika">
+                      </div>
+                      <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
+                      <button class="btn btn-primary" onclick="stepper.next()">Next</button>
+                    </div>
+                    <div id="empat-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="medisCheck" onclick="enableMedis()">
+                            <label class="form-check-label">
+                                Non Medis
+                            </label>
+                        </div>
+                        <div id="medis" class="form-group">
+                            <div class="form-group">
+                                <label for="strno">STR</label>
+                                <input name="strno" type="number" class="form-control" placeholder="123456789123456">
+                            </div>
+                            <div class="form-group">
+                                <label for="terbitstr">Tanggal Terbit STR</label>
+                                <input name="terbitstr" type="date" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="berakhirstr">Tanggal Berakhir STR</label>
+                                <input name="berakhirstr" type="date" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="sipno">SIP</label>
+                                <input name="sipno" type="number" class="form-control" placeholder="123456789123456">
+                            </div>
+                            <div class="form-group">
+                                <label for="terbitsip">Tanggal Terbit SIP</label>
+                                <input name="terbitsip" type="date" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="berakhirsip">Tanggal Berakhir SIP</label>
+                                <input name="berakhirsip" type="date" class="form-control">
+                            </div>
+                        </div>
+                      {{-- <button class="btn btn-primary" onclick="stepper.next()">Next</button> --}}
+                      <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
+                      <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-body --> 
+            </div>
+            <!-- /.card -->
+{{--    
         <form method="POST" action="" id="form-create">
             @csrf
             <div class="input-group mb-3">
@@ -154,9 +388,13 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" id="close-modal">Close</button>
         <button type="submit" class="btn btn-primary" ><span class="fas fa-save"></span> Simpan</button>
     </div>
-    </form>
+    </form> --}}
+
+    </div>
+    </div>
     </div>
     <!-- /.modal-content -->
+</div>
 </div>
 <!-- /.modal-dialog -->
 </div>
@@ -256,6 +494,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
         <!-- Main row -->
+        <div class="mx-5 my-5">
             <div class="row">
                 <div class="col-md-3">
                 <!-- Profile Image -->
@@ -312,8 +551,7 @@
                     <div class="card-header p-2">
                         <ul class="nav nav-pills">
                             <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Data Diri</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">File Kepegawaian</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Edit Data</a></li>
                         </ul>
                     </div><!-- /.card-header -->
                     <div class="card-body">
@@ -458,13 +696,25 @@
                 </div>
             </div>
         </div>
+    </div>
 
 
 @endsection
 
-
 @section('script')
+
+<!-- BS-Stepper -->
+<script src="{{asset('plugins/bs-stepper/js/bs-stepper.min.js')}}"></script>
 <script>
+    //disable non medis
+    function enableMedis() {
+        if (document.getElementById("medisCheck").checked) {
+            document.getElementById("medis").classList.add('disable_section')
+        } else {
+            document.getElementById("medis").classList.remove('disable_section')
+  }
+    }
+
     $(document).ready(function(){
         dTable = $('#myTable').DataTable({
             order: [[2,'asc']],
@@ -690,6 +940,11 @@
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
   });
+
+  // BS-Stepper Init
+  document.addEventListener('DOMContentLoaded', function () {
+    window.stepper = new Stepper(document.querySelector('.bs-stepper'))
+  })
     
 </script>
 @endsection
