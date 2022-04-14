@@ -90,26 +90,26 @@
                     <div class="input-group mb-3">
                         <label>Tahun</label>
                         <div class="input-group mb-3 ">
-                            <select class="custom-select form-control" id="date-dropdown">
+                            <select class="custom-select form-control" id="date-dropdown" name="tahun">
                             </select>
                         </div>
                     </div>
                     <div class="input-group mb-3">
                         <label>Bulan</label>
                     <div class="input-group mb-3">
-                        <select class="custom-select form-control" placeholder="Bulan">
-                            <option name="Januari" value="Jan">Januari</option>
-                            <option name="Februari" value="Feb">Februari</option>
-                            <option name="Maret" value="Mar">Maret</option>
-                            <option name="April" value="Apr">April</option>
-                            <option name="Mei" value="Mei">Mei</option>
-                            <option name="Juni" value="Jun">Juni</option>
-                            <option name="Juli" value="Jul">Juli</option>
-                            <option name="Agustus" value="Agu">Agustus</option>
-                            <option name="September" value="Sep">September</option>
-                            <option name="Oktober" value="Okt">Oktober</option>
-                            <option name="November" value="Nov">November</option>
-                            <option name="Desember" value="Des">Desember</option>
+                        <select class="custom-select form-control" placeholder="Bulan" name="bulan">
+                            <option value="January">Januari</option>
+                            <option value="February">Februari</option>
+                            <option value="March">Maret</option>
+                            <option value="April">April</option>
+                            <option value="May">Mei</option>
+                            <option value="June">Juni</option>
+                            <option value="July">Juli</option>
+                            <option value="August">Agustus</option>
+                            <option value="September">September</option>
+                            <option value="October">Oktober</option>
+                            <option value="November">November</option>
+                            <option value="December">Desember</option>
                         </select>
                     </div>
                     <div class="input-group mb-3">
@@ -119,11 +119,12 @@
                     </div>
                 </div>  
             </div>        
+            
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="close-modal">Close</button>
+                <button type="submit" class="btn btn-primary" ><span class="fas fa-save"></span> Simpan</button>
+            </div>
             </form>
-                <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" id="close-modal">Close</button>
-                    <button type="submit" class="btn btn-primary" ><span class="fas fa-save"></span> Simpan</button>
-                </div>
         </div>
         <!-- /.modal-content -->
     </div>
@@ -138,47 +139,33 @@
 <script>
     $(document).ready(function(){
         dTable = $('#myTable').DataTable({
-            order: [[2,'asc']],
             responsive: true,
             processing: true,
             "language": {
                 "processing": "<img style='width:150px;' src='{{asset('img/loader-transparent.gif')}}' />" //add a loading image,simply putting <img src="loader.gif" /> tag.
             },
             serverSide: true,
-            ajax: "{{ route('admin.user_get')}}",
+            ajax: "{{ route('hari_kerja') }}",
             columns: [
                 // { data: 'IdType', name: 'IdType' },
-                {
-                    data: 'name',
-                    name: 'name'
-                },
-                {
-                    data: 'email',
-                    name: 'email'
-                },
-                {
-                    data: 'role_id',
-                    render: function(data, type, row){
-                        if(row.role_id == 1) {
-                            return 'Admin';
-                        }else if(row.role_id == 2){
-                            return 'Validator';
-                        }else if(row.role_id == 3){
-                            return 'Pegawai';
-                        }
-                    }
-                },
-                {
+                {  
                     data: 'id',
-                    render: function (data, type, row) {
-                        // console.log(type);
-                        let buttonEdit =
-                        '<a href="#" class="text-primary" data-toggle="modal" data-target="#modal-update" onclick="buttonEdit(\'' + data + '\');"><i class="fas fa-edit"></i></a>';
-                            // '<button type="button" class="btn btn-success btn-rounded btn-icon" data-toggle="modal" data-placement="buttom" data-custom-class="tooltip-success" title="EDIT" data-target="#showModalUpdateLocation" style="margin-right:5px;" onclick="buttonEdit(\'' + data + '\');"><i style="font-size:1.5rem; margin-left:-7px;" class="ti-pencil-alt"></i></button>';
-                        let buttonDelete = '<a href="#" class="text-danger ml-2" onclick="buttonDelete(\'' + data + '\')"><i class="fas fa-trash"></i></a>';
-                        return buttonEdit + buttonDelete;
+                    render: function (data, type, row, meta) {
+                        return meta.row + meta.settings._iDisplayStart + 1;
                     }
-                }
+                },
+                {
+                    data: 'tahun',
+                    name: 'tahun'
+                },
+                {
+                    data: 'bulan',
+                    name: 'bulan'
+                },
+                {
+                    data: 'jmlhari',
+                    name: 'jmlhari'
+                },
             ]
         });
 
@@ -200,7 +187,7 @@
             //type yg akan di kirim => ada get atau post
             type: "POST",
             //url ini di sesuaikan dengan routing yg udah d bikin
-            url: "{{ route ('admin.user_create') }}",
+            url: "{{ route ('admin.harikerja_create') }}",
             //untuk data ini kalo semua isi form akan d kirimkan k controller amka menggunakan form serialize
             data: $(this).serialize(),
             //success cuma buat method ajax ajax , yg intinya di pake sh function(response) nya itu sesuai dengan yg kita kirimkan dari controller

@@ -15,10 +15,10 @@ class CreateHarikerjaTable extends Migration
     {
         Schema::create('harikerja', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->integer('tahun');
-            $table->integer('bulan');
+            $table->string('bulan');
             $table->integer('jmlhari');
+            $table->timestamps();
         });
     }
 

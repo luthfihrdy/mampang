@@ -14,6 +14,43 @@ use Auth;
 
 class AdminController extends Controller
 {
+    public function getHariKerja(){
+        $res = DB::table('harikerja')->get();
+        return Datatables::of($res)->make(true);
+    }
+
+    public function createHariKerja(Request $request) {
+        Validator::make($request->all(), [
+            'tahun' => ['required'],
+            'bulan' => ['required'],
+            'jmlhari' => ['required', 'integer'],
+        ]);
+
+        $data = [
+            'tahun' => $request->tahun,
+            'bulan' => $request->bulan,
+            'jmlhari' => $request->jmlhari,
+        ];
+
+        $check = DB::table('harikerja')
+                ->where('tahun','=', $request->tahun)
+                ->where('bulan','=', $request->bulan)
+                ->first();
+        
+        if($check === null) {
+            $create = DB::table('harikerja')->insert($data);
+
+            if($create){
+                return response()->json(['status'=>200,'message'=>'Data Berhasil DiInput']);
+            }else{
+                return response()->json(['status'=>422,'message'=>$validator->messages()]);
+            }
+
+        }else{
+            return response()->json(['status'=>422,'message'=>'Data sudah ada dalam database']);
+        }
+    }
+
     public function showUser() {
         // $user = User::all();
         return view('admin.user');

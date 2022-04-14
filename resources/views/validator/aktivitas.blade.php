@@ -58,10 +58,11 @@
                     <th style="width: 50px;">Belum divalidasi</th>
                     <th style="width: 50px;">Aktivitas ditolak</th>
                     <th>Target</th>
+                    <th>Total Target</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
+                  {{-- <tr>
                     <td>1</td>
                     <td>Januari 2021</td>
                     <td>Benazheer Salsabila</td>
@@ -71,7 +72,7 @@
                     <td><button type="button" class="btn btn-warning text-white btn-sm" data-toggle="modal" data-target="#modal-belum">2</button></td>
                     <td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-tolak">1</button></td>
                     <td class="text-warning">120/1300</td>
-                  </tr>
+                  </tr> --}}
                   </tbody>
                 </table>
               </div>
@@ -129,7 +130,7 @@
                     <td><button type="button" class="btn btn-warning btn-sm text-white" title="Waiting"><i class="fa fa-hourglass"></button></td>
                     <td><button type="button" class="btn btn-success btn-sm" title="approve"><i class="fa fa-check"></i></button>
                     <button type="button" class="btn btn-danger btn-sm" title="reject"><i class="fa fa-ban"></i></button></td>
-                  </tr> --}}
+                  </tr>
                     <tr>
                       <td>13/03/2022</td>
                       <td>Januari 2021</td>
@@ -157,7 +158,7 @@
                     <td><button type="button" class="btn btn-warning btn-sm text-white" title="Waiting"><i class="fa fa-hourglass"></i></button></td>
                     <td><button type="button" class="btn btn-success btn-sm" title="approve"><i class="fa fa-check"></i></button>
                     <button type="button" class="btn btn-danger btn-sm" title="reject"><i class="fa fa-ban"></i></button></td>
-                  </tr>
+                  </tr> --}}
                   </tbody>
                 </table>
               
@@ -325,13 +326,93 @@ $(document).ready(function(){
   dTable = $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "dom": 'Brftip',
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+      "responsive": true,
+      "processing": true,
+      "language": {
+          "processing": "<img style='width:150px;' src='{{asset('img/loader-transparent.gif')}}' />" //add a loading image,simply putting <img src="loader.gif" /> tag.
+      },
+      "serverSide": true,
+      "ajax": "{{ route('validator.aktivitas_get')}}",
+      "columns": [
+        {  
+          data: 'id',
+          render: function (data, type, row, meta) {
+              return meta.row + meta.settings._iDisplayStart + 1;
+          }
+        },
+        {
+          data: 'bulan',
+          name: 'bulan',
+        },
+        {
+          data: 'name',
+          name: 'name',
+        },
+        {
+          data: 'id',
+          render:function(data, type, row, meta){
+            return 'null';
+          }
+        },
+        {
+          data: 'id',
+          render:function(data, type, row, meta){
+            return 'null';
+          }
+        },
+        {
+          data: 'approved',
+          render: function(data, type, row, meta) {
+            return '<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-xl">'+data+'</button>'
+          }
+        },
+        {
+          data: 'waiting',
+          render: function(data, type, row, meta) {
+            return '<button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-belum">'+data+'</button>'
+          }
+        },
+        {
+          data: 'rejected',
+          render: function(data, type, row, meta) {
+            return '<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-xl">'+data+'</button>'
+          }
+        },
+        {
+          data: 'total',
+          name: 'total'
+        },
+        {
+          data: 'target',
+          render: function(data, type, row) {
+            return 300*data;
+          }
+        }
+      ],
+      columnDefs:[
+        {
+          "targets": 8,
+          "render": function(data, type, row){
+            if(data == null){
+              data = 0
+            }
+
+            return data + '/' + 300 * row.target;
+          }
+        },
+        {
+          "visible" : false, "targets": 9
+        }
+        
+      ]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
   bTable = $("#example2").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "dom": 'Brftip',
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+      
     }).buttons().container().appendTo('#example2_wrapper .col-md-6:eq(0)');
 
   rTable = $("#example3").DataTable({
