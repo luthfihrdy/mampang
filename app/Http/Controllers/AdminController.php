@@ -51,6 +51,41 @@ class AdminController extends Controller
         }
     }
 
+    public function updateHariKerja(Request $request){
+        $res = DB::table('harikerja')->where('id',$request->id)->get();
+        return response()->json($res);
+    }
+
+    public function editHariKerja(Request $request) {
+        Validator::make($request->all(), [
+            'jmlhari' => ['required', 'integer'],
+        ]);
+
+        //$data = DB::table('harikerja')->where($request->id)->first();
+        
+        $data = [
+            'jmlhari' => $request->jmlhari,
+        ];
+
+        $success = DB::table('harikerja')
+        ->where('id',$request->id)->update($data);
+
+        if($success){
+            return response()->json(['status'=>200,'message'=>'Data berhasil di ubah']);
+        }else{
+            return response()->json(['status'=>422,'message'=>'Data gagal di ubah']);
+        }
+    }
+
+    public function destroyHariKerja($ids){
+        $hari = DB::table('harikerja')->delete($ids);
+        if($hari){
+            return response()->json(['success'=>true, 'status'=>200,'message'=>'Data Berhasil Di Hapus']);
+        }else{
+            return response()->json(['status'=>422,'message'=>'Data Gagal Di Hapus']);  
+        }
+    }
+
     public function showUser() {
         // $user = User::all();
         return view('admin.user');
