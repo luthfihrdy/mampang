@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<head>
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-</head>
 
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -30,7 +26,6 @@
     <!-- /.row -->
     <!-- Main row -->
     <div class="row">
-    
     <div class="col-12">
         <div class="card">
             <div class="card-header">
@@ -117,7 +112,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                  {{-- <tr>
+                  <tr>
                     <td>12/03/2022</td>
                     <td>Januari 2021</td>
                     <td>Ngoding</td>
@@ -161,7 +156,6 @@
                   </tr> --}}
                   </tbody>
                 </table>
-              
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -175,7 +169,6 @@
       <!-- /.modal -->
 
       <!-- /.modal tolak -->
-
       <div class="modal fade" id="modal-tolak">
         <div class="modal-dialog modal-xl">
           <div class="modal-content">
@@ -212,7 +205,7 @@
                     <td>12/03/2022</td>
                     <td>Januari 2021</td>
                     <td>Ngoding</td>
-                    <td>152 menit</td>
+                    <td>1</td>
                     <td>152 menit</td>
                     <td><button type="button" class="btn btn-danger btn-sm" title="Rejected"><i class="fa fa-ban"></button></td>
                     <td>Benazheer</td>
@@ -220,11 +213,9 @@
                   </tr>
                   </tbody>
                 </table>
-              
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              
             </div>
           </div>
           <!-- /.modal-content -->
@@ -234,7 +225,6 @@
       <!-- /.modal -->
 
       <!-- /.modal di acc -->
-
       <div class="modal fade" id="modal-xl">
         <div class="modal-dialog modal-xl">
           <div class="modal-content">
@@ -303,7 +293,6 @@
                 </tr>
                   </tbody>
                 </table>
-              
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

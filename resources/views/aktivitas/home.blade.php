@@ -36,7 +36,7 @@
             <!-- /.card-header -->
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="myTable" class="table table-bordered table-hover" width="100%">
+                    <table  id="myTable" class="table table-bordered table-hover" width="100%">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -74,6 +74,14 @@
 //         format: 'LT'
 //     });
 // });
+
+$(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "dom": 'Bfrtip',
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+  });
 
 //tambahin document ready function
 $(document).ready(function(){
