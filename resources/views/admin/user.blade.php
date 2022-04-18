@@ -144,6 +144,18 @@
                     <!-- your steps content here -->
                     <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
                       <div class="form-group">
+                      <label>Photo</label>
+                      <div class="row">
+                        <div class="circle" style="border-radius: 100% !important;overflow: hidden;width: 128px;height: 128px;border: 2px solid rgba(255, 255, 255, 0.2);">
+                            <img class="profile-pic" style="width: 128px;max-height: 128px;display:inline-block;" src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg">
+                        </div>
+                        <div class="p-image" style="top:167px;right:30px;color:#666666;transition: all .3s cubic-bezier(.175, .885, .32, 1.275);" >
+                            <i class="fa fa-camera upload-button"  style="font-size: 1.2em;"></i>
+                                <input class="file-upload" style="display: none;" type="file" accept="image/*"/>
+                        </div>
+                      </div>
+                      </div>
+                      <div class="form-group">
                         <label>Nama Lengkap</label>
                         <input type="text" class="form-control" placeholder="Benazheer Salsabila">
                       </div>
@@ -205,7 +217,7 @@
                         <label>Alamat</label>
                         <textarea  class="form-control" rows="2"></textarea>
                       </div>
-                      <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
+                      <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
                       <button class="btn btn-primary" onclick="stepper.next()">Next</button>
                     </div>
                     <div id="dokumen-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
@@ -229,7 +241,7 @@
                         <label>Nomor Rekening</label>
                         <input type="number" class="form-control" placeholder="000000">
                       </div>
-                      <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
+                      <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
                       <button class="btn btn-primary" onclick="stepper.next()">Next</button>
                     </div>
                     <div id="posisi-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
@@ -269,7 +281,7 @@
                         <label>TMT Akhir</label>
                         <input type="date" class="form-control">
                       </div>
-                      <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
+                      <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
                       <button class="btn btn-primary" onclick="stepper.next()">Next</button>
                     </div>
                     <div id="tiga-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
@@ -289,7 +301,7 @@
                         <label>Pendidikan</label>
                         <input type="text" class="form-control" placeholder="Teknik Informatika">
                       </div>
-                      <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
+                      <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
                       <button class="btn btn-primary" onclick="stepper.next()">Next</button>
                     </div>
                     <div id="empat-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
@@ -326,7 +338,7 @@
                             </div>
                         </div>
                       {{-- <button class="btn btn-primary" onclick="stepper.next()">Next</button> --}}
-                      <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
+                      <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
                       <button type="submit" class="btn btn-success">Submit</button>
                     </div>
                   </div>
@@ -726,6 +738,29 @@
 <!-- BS-Stepper -->
 <script src="{{asset('plugins/bs-stepper/js/bs-stepper.min.js')}}"></script>
 <script>
+
+
+    //profile pic
+    $(document).ready(function() {
+    var readURL = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('.profile-pic').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $(".file-upload").on('change', function(){
+        readURL(this);
+    });
+    
+    $(".upload-button").on('click', function() {
+       $(".file-upload").click();
+    });
+    });
+
     //disable non medis
     function enableMedis() {
         if (document.getElementById("medisCheck").checked) {
