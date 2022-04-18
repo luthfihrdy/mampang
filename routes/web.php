@@ -50,8 +50,13 @@ Route::get('/admin/harikerja', [App\Http\Controllers\AdminController::class, 'sh
 Route::get('/validator', [App\Http\Controllers\HomeController::class, 'validatorDash'])->name('validator.dash')->middleware('validator');
 Route::get('/validator/aktivitas', [App\Http\Controllers\ValidatorController::class, 'index'])->name('validator.aktivitas')->middleware('validator');
 Route::get('/validator/aktivitas/data', [App\Http\Controllers\ValidatorController::class, 'create'])->name('validator.aktivitas_get')->middleware('validator');
-Route::post('/validator/aktivitas/approve/{ids}', [App\Http\Controllers\ValidatorController::class, 'approve'])->name('validator.aktivitas_approve')->middleware('validator');
-Route::post('/validator/aktivitas/reject/{ids}', [App\Http\Controllers\ValidatorController::class, 'reject'])->name('validator.aktivitas_reject')->middleware('validator');
+// Route::post('/validator/aktivitas/approve/{ids}', [App\Http\Controllers\ValidatorController::class, 'approve'])->name('validator.aktivitas_approve')->middleware('validator');
+// Route::post('/validator/aktivitas/reject/{ids}', [App\Http\Controllers\ValidatorController::class, 'reject'])->name('validator.aktivitas_reject')->middleware('validator');
+
+Route::get('/validator/aktivitas/kegiatan', [App\Http\Controllers\ValidatorController::class, 'getAktivitasKegiatan'])->name('validator.kegiatan_get')->middleware('validator');
+
+Route::get('/validator/aktivitas/detail', [App\Http\Controllers\ValidatorController::class, 'detail_validasi'])->name('validator.detail_validasi')->middleware('validator');
+Route::post('/validator/aktivitas/detail/validasi/{id}/{status}', [App\Http\Controllers\ValidatorController::class, 'validasi'])->name('validator.approve_validasi')->middleware('validator');
 
 Route::get('/validator/skpvalidasi', [App\Http\Controllers\ValidatorskpController::class, 'index'])->name('validator.skpvalidasi')->middleware('validator');
 
