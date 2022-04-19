@@ -61,29 +61,8 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>2021</td>
-                    <td>Benazheer Salsabila</td>
-                    <td>PKC Mampang Prapatan</td>
-                    <td>Management</td>
-                    <td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-xl">10</button></td>
-                    <td><button type="button" class="btn btn-warning text-white btn-sm" data-toggle="modal" data-target="#modal-belum">2</button></td>
-                    <td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-tolak">1</button></td>
-                  </tr>
+                    
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>No.</th>
-                    <th>Tahun</th>
-                    <th>Nama</th>
-                    <th>Fasyankes</th>
-                    <th>Unit</th>
-                    <th>Sudah divalidasi</th>
-                    <th>Belum divalidasi</th>
-                    <th>SKP ditolak</th>
-                  </tr>
-                  </tfoot>
                 </table>
               </div>
             </div>
@@ -338,7 +317,60 @@
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "dom": 'Bfrtip',
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+      "responsive": true,
+      "processing": true,
+      "language": {
+          "processing": "<img style='width:150px;' src='{{asset('img/loader-transparent.gif')}}' />" //add a loading image,simply putting <img src="loader.gif" /> tag.
+      },
+      "serverSide": true,
+      "ajax": "{{ route('validator.skpvalidasi_get')}}",
+      "columns": [
+        {  
+          data: 'id',
+          render: function (data, type, row, meta) {
+              return meta.row + meta.settings._iDisplayStart + 1;
+          }
+        },
+        {
+          data: 'tahun',
+          name: 'tahun'
+        },
+        {
+          data: 'name',
+          name: 'name'
+        },
+        {
+          data: 'id',
+          render: function(data, type, row, meta){
+            return 'null';
+          }
+        },
+        {
+          data: 'id',
+          render: function(data, type, row, meta){
+            return 'null';
+          }
+        },
+        {
+          data: 'approved',
+          render: function(data, type, row, meta){
+            return '<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-xl">'+data+'</button>';
+          }
+        },
+        {
+          data: 'waiting',
+          render: function(data, type, row, meta){
+            return '<a href="/validator/skpvalidasi/detail/?users_id='+row.users_id+'&tahun='+row.tahun+'&status=1" type="button" class="btn btn-warning text-white btn-sm">'+data+'</a>';
+          }
+        },
+        {
+          data: 'rejected',
+          render: function(data, type, row, meta){
+            return '<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-tolak">'+data+'</button>';
+          }
+        }
+      ]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
   });
 </script>

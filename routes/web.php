@@ -59,6 +59,10 @@ Route::get('/validator/aktivitas/detail', [App\Http\Controllers\ValidatorControl
 Route::post('/validator/aktivitas/detail/validasi/{id}/{status}', [App\Http\Controllers\ValidatorController::class, 'validasi'])->name('validator.approve_validasi')->middleware('validator');
 
 Route::get('/validator/skpvalidasi', [App\Http\Controllers\ValidatorskpController::class, 'index'])->name('validator.skpvalidasi')->middleware('validator');
+Route::get('/validator/skpvalidasi/data', [App\Http\Controllers\ValidatorskpController::class, 'create'])->name('validator.skpvalidasi_get')->middleware('validator');
+Route::get('/validator/skpvalidasi/detail', [App\Http\Controllers\ValidatorskpController::class, 'detail'])->name('validator.detail_skpvalidasi')->middleware('validator');
+Route::post('/validator/skpvalidasi/detail/validasi/{id}/{status}', [App\Http\Controllers\ValidatorskpController::class, 'validasi'])->name('validator.approve_validasi')->middleware('validator');
+
 
 Route::get('/pegawai', [App\Http\Controllers\HomeController::class, 'pegawaiDash'])->name('pegawai.dash')->middleware('pegawai');
 Route::get('/pegawai/kegiatan/umum', [App\Http\Controllers\KegiatanController::class, 'index'])->name('pegawai.kegiatan')->middleware(['pegawai','auth']);
@@ -69,6 +73,7 @@ Route::post('/pegawai/kegiatan/umum/edit', [App\Http\Controllers\KegiatanControl
 Route::post('/pegawai/kegiatan/delete/{ids}', [App\Http\Controllers\KegiatanController::class, 'destroyKegiatan'])->name('pegawai.kegiatan_destroy')->middleware('pegawai');
 
 Route::get('/pegawai/kegiatan/utama', [App\Http\Controllers\KUtamaController::class, 'index'])->name('pegawai.kegutama')->middleware(['pegawai','auth']);
+Route::get('/pegawai/kegiatan/utama/data', [App\Http\Controllers\KUtamaController::class, 'create'])->name('pegawai.kegiatan_utama_get')->middleware('pegawai');
 
 Route::get('/pegawai/kinerja', [App\Http\Controllers\KinerjaController::class, 'index'])->name('pegawai.ckinerja')->middleware('pegawai');
 
@@ -80,10 +85,13 @@ Route::get('/pegawai/cuti', [App\Http\Controllers\CutiController::class, 'index'
 Route::get('/pegawai/cuti/data', [App\Http\Controllers\CutiController::class, 'create'])->name('pegawai.cuti_get')->middleware('pegawai');
 
 Route::get('/pegawai/skp', [App\Http\Controllers\SkpController::class, 'index'])->name('pegawai.skp')->middleware('pegawai');
+Route::get('/pegawai/skp/data', [App\Http\Controllers\SkpController::class, 'create'])->name('pegawai.skp_data')->middleware('pegawai');
+Route::post('/pegawai/skp/store', [App\Http\Controllers\SkpController::class, 'store'])->name('pegawai.skp_store')->middleware('pegawai');
+Route::post('/pegawai/skp/destroy/{ids}', [App\Http\Controllers\SkpController::class, 'destroy'])->name('pegawai.skp_destroy')->middleware('pegawai');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/aktivitas', [App\Http\Controllers\AktivitasController::class, 'showAktivitas'])->name('aktivitas.dash')->middleware('pegawai');
 //bedakan parameter /aktivitas dan /aktivitas/data, saya tambahkan /data untuk membedakan
 Route::get('/aktivitas/data', [App\Http\Controllers\AktivitasController::class, 'getAktivitas'])->name('aktivitas.keg_get')->middleware('pegawai');
-Route::get('/aktivitas/json', [App\Http\Controllers\AktivitasController::class, 'getAktivitasJson'])->name('aktivitas.json')->middleware('pegawai');
+Route::get('/aktivitas/json', [App\Http\Controllers\AktivitasController::class, 'getAktivitasJson'])->name('aktivitas.json')->middleware(['pegawai','auth']);

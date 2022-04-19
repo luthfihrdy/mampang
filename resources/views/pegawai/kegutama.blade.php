@@ -2,11 +2,8 @@
 
 @section('content')
 
-<!-- Content Header (Page header) -->
-<link rel="stylesheet" href="{{asset('datatables/dataTables.bootstrap4.min.css')}}">
-<link rel="stylesheet" href="{{asset('datatables/buttons.bootstrap4.min.css')}}">
 <style>
-select {
+/* select {
   width: 100px;
   overflow: hidden;
   white-space: pre;
@@ -16,7 +13,7 @@ select {
 
 option {
   border: solid 1px #DDDDDD;
-}
+} */
 </style>
 <div class="content-header">
     <div class="container-fluid">
@@ -142,7 +139,20 @@ option {
                     <label>Aktivitas Umum</label>
                     <div class="input-group mb-3" >
                         <select class="form-control selectpicker" name="act_id" data-live-search="true" data-size="5" id="aktivitas" onchange="dataEfektif(this.value)" title="== Pilih Aktivitas ==">
-
+                            @forelse($aktivitas as $data)
+                            <option value="{{$data->getAct->act_id}}" class="" data-option="">
+                                <?php 
+                                    $a =$data->getAct->act_nama;
+                                    $b = substr($a, 0, 95);
+                                    $y = $b . "...";
+                                    if($a > $b)echo $y; 
+                                    else echo $a;
+                                ?>
+                                {{' | '.$data->getAct->act_waktu.' '.$data->getAct->act_durasi}} 
+                            </option>
+                            @empty
+                                <option>Data Aktivitas belum ada </option>
+                            @endforelse
                        
                         </select>
                     </div>
@@ -465,7 +475,7 @@ $(document).ready(function(){
             "processing": "<img style='width:150px;' src='{{asset('img/loader-transparent.gif')}}' />" //add a loading image,simply putting <img src="loader.gif" /> tag.
         },
         serverSide: true,
-        ajax: "{{ route('pegawai.kegiatan_umum_get')}}",
+        ajax: "{{ route('pegawai.kegiatan_utama_get')}}",
         columns: [
             // { data: 'IdType', name: 'IdType' },
             {
@@ -522,22 +532,6 @@ $(document).ready(function(){
                     }
                 }
             },
-            // {
-            //     data: 'role_id',
-            //     render: function(data, type, row){
-            //         if(row.role_id == 1) {
-            //             return 'Admin';
-            //         }else if(row.role_id == 2){
-            //             return 'Validator';
-            //         }else if(row.role_id == 3){
-            //             return 'Pegawai';
-            //         }
-            //     }
-            // },
-            // {
-            //     data: 'role_id',
-            //     name: 'role_id'
-            // },
             {
                 data: 'id',
                 //name: 'id'

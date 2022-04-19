@@ -44,11 +44,14 @@
                             <th>Jumlah target</th>
                             <th>Hasil target</th>
                             <th>Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                     </tbody>
+                    <tr>
 
+                    </tr>
                     </table>
                 </div>
             </div>
@@ -74,13 +77,13 @@
             </button>
         </div>
         <div class="modal-body">
-            <form action="" id="form-create">
+            <form id="form-create">
                 {{-- <input type="hidden" value="{{ csrf_token() }}" name="_token" /> --}}
                 @csrf
                 <div class="form-group">
                     <label>Tahun SKP</label>
                     <div class="input-group mb-3 ">
-                        <select class="custom-select form-control" id="date-dropdown">
+                        <select class="custom-select form-control" id="date-dropdown" name="skp_tahun">
                         </select>
                     </div>
                 </div>
@@ -88,52 +91,41 @@
                 <div class="form-group">
                     <label>Aktivitas</label>
                     <div class="input-group mb-3" >
-                        <select class="form-control"  data-live-search="true" data-size="5" id="aktivitas" onchange="dataEfektif(this.value)" title="== Pilih Aktivitas ==">
-
-                        {{-- @forelse($aktivitas as $data)
-                            <option value="{{$data->act_id}}" class="" data-option="">
-                                <?php 
-                                    $a =$data->act_nama;
-                                    $b = substr($a, 0, 95);
-                                    $y = $b . "...";
-                                    if($a > $b)echo $y; 
-                                    else echo $a;
-                                ?>
-                                {{' | '.$data->act_waktu.' '.$data->act_durasi}} 
-                            </option>
-                        @empty
-                            <option>Data Aktivitas belum ada </option>
-                        @endforelse --}}
-                            
+                        <select class="form-control selectpicker" name="act_id" data-live-search="true" data-size="5" id="aktivitas" onchange="setHasil(this.value)" title="== Pilih Aktivitas ==">
+                            @forelse($aktivitas as $data)
+                                <option value="{{$data->act_id}}" class="" data-option="">
+                                    <?php 
+                                        $a =$data->act_nama;
+                                        $b = substr($a, 0, 95);
+                                        $y = $b . "...";
+                                        if($a > $b)echo $y; 
+                                        else echo $a;
+                                    ?>
+                                    {{' | '.$data->act_waktu.' '.$data->act_durasi}} 
+                                </option>
+                            @empty
+                                <option>Data Aktivitas belum ada </option>
+                            @endforelse
                         </select>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label>Jumlah Target</label>
-                    <div class="input-group mb-3">
-                        <input type="number" class="form-control" >
-                    </div>
-                </div>
-                <div class ="form-group">
-                    <label>Hasil Target</label>
-                    <div class="input-group mb-3" >
-                        <select class="form-control selectpicker"  data-live-search="true" data-size="5" >
-                        <option style= "width: 100px; white-space: wrap;" >Pilih Kegiatan</option>
-                        </select>
-                    </div>
-                </div>
-        
                 <div class="row">
-                    <!-- <div class="col-8">
-                    <div class="icheck-primary">
-                        <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-                        <label for="agreeTerms">
-                        I agree to the <a href="#">terms</a>
-                        </label>
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Jumlah Target</label>
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control" name="skp_target">
+                            </div>
+                        </div>
                     </div>
-                    </div> -->
-                    <!-- /.col -->
-                    <!-- /.col -->
+                    <div class="col">
+                        <div class ="form-group">
+                            <label>Hasil Target</label>
+                            <div class="input-group mb-3" >
+                                <input class="form-control" type="text" name="" id="hasil" readonly>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             
         </div>
@@ -150,7 +142,7 @@
     <!-- /.modal -->
 
 
-<!-- Modal Update -->
+{{-- <!-- Modal Update -->
 <div class="modal fade" id="modal-update">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -220,24 +212,205 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-<!-- /.modal update -->
+<!-- /.modal update --> --}}
 @endsection
 
 @section('script')
 
 <script>
+
+function setHasil(id) {
+    $.ajax({
+        type: "GET",
+        url: "{{ route('aktivitas.json') }}?id="+id,
+        success: function (data) {
+            $.each(data, function (index, value) {
+                    $('#hasil').val(value.act_unit);
+                });
+            
+        }
+    })
+}
+
+$(document).ready(function(){
+
+dTable = $("#myTable").DataTable({
+    "responsive": true, "lengthChange": false, "autoWidth": false,
+    "dom": 'Brftip',
+    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+    "responsive": true,
+    "processing": true,
+    "language": {
+        "processing": "<img style='width:150px;' src='{{asset('img/loader-transparent.gif')}}' />" //add a loading image,simply putting <img src="loader.gif" /> tag.
+    },
+    "serverSide": true,
+    "ajax": "{{ route('pegawai.skp_data')}}",
+    "columns": [
+        {
+            data: 'skp_tahun',
+            name: 'skp_tahun'
+        },
+        {
+            data: 'get_act',
+            render: function(data, type, row, meta){
+                if(data == null){
+                    return null;
+                }else {
+                    return data.act_nama;
+                }
+            }
+        },
+        {
+            data: 'skp_target',
+            name: 'skp_target'
+        },
+        {
+            data: 'get_act',
+            render: function(data, type, row, meta){
+                if(data == null){
+                    return null;
+                }else {
+                    return data.act_unit;
+                }
+            }
+        },
+        {
+            data: 'status',
+            render: function(data, type, row, meta){
+                if(data == 1) {
+                    return '<span class="badge rounded-pill bg-warning text-dark"><i class="fa fa-hourglass"></i> Waiting</span>'
+                }else if(data == 2) {
+                     return '<span class="badge rounded-pill bg-success"><i class="fa fa-thumbs-up"></i> Approved</span>'
+                }else if(data == 3) {
+                     return '<span class="badge rounded-pill bg-danger"><i class="fa fa-thumbs-down"></i> Approved</span>'
+                }
+            }
+        },
+        {
+            data: 'status',
+            render: function(data, type, row, meta) {
+                if(data == 1) {
+                    let buttonDelete = '<a href="#" class="text-danger ml-2" onclick="buttonDelete(\'' + data + '\')"><i class="fas fa-trash"></i></a>';
+                    return buttonDelete;
+                }else {
+                    return null;
+                }
+            }
+        }
+    ]
+});
+
+$('#form-create').on('submit', function(e){
+    $('#close-modal').click();
+    //buat preevent untuk ajax event
+    e.preventDefault();
+    //untuk ajax setup kirim token agar bisa akses method post
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $("input[name='_token']").val()
+        }
+    });
+
+    //proses kirim data ke Controller
+    $.ajax({
+        //type yg akan di kirim => ada get atau post
+        type: "POST",
+        //url ini di sesuaikan dengan routing yg udah d bikin
+        url: "{{ route ('pegawai.skp_store') }}",
+        //untuk data ini kalo semua isi form akan d kirimkan k controller amka menggunakan form serialize
+        data: $(this).serialize(),
+        //success cuma buat method ajax ajax , yg intinya di pake sh function(response) nya itu sesuai dengan yg kita kirimkan dari controller
+        success: function (response) {
+            $('#close-modal').click();
+            if (response.status == 200) {
+                // autonumber();
+                $('#form-create').trigger("reset");
+                dTable.ajax.reload();
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: response.message,
+                    showConfirmButton: false,
+                    timer: 1500,
+                    // footer: '<a href="">Why do I have this issue?</a>'
+                })
+                $('#close-modal').click();
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal',
+                    text: response.message,
+                    showConfirmButton: false,
+                    timer: 1500,
+                    // footer: '<a href="">Why do I have this issue?</a>'
+                })
+                $('#close-modal').click();
+            }
+        }
+    });
+})
+
+});
+
+function buttonDelete(ids) {
+    swal.fire({
+        title: "Delete?",
+        icon: 'question',
+        text: "Apakah anda yakin ingin menghapus data?",
+        type: "warning",
+        showCancelButton: !0,
+        confirmButtonText: "Ya, Hapus!",
+        cancelButtonText: "Tidak",
+        reverseButtons: !0,
+    }).then(function (e) {
+
+        if (e.value === true) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $("input[name='_token']").val()
+                }
+            });
+            // let token = $('meta[name="csrf-token"]').attr('content');
+            let _url = `/pegawai/skp/destroy/${ids}`;
+
+            $.ajax({
+                type: 'POST',
+                url: _url,
+                data: {ids: ids},
+                success: function (resp) {
+                    if (resp.success) {
+                        swal.fire("Done!", resp.message, "success");
+                        dTable.ajax.reload();
+                    } else {
+                        swal.fire("Error!", 'Something went wrong.', "error");
+                    }
+                },
+                error: function (resp) {
+                    swal.fire("Error!", 'Something went wrong.', "error");
+                }
+            });
+
+        } else {
+            e.dismiss;
+        }
+
+    }, function (dismiss) {
+        return false;
+    });
+}
+
+    
 let dateDropdown = document.getElementById('date-dropdown');
+let currentYear = new Date().getFullYear();
+let earliestYear = 2020;
 
-    let currentYear = new Date().getFullYear();
-    let earliestYear = 2020;
-
-    while (currentYear >= earliestYear) {
-      let dateOption = document.createElement('option');
-      dateOption.text = currentYear;
-      dateOption.value = currentYear;
-      dateDropdown.add(dateOption);
-      currentYear -= 1;
-    }
+while (currentYear >= earliestYear) {
+    let dateOption = document.createElement('option');
+    dateOption.text = currentYear;
+    dateOption.value = currentYear;
+    dateDropdown.add(dateOption);
+    currentYear -= 1;
+}
 
 </script>
 

@@ -17,10 +17,9 @@ class CreateSkptahunanTable extends Migration
             $table->id();
             $table->integer('users_id');
             $table->integer('act_id');
-            $table->date('skp_date');
-            $table->date('skp_tahun');
+            $table->string('skp_tahun');
             $table->integer('skp_target');
-            $table->integer('dscode');
+            $table->integer('status');
             $table->timestamps();
         });
     }
