@@ -64,8 +64,9 @@
                         <td>bena@gmail.com</td>
                         <td>PKC Mampang Prapatan</td>
                         <td>Manajemen</td>
-                        <td><button type="button" class="btn btn-warning btn-sm text-white" title="Detail" data-toggle="modal" data-target="#modal-detail"><i class="fa fa-info-circle"></button></td>
-                    </tr>
+                        <td><button type="button" class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#modal-detail"><i class="fa fa-eye"></i></button>
+                      <button type="button" class="btn btn-warning btn-sm text-white"  data-toggle="modal" data-target="#modal-edit"><i class="fa fa-pen"></i></button></td>
+                      </tr>
                 </tbody>
                 </table>
             </div>
@@ -84,12 +85,12 @@
 <div class="modal fade" id="modal-lg">
 <div class="modal-dialog modal-lg" style="max-width: 90%;height:100%;">
     <div class="modal-content">
-    <div class="modal-header">
-        <h4 class="modal-title">Tambah User</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
+        <div class="modal-header">
+            <h4 class="modal-title">Tambah User</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
     <div class="modal-body">
         <div class="row">
           <div class="col-md-12">
@@ -247,11 +248,11 @@
                     <div id="posisi-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
                       <div class="form-group">
                         <label>Jabatan</label>
-                        <input type="text" class="form-control" placeholder="000000">
+                        <input type="text" class="form-control" placeholder="IT">
                       </div>
                       <div class="form-group">
                         <label>Unit Kerja</label>
-                        <input type="text" class="form-control" placeholder="000000">
+                        <input type="text" class="form-control" placeholder="Management">
                       </div>
                       <div class="form-group">
                         <label>Formasi Jabatan</label>
@@ -432,9 +433,9 @@
 </div>
 <!-- /.modal -->
 
-<!-- Modal Update -->
-<div class="modal fade" id="modal-update">
-    <div class="modal-dialog modal-lg">
+<!-- Modal Edit -->
+<div class="modal fade" id="modal-edit">
+    <div class="modal-dialog modal-lg" style="max-width: 90%;height:100%;">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Ubah User</h4>
@@ -442,82 +443,224 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        <div class="modal-body">
-            <form method="POST" action="" id="form-update">
-                @csrf
-                <input type="hidden" class="form-control" id="update_id" name="id" required>
-                <div class="input-group mb-3">
-                    <select class="custom-select" name="role_id" id="update_role_id">
-                        <option value="3">Pegawai</option>
-                        <option value="2">Validator</option>
-                        <option value="1">Admin</option>
-                    </select>
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-user-friends"></span>
-                        </div>
-                    </div>
+            <div class="modal-body">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Data Diri</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form>
+                <div class="card-body">
+                  <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" class="form-control"placeholder="nama lengkap">
+                  </div>
+                  <div class="form-group">
+                    <label>Nama dengan Gelar</label>
+                    <input type="text" class="form-control" placeholder="nama dengan gelar">
+                  </div>
+                  <div class="form-group">
+                    <label>Jenis Kelamin</label>
+                    <input type="text" class="form-control" placeholder="Jenis kelamin">
+                  </div>
+                  <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" class="form-control" placeholder="">
+                  </div>
+                  <div class="form-group">
+                    <label>NRK</label>
+                    <input type="number" class="form-control" placeholder="nrk">
+                  </div>
+                  <div class="form-group">
+                    <label>ID/NI/NRP</label>
+                    <input type="number" class="form-control" placeholder="">
+                  </div>
+                  <div class="form-group">
+                    <label>Tempat Lahir</label>
+                    <input type="text" class="form-control" placeholder="">
+                  </div>
+                  <div class="form-group">
+                    <label>Tanggal Lahir</label>
+                    <input type="date" class="form-control" placeholder="">
+                  </div>
                 </div>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Full Name" id="update_name">
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-user"></span>
-                        </div>
-                    </div>
                 </div>
-                @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-                <div class="input-group mb-3">
-                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email" id="update_email">
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-envelope"></span>
-                        </div>
-                    </div>
+                <!-- /.card-body -->
+                <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Informasi Kontak</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form>
+                <div class="card-body">
+                  <div class="form-group">
+                    <label>No. Telp</label>
+                    <input type="number" class="form-control"placeholder="nama lengkap">
+                  </div>
+                  <div class="form-group">
+                    <label>Provinsi</label>
+                    <input type="text" class="form-control" placeholder="nama dengan gelar">
+                  </div>
+                  <div class="form-group">
+                    <label>Kota</label>
+                    <input type="text" class="form-control" placeholder="Jenis kelamin">
+                  </div>
+                  <div class="form-group">
+                    <label>Kecamatan</label>
+                    <input type="email" class="form-control" placeholder="">
+                  </div>
+                  <div class="form-group">
+                    <label>Kelurahan</label>
+                    <input type="number" class="form-control" placeholder="nrk">
+                  </div>
+                  <div class="form-group">
+                    <label>Alamat</label>
+                    <input type="number" class="form-control" placeholder="">
+                  </div>
                 </div>
-        
-                @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-        
-                <div class="input-group mb-3">
-                    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password" id="update_password">
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-lock"></span>
-                        </div>
-                    </div>
                 </div>
-        
-                <div class="row">
-                    <!-- <div class="col-8">
-                    <div class="icheck-primary">
-                        <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-                        <label for="agreeTerms">
-                        I agree to the <a href="#">terms</a>
-                        </label>
-                    </div>
-                    </div> -->
-                    <!-- /.col -->
-                    <!-- /.col -->
+                <!-- /.card-body -->
+                <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Nomor Dokumen</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form>
+                <div class="card-body">
+                  <div class="form-group">
+                    <label>NIK</label>
+                    <input type="number" class="form-control"placeholder="nama lengkap">
+                  </div>
+                  <div class="form-group">
+                    <label>BPJS Kesehatan</label>
+                    <input type="number" class="form-control" placeholder="nama dengan gelar">
+                  </div>
+                  <div class="form-group">
+                    <label>BPJS Ketenagakerjaan</label>
+                    <input type="number" class="form-control" placeholder="Jenis kelamin">
+                  </div>
+                  <div class="form-group">
+                    <label>NPWP</label>
+                    <input type="number" class="form-control" placeholder="">
+                  </div>
+                  <div class="form-group">
+                    <label>Nomor Rekening</label>
+                    <input type="number" class="form-control" placeholder="nrk">
+                  </div>
                 </div>
-            
-        </div>
-        <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="close-modal-update">Close</button>
-            <button type="submit" class="btn btn-primary" ><span class="fas fa-save"></span> Simpan</button>
-        </div>
-        </form>
-        </div>
+                </div>
+                <!-- /.card-body -->
+                <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Posisi</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form>
+                <div class="card-body">
+                  <div class="form-group">
+                    <label>Jabatan</label>
+                    <input type="text" class="form-control"placeholder="nama lengkap">
+                  </div>
+                  <div class="form-group">
+                    <label>Unit Kerja</label>
+                    <input type="text" class="form-control" placeholder="nama dengan gelar">
+                  </div>
+                  <div class="form-group">
+                    <label>Formasi Jabatan</label>
+                    <input type="text" class="form-control" placeholder="Jenis kelamin">
+                  </div>
+                  <div class="form-group">
+                    <label>Status Pegawai</label>
+                    <input type="text" class="form-control" placeholder="">
+                  </div>
+                  <div class="form-group">
+                    <label>Rank</label>
+                    <input type="text" class="form-control" placeholder="nrk">
+                  </div>
+                  <div class="form-group">
+                    <label>Group</label>
+                    <input type="text" class="form-control" placeholder="">
+                  </div>
+                  <div class="form-group">
+                    <label>TMT</label>
+                    <input type="date" class="form-control" placeholder="">
+                  </div>
+                  <div class="form-group">
+                    <label>TMT Akhir</label>
+                    <input type="date" class="form-control" placeholder="">
+                  </div>
+                </div>
+                </div>
+                <!-- /.card-body -->
+                <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Pendidikan</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form>
+                <div class="card-body">
+                  <div class="form-group">
+                    <label>Jenjang</label>
+                    <input type="text" class="form-control"placeholder="nama lengkap">
+                  </div>
+                  <div class="form-group">
+                    <label>Pendidikan</label>
+                    <input type="text" class="form-control" placeholder="nama dengan gelar">
+                  </div>
+                </div>
+                </div>
+                <!-- /.card-body -->
+                <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Medis</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form>
+                <div class="card-body">
+                  <div class="form-group">
+                    <label>STR</label>
+                    <input type="number" class="form-control"placeholder="nama lengkap">
+                  </div>
+                  <div class="form-group">
+                    <label>Tanggal Terbit STR</label>
+                    <input type="date" class="form-control" placeholder="nama dengan gelar">
+                  </div>
+                  <div class="form-group">
+                    <label>Tanggal Berakhir STR</label>
+                    <input type="date" class="form-control" placeholder="Jenis kelamin">
+                  </div>
+                  <div class="form-group">
+                    <label>SIP</label>
+                    <input type="number" class="form-control" placeholder="">
+                  </div>
+                  <div class="form-group">
+                    <label>Tanggal Terbit SIP</label>
+                    <input type="date" class="form-control" placeholder="nrk">
+                  </div>
+                  <div class="form-group">
+                    <label>Tanggal Berakhir SIP</label>
+                    <input type="date" class="form-control" placeholder="">
+                  </div>
+                </div>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+            </div>
         <!-- /.modal-content -->
-    </div>
+        </div>
     <!-- /.modal-dialog -->
+    </div>
     </div>
     <!-- /.modal update -->
 
@@ -525,8 +668,14 @@
     <div class="modal fade bd-example-modal-lg" id="modal-detail" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Detail User</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
         <!-- Main row -->
-        <div class="mx-5 my-5">
             <div class="row">
                 <div class="col-md-3">
                 <!-- Profile Image -->
@@ -537,8 +686,7 @@
                                 src="{{asset('img/logo.png')}}"
                                 alt="User profile picture">
                             </div>
-                            <h3 class="profile-username text-center">
-                            {{Auth::user()->name}}</h3>
+                            <h3 class="profile-username text-center">{{Auth::user()->name}}</h3>
                             <p class="text-muted text-center">Software Engineer</p>
                         </div>
                     <!-- /.card-body -->
@@ -566,11 +714,11 @@
                             <hr>
                             {{-- Alamat --}}
                             <strong><i class="fas fa-map-marker-alt mr-1"></i> Alamat</strong>
-                            <p class="text-muted">Alamat</p>
-                            <p class="text-muted">Kelurahan</p>
-                            <p class="text-muted">Kecamatan</p>
-                            <p class="text-muted">Kota</p>
-                            <p class="text-muted">Provinsi</p>
+                            <p class="text-muted">value Alamat</p>
+                            <p class="text-muted">value Kelurahan</p>
+                            <p class="text-muted">value Kecamatan</p>
+                            <p class="text-muted">value Kota</p>
+                            <p class="text-muted">value Provinsi</p>
                             <hr>
                         </div>
                         <!-- /.card-body -->
@@ -578,41 +726,39 @@
                     <!-- /.card -->
                 </div>
                 <!-- /.col -->
-                <div class="col-md-9">
-                    <div class="card">
-                    <div class="card-header p-2">
-                        <ul class="nav nav-pills">
+                    <div class="col-md-9">
+                        <div class="card">
+                        <div class="card-header p-2">
+                            <ul class="nav nav-pills">
                             <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Data Diri</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Edit Data</a></li>
-                        </ul>
-                    </div><!-- /.card-header -->
-                    <div class="card-body">
-                        <div class="tab-content">
+                            </ul>
+                        </div><!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="tab-content">
                             <div class="active tab-pane" id="activity">
                             {{-- Data Diti --}}
                             <fieldset disabled>
                                 <div class= "col-bg-12">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <label for="disabledTextInput" class="form-label">Nama Lengkap Dengan Gelar</label>
-                                            <input type="text" id="disabledTextInput" class="form-control" placeholder="
-                                            {{Auth::user()->name}}">
+                                            <label class="form-label">Nama Lengkap Dengan Gelar</label>
+                                            <input type="text"  class="form-control"  placeholder="{{Auth::user()->name}}">
                                         </div>
                                         <div class="mb-3 col-sm-6">
-                                            <label for="disabledTextInput" class="form-label">NIK</label>
-                                            <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                            <label  class="form-label">NIK</label>
+                                            <input type="text" class="form-control" placeholder="">
                                         </div>
                                     </div>
                                 </div>
                                 <div class= "col-bg-12">
                                         <div class="row">
                                             <div class="mb-3 col-sm-6">
-                                                <label for="disabledTextInput" class="form-label">NRK</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                                <label  class="form-label">NRK</label>
+                                                <input type="text" class="form-control" placeholder="">
                                             </div>
                                             <div class="mb-3 col-sm-6">
-                                                <label for="disabledTextInput" class="form-label">ID/NIP/NRP</label>
-                                                <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                                <label class="form-label">ID/NIP/NRP</label>
+                                                <input type="text" class="form-control" placeholder="">
                                             </div>
                                         </div>
                                 </div>
@@ -637,86 +783,87 @@
                                     <div class= "col-bg-12">
                                             <div class="row">
                                                 <div class="mb-3 col-sm-6">
-                                                    <label for="disabledTextInput" class="form-label">Tempat Lahir</label>
-                                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                                    <label  class="form-label">Tempat Lahir</label>
+                                                    <input type="text" class="form-control" placeholder="">
                                                 </div>
                                                 <div class="mb-3 col-sm-6">
-                                                    <label for="disabledTextInput" class="form-label">Tanggal Lahir</label>
-                                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                                    <label class="form-label">Tanggal Lahir</label>
+                                                    <input type="text" class="form-control" placeholder="">
                                                 </div>
                                             </div>
                                     </div>
                                     <div class= "col-bg-12">
                                             <div class="row">
                                                 <div class="mb-3 col-sm-6">
-                                                    <label for="disabledTextInput" class="form-label">Jenis Kelamin</label>
-                                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                                    <label class="form-label">Jenis Kelamin</label>
+                                                    <input type="text" class="form-control" placeholder="">
                                                 </div>
                                                 <div class="mb-3 col-sm-6">
-                                                    <label for="disabledTextInput" class="form-label">Pangkat</label>
-                                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                                    <label class="form-label">Pangkat</label>
+                                                    <input type="text" class="form-control" placeholder="">
                                                 </div>
                                             </div>
                                     </div>
                                     <div class= "col-bg-12">
                                             <div class="row">
                                                 <div class="mb-3 col-sm-6">
-                                                    <label for="disabledTextInput" class="form-label">Jabatan</label>
-                                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                                    <label class="form-label">Jabatan</label>
+                                                    <input type="text" class="form-control" placeholder="">
                                                 </div>
                                                 <div class="mb-3 col-sm-6">
-                                                    <label for="disabledTextInput" class="form-label">Jenis Jabatan</label>
-                                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                                    <label class="form-label">Jenis Jabatan</label>
+                                                    <input type="text" class="form-control" placeholder="">
                                                 </div>
                                             </div>
                                     </div>
                                     <div class= "col-bg-12">
                                             <div class="row">
                                                 <div class="mb-3 col-sm-6">
-                                                    <label for="disabledTextInput" class="form-label">Unit Kerja</label>
-                                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                                    <label class="form-label">Unit Kerja</label>
+                                                    <input type="text" class="form-control" placeholder="">
                                                 </div>
                                                 <div class="mb-3 col-sm-6">
-                                                    <label for="disabledTextInput" class="form-label">Jenis Unit</label>
-                                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                                    <label class="form-label">Jenis Unit</label>
+                                                    <input type="text" class="form-control" placeholder="">
                                                 </div>
                                             </div>
                                     </div>
                                     <div class= "col-bg-12">
                                             <div class="row">
                                                 <div class="mb-3 col-sm-6">
-                                                    <label for="disabledTextInput" class="form-label">Nama Fasyankes</label>
-                                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                                    <label class="form-label">Nama Fasyankes</label>
+                                                    <input type="text" class="form-control" placeholder="">
                                                 </div>
                                                 <div class="mb-3 col-sm-6">
-                                                    <label for="disabledTextInput" class="form-label">Formasi Jabatan</label>
-                                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                                    <label class="form-label">Formasi Jabatan</label>
+                                                    <input type="text" class="form-control" placeholder="">
                                                 </div>
                                             </div>
                                     </div>
                                     <div class= "col-bg-12">
                                             <div class="row">
                                                 <div class="mb-3 col-sm-6">
-                                                    <label for="disabledTextInput" class="form-label">Status Pegawai</label>
-                                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                                    <label class="form-label">Status Pegawai</label>
+                                                    <input type="text" class="form-control" placeholder="">
                                                 </div>
                                                 <div class="mb-3 col-sm-6">
-                                                    <label for="disabledTextInput" class="form-label">Golongan</label>
-                                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                                    <label class="form-label">Golongan</label>
+                                                    <input type="text" class="form-control" placeholder="">
                                                 </div>
                                             </div>
                                     </div>
                                     <div class= "col-bg-12">
                                             <div class="row">
                                                 <div class="mb-3 col-sm-6">
-                                                    <label for="disabledTextInput" class="form-label">TMT</label>
-                                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                                    <label class="form-label">TMT</label>
+                                                    <input type="text" class="form-control" placeholder="">
                                                 </div>
                                                 <div class="mb-3 col-sm-6">
-                                                    <label for="disabledTextInput" class="form-label">TMT Berakhir</label>
-                                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                                    <label class="form-label">TMT Berakhir</label>
+                                                    <input type="text" class="form-control" placeholder="">
                                                 </div>
                                             </div>
+                                        </div>
                                     </div>
                             </fieldset>
                         </div>
@@ -725,7 +872,6 @@
                     </div><!-- /.card -->
                 </div><!-- /.col -->
                 </div><!-- /.row -->
-                </div>
             </div>
         </div>
     </div>

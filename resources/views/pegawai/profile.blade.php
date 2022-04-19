@@ -51,9 +51,7 @@
               <!-- /.card-header -->
                 <div class="card-body">
                     <strong><i class="fas fa-user"></i> Nama Lengkap</strong>
-                    <p class="text-muted">  
-                        {{-- Ambil nama --}}
-                    {{Auth::user()->name}}</p>
+                    <p class="text-muted">{{Auth::user()->name}}</p>
                     <hr>
                     {{-- Email --}}
                     <strong><i class="fas fa-at"></i> Email</strong>
@@ -95,8 +93,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <label for="disabledTextInput" class="form-label">Nama Lengkap Dengan Gelar</label>
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="
-                                {{Auth::user()->name}}">
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="{{Auth::user()->name}}">
                             </div>
                             <div class="mb-3 col-sm-6">
                                 <label for="disabledTextInput" class="form-label">NIK</label>
