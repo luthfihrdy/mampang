@@ -47,8 +47,10 @@
                 <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
               </div>
               <div class="card-footer text-center">
-                   <h6> 300/400 </h6>
-                   <h6> Silahkan Input Aktivitas Anda untuk Mencapai Target</h6>
+                    <blockquote class="blockquote text-center">
+                        <p class="mb-0"> 300/400 </p>
+                        <footer class="blockquote-footer">Silahkan Input Aktivitas Anda untuk Mencapai Target!</footer>
+                    </blockquote>
               </div>
               <!-- /.card-body -->
             </div>

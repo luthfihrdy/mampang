@@ -74,7 +74,6 @@
         </div>
         <!-- /.card -->
         </div>
-
     </div>
     <!-- /.row (main row) -->
 </div><!-- /.container-fluid -->
@@ -91,257 +90,257 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-    <div class="modal-body">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card card-default">
-              <div class="card-body p-0">
-                <div class="bs-stepper">
-                  <div class="bs-stepper-header" role="tablist">
-                    <!-- your steps here -->
-                    <div class="step" data-target="#logins-part">
-                      <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger">
-                        <span class="bs-stepper-circle">1</span>
-                        <span class="bs-stepper-label">Data Diri</span>
-                      </button>
-                    </div>
-                    <div class="line"></div>
-                    <div class="step" data-target="#information-part">
-                      <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
-                        <span class="bs-stepper-circle">2</span>
-                        <span class="bs-stepper-label">Informasi Kontak</span>
-                      </button>
-                    </div>
-                    <div class="line"></div>
-                    <div class="step" data-target="#dokumen-part">
-                      <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
-                        <span class="bs-stepper-circle">3</span>
-                        <span class="bs-stepper-label">Nomor Dokumen</span>
-                      </button>
-                    </div>
-                    <div class="line"></div>
-                    <div class="step" data-target="#posisi-part">
-                      <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
-                        <span class="bs-stepper-circle">4</span>
-                        <span class="bs-stepper-label">Posisi</span>
-                      </button>
-                    </div>
-                    <div class="line"></div>
-                    <div class="step" data-target="#tiga-part">
-                      <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
-                        <span class="bs-stepper-circle">5</span>
-                        <span class="bs-stepper-label">Pendidikan</span>
-                      </button>
-                    </div>
-                    <div class="line"></div>
-                    <div class="step" data-target="#empat-part">
-                      <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
-                        <span class="bs-stepper-circle">6</span>
-                        <span class="bs-stepper-label">Medis</span>
-                      </button>
-                    </div>
-                  </div>
-                  <div class="bs-stepper-content">
-                    <!-- your steps content here -->
-                    <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
-                      <div class="form-group">
-                      <label>Photo</label>
-                      <div class="row">
-                        <div class="circle" style="border-radius: 100% !important;overflow: hidden;width: 128px;height: 128px;border: 2px solid rgba(255, 255, 255, 0.2);">
-                            <img class="profile-pic" style="width: 128px;max-height: 128px;display:inline-block;" src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg">
+        <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card card-default">
+                  <div class="card-body p-0">
+                    <div class="bs-stepper">
+                      <div class="bs-stepper-header" role="tablist">
+                        <!-- your steps here -->
+                        <div class="step" data-target="#logins-part">
+                          <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger">
+                            <span class="bs-stepper-circle">1</span>
+                            <span class="bs-stepper-label">Data Diri</span>
+                          </button>
                         </div>
-                        <div class="p-image" style="top:167px;right:30px;color:#666666;transition: all .3s cubic-bezier(.175, .885, .32, 1.275);" >
-                            <i class="fa fa-camera upload-button"  style="font-size: 1.2em;"></i>
-                                <input class="file-upload" style="display: none;" type="file" accept="image/*"/>
+                        <div class="line"></div>
+                        <div class="step" data-target="#information-part">
+                          <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+                            <span class="bs-stepper-circle">2</span>
+                            <span class="bs-stepper-label">Informasi Kontak</span>
+                          </button>
+                        </div>
+                        <div class="line"></div>
+                        <div class="step" data-target="#dokumen-part">
+                          <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+                            <span class="bs-stepper-circle">3</span>
+                            <span class="bs-stepper-label">Nomor Dokumen</span>
+                          </button>
+                        </div>
+                        <div class="line"></div>
+                        <div class="step" data-target="#posisi-part">
+                          <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+                            <span class="bs-stepper-circle">4</span>
+                            <span class="bs-stepper-label">Posisi</span>
+                          </button>
+                        </div>
+                        <div class="line"></div>
+                        <div class="step" data-target="#tiga-part">
+                          <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+                            <span class="bs-stepper-circle">5</span>
+                            <span class="bs-stepper-label">Pendidikan</span>
+                          </button>
+                        </div>
+                        <div class="line"></div>
+                        <div class="step" data-target="#empat-part">
+                          <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+                            <span class="bs-stepper-circle">6</span>
+                            <span class="bs-stepper-label">Medis</span>
+                          </button>
                         </div>
                       </div>
-                      </div>
-                      <div class="form-group">
-                        <label>Nama Lengkap</label>
-                        <input type="text" class="form-control" placeholder="Benazheer Salsabila">
-                      </div>
-                      <div class="form-group">
-                        <label>Nama dengan Gelar</label>
-                        <input type="text" class="form-control" placeholder="Benazheer Salsabila, A.md">
-                      </div>
-                      <div class="form-group">
-                        <label>Jenis Kelamin</label>
-                        <select class="custom-select" name="jk" id="jk">
-                            <option value="Laki laki">L</option>
-                            <option value="Perempuan">P</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label>Email address</label>
-                        <input type="email" class="form-control" placeholder="Enter email">
-                      </div>
-                      <div class="form-group">
-                        <label>NRK</label>
-                        <input type="text" class="form-control" placeholder="XXXXXX">
-                      </div>
-                      <div class="form-group">
-                        <label>ID/NI/NRP</label>
-                        <input type="text" class="form-control" placeholder="XXXXXXXXXXx">
-                      </div>
-                      <div class="form-group">
-                        <label>Tempat Lahir</label>
-                        <input type="text" class="form-control" placeholder="Jakarta">
-                      </div>
-                      <div class="form-group">
-                        <label>Tanggal Lahir</label>
-                        <input type="date" class="form-control">
-                      </div>
-                      <button class="btn btn-primary" onclick="stepper.next()">Next</button>
-                    </div>
-                    <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
-                      <div class="form-group">
-                        <label>No. Telp</label>
-                        <input type="number" class="form-control" placeholder="08XXXXXXXXXX">
-                      </div>
-                      <div class="form-group">
-                        <label>Provinsi</label>
-                        <input type="text" class="form-control" placeholder="Jakarta">
-                      </div>
-                      <div class="form-group">
-                        <label>Kota</label>
-                        <input type="text" class="form-control" placeholder="Jakarta">
-                      </div>
-                      <div class="form-group">
-                        <label>Kecamatan</label>
-                        <input type="text" class="form-control" placeholder="Jakarta">
-                      </div>
-                      <div class="form-group">
-                        <label>Kelurahan</label>
-                        <input type="text" class="form-control" placeholder="Jakarta">
-                      </div>
-                      <div class="form-group">
-                        <label>Alamat</label>
-                        <textarea  class="form-control" rows="2"></textarea>
-                      </div>
-                      <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
-                      <button class="btn btn-primary" onclick="stepper.next()">Next</button>
-                    </div>
-                    <div id="dokumen-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
-                      <div class="form-group">
-                        <label>NIK</label>
-                        <input type="text" class="form-control" placeholder="32XXXXXXXXXXXXX">
-                      </div>
-                      <div class="form-group">
-                        <label>BPJS Kesehatan</label>
-                        <input type="number" class="form-control" placeholder="123456">
-                      </div>
-                      <div class="form-group">
-                        <label>BPJS Ketenagakerjaan</label>
-                        <input type="number" class="form-control" placeholder="123456">
-                      </div>
-                      <div class="form-group">
-                        <label>NPWP</label>
-                        <input type="number" class="form-control" placeholder="123456">
-                      </div>
-                      <div class="form-group">
-                        <label>Nomor Rekening</label>
-                        <input type="number" class="form-control" placeholder="000000">
-                      </div>
-                      <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
-                      <button class="btn btn-primary" onclick="stepper.next()">Next</button>
-                    </div>
-                    <div id="posisi-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
-                      <div class="form-group">
-                        <label>Jabatan</label>
-                        <input type="text" class="form-control" placeholder="IT">
-                      </div>
-                      <div class="form-group">
-                        <label>Unit Kerja</label>
-                        <input type="text" class="form-control" placeholder="Management">
-                      </div>
-                      <div class="form-group">
-                        <label>Formasi Jabatan</label>
-                        <input type="text" class="form-control" placeholder="000000">
-                      </div>
-                      <div class="form-group">
-                        <label>Jenis Jabatan</label>
-                        <input type="text" class="form-control" placeholder="">
-                      </div>
-                      <div class="form-group">
-                        <label>Status Pegawai</label>
-                        <input type="text" class="form-control" placeholder="">
-                      </div>
-                      <div class="form-group">
-                        <label>Rank</label>
-                        <input type="text" class="form-control" placeholder="">
-                      </div>
-                      <div class="form-group">
-                        <label>Group</label>
-                        <input type="text" class="form-control" placeholder="">
-                      </div>
-                      <div class="form-group">
-                        <label>TMT</label>
-                        <input type="date" class="form-control">
-                      </div>
-                      <div class="form-group">
-                        <label>TMT Akhir</label>
-                        <input type="date" class="form-control">
-                      </div>
-                      <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
-                      <button class="btn btn-primary" onclick="stepper.next()">Next</button>
-                    </div>
-                    <div id="tiga-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
-                      <div class="form-group">
-                        <label>Jenjang</label>
-                        <select class="custom-select" name="jenjang" id="jenjang">
-                            <option value="D1">D1</option>
-                            <option value="D2">D2</option>
-                            <option value="D3">D3</option>
-                            <option value="D4">D4</option>
-                            <option value="S1">S1</option>
-                            <option value="S2">S2</option>
-                            <option value="S3">S3</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label>Pendidikan</label>
-                        <input type="text" class="form-control" placeholder="Teknik Informatika">
-                      </div>
-                      <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
-                      <button class="btn btn-primary" onclick="stepper.next()">Next</button>
-                    </div>
-                    <div id="empat-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="medisCheck" onclick="enableMedis()">
-                            <label class="form-check-label">
-                                Non Medis
-                            </label>
+                      <div class="bs-stepper-content">
+                        <!-- your steps content here -->
+                        <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
+                          <div class="form-group">
+                          <label>Photo</label>
+                          <div class="row">
+                            <div class="circle" style="border-radius: 100% !important;overflow: hidden;width: 128px;height: 128px;border: 2px solid rgba(255, 255, 255, 0.2);">
+                                <img class="profile-pic" style="width: 128px;max-height: 128px;display:inline-block;" src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg">
+                            </div>
+                            <div class="p-image" style="top:167px;right:30px;color:#666666;transition: all .3s cubic-bezier(.175, .885, .32, 1.275);" >
+                                <i class="fa fa-camera upload-button"  style="font-size: 1.2em;"></i>
+                                  <input class="file-upload" style="display: none;" type="file" accept="image/*"/>
+                            </div>
+                          </div>
+                          </div>
+                          <div class="form-group">
+                            <label>Nama Lengkap</label>
+                            <input type="text" class="form-control" placeholder="Benazheer Salsabila">
+                          </div>
+                          <div class="form-group">
+                            <label>Nama dengan Gelar</label>
+                            <input type="text" class="form-control" placeholder="Benazheer Salsabila, A.md">
+                          </div>
+                          <div class="form-group">
+                            <label>Jenis Kelamin</label>
+                            <select class="custom-select" name="jk" id="jk">
+                                <option value="Laki laki">L</option>
+                                <option value="Perempuan">P</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label>Email address</label>
+                            <input type="email" class="form-control" placeholder="Enter email">
+                          </div>
+                          <div class="form-group">
+                            <label>NRK</label>
+                            <input type="text" class="form-control" placeholder="XXXXXX">
+                          </div>
+                          <div class="form-group">
+                            <label>ID/NI/NRP</label>
+                            <input type="text" class="form-control" placeholder="XXXXXXXXXXx">
+                          </div>
+                          <div class="form-group">
+                            <label>Tempat Lahir</label>
+                            <input type="text" class="form-control" placeholder="Jakarta">
+                          </div>
+                          <div class="form-group">
+                            <label>Tanggal Lahir</label>
+                            <input type="date" class="form-control">
+                          </div>
+                          <button class="btn btn-primary" onclick="stepper.next()">Next</button>
                         </div>
-                        <div id="medis" class="form-group">
-                            <div class="form-group">
-                                <label for="strno">STR</label>
-                                <input name="strno" type="number" class="form-control" placeholder="123456789123456">
-                            </div>
-                            <div class="form-group">
-                                <label for="terbitstr">Tanggal Terbit STR</label>
-                                <input name="terbitstr" type="date" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="berakhirstr">Tanggal Berakhir STR</label>
-                                <input name="berakhirstr" type="date" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="sipno">SIP</label>
-                                <input name="sipno" type="number" class="form-control" placeholder="123456789123456">
-                            </div>
-                            <div class="form-group">
-                                <label for="terbitsip">Tanggal Terbit SIP</label>
-                                <input name="terbitsip" type="date" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="berakhirsip">Tanggal Berakhir SIP</label>
-                                <input name="berakhirsip" type="date" class="form-control">
-                            </div>
+                        <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
+                          <div class="form-group">
+                            <label>No. Telp</label>
+                            <input type="number" class="form-control" placeholder="08XXXXXXXXXX">
+                          </div>
+                          <div class="form-group">
+                            <label>Provinsi</label>
+                            <input type="text" class="form-control" placeholder="Jakarta">
+                          </div>
+                          <div class="form-group">
+                            <label>Kota</label>
+                            <input type="text" class="form-control" placeholder="Jakarta">
+                          </div>
+                          <div class="form-group">
+                            <label>Kecamatan</label>
+                            <input type="text" class="form-control" placeholder="Jakarta">
+                          </div>
+                          <div class="form-group">
+                            <label>Kelurahan</label>
+                            <input type="text" class="form-control" placeholder="Jakarta">
+                          </div>
+                          <div class="form-group">
+                            <label>Alamat</label>
+                            <textarea  class="form-control" rows="2"></textarea>
+                          </div>
+                          <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
+                          <button class="btn btn-primary" onclick="stepper.next()">Next</button>
                         </div>
-                      {{-- <button class="btn btn-primary" onclick="stepper.next()">Next</button> --}}
-                      <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
-                      <button type="submit" class="btn btn-success">Submit</button>
-                    </div>
+                        <div id="dokumen-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
+                          <div class="form-group">
+                            <label>NIK</label>
+                            <input type="text" class="form-control" placeholder="32XXXXXXXXXXXXX">
+                          </div>
+                          <div class="form-group">
+                            <label>BPJS Kesehatan</label>
+                            <input type="number" class="form-control" placeholder="123456">
+                          </div>
+                          <div class="form-group">
+                            <label>BPJS Ketenagakerjaan</label>
+                            <input type="number" class="form-control" placeholder="123456">
+                          </div>
+                          <div class="form-group">
+                            <label>NPWP</label>
+                            <input type="number" class="form-control" placeholder="123456">
+                          </div>
+                          <div class="form-group">
+                            <label>Nomor Rekening</label>
+                            <input type="number" class="form-control" placeholder="000000">
+                          </div>
+                          <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
+                          <button class="btn btn-primary" onclick="stepper.next()">Next</button>
+                        </div>
+                        <div id="posisi-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
+                          <div class="form-group">
+                            <label>Jabatan</label>
+                            <input type="text" class="form-control" placeholder="IT">
+                          </div>
+                          <div class="form-group">
+                            <label>Unit Kerja</label>
+                            <input type="text" class="form-control" placeholder="Management">
+                          </div>
+                          <div class="form-group">
+                            <label>Formasi Jabatan</label>
+                            <input type="text" class="form-control" placeholder="000000">
+                          </div>
+                          <div class="form-group">
+                            <label>Jenis Jabatan</label>
+                            <input type="text" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                            <label>Status Pegawai</label>
+                            <input type="text" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                            <label>Rank</label>
+                            <input type="text" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                            <label>Group</label>
+                            <input type="text" class="form-control" placeholder="">
+                          </div>
+                          <div class="form-group">
+                            <label>TMT</label>
+                            <input type="date" class="form-control">
+                          </div>
+                          <div class="form-group">
+                            <label>TMT Akhir</label>
+                            <input type="date" class="form-control">
+                          </div>
+                          <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
+                          <button class="btn btn-primary" onclick="stepper.next()">Next</button>
+                        </div>
+                        <div id="tiga-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
+                          <div class="form-group">
+                            <label>Jenjang</label>
+                            <select class="custom-select" name="jenjang" id="jenjang">
+                                <option value="D1">D1</option>
+                                <option value="D2">D2</option>
+                                <option value="D3">D3</option>
+                                <option value="D4">D4</option>
+                                <option value="S1">S1</option>
+                                <option value="S2">S2</option>
+                                <option value="S3">S3</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label>Pendidikan</label>
+                            <input type="text" class="form-control" placeholder="Teknik Informatika">
+                          </div>
+                          <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
+                          <button class="btn btn-primary" onclick="stepper.next()">Next</button>
+                        </div>
+                        <div id="empat-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="medisCheck" onclick="enableMedis()">
+                                <label class="form-check-label">
+                                    Non Medis
+                                </label>
+                            </div>
+                            <div id="medis" class="form-group">
+                                <div class="form-group">
+                                    <label for="strno">STR</label>
+                                    <input name="strno" type="number" class="form-control" placeholder="123456789123456">
+                                </div>
+                                <div class="form-group">
+                                    <label for="terbitstr">Tanggal Terbit STR</label>
+                                    <input name="terbitstr" type="date" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="berakhirstr">Tanggal Berakhir STR</label>
+                                    <input name="berakhirstr" type="date" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="sipno">SIP</label>
+                                    <input name="sipno" type="number" class="form-control" placeholder="123456789123456">
+                                </div>
+                                <div class="form-group">
+                                    <label for="terbitsip">Tanggal Terbit SIP</label>
+                                    <input name="terbitsip" type="date" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="berakhirsip">Tanggal Berakhir SIP</label>
+                                    <input name="berakhirsip" type="date" class="form-control">
+                                </div>
+                            </div>
+                          {{-- <button class="btn btn-primary" onclick="stepper.next()">Next</button> --}}
+                          <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
+                          <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
                   </div>
                 </div>
               </div>
@@ -438,231 +437,260 @@
     <div class="modal-dialog modal-lg" style="max-width: 90%;height:100%;">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Ubah User</h4>
+                <h4 class="modal-title">Tambah User</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Data Diri</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form>
-                <div class="card-body">
-                  <div class="form-group">
-                    <label>Nama Lengkap</label>
-                    <input type="text" class="form-control"placeholder="nama lengkap">
-                  </div>
-                  <div class="form-group">
-                    <label>Nama dengan Gelar</label>
-                    <input type="text" class="form-control" placeholder="nama dengan gelar">
-                  </div>
-                  <div class="form-group">
-                    <label>Jenis Kelamin</label>
-                    <input type="text" class="form-control" placeholder="Jenis kelamin">
-                  </div>
-                  <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" class="form-control" placeholder="">
-                  </div>
-                  <div class="form-group">
-                    <label>NRK</label>
-                    <input type="number" class="form-control" placeholder="nrk">
-                  </div>
-                  <div class="form-group">
-                    <label>ID/NI/NRP</label>
-                    <input type="number" class="form-control" placeholder="">
-                  </div>
-                  <div class="form-group">
-                    <label>Tempat Lahir</label>
-                    <input type="text" class="form-control" placeholder="">
-                  </div>
-                  <div class="form-group">
-                    <label>Tanggal Lahir</label>
-                    <input type="date" class="form-control" placeholder="">
-                  </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-default">
+                            <div class="card-body p-0">
+                                <div class="bs-stepper">
+                                    <div class="bs-stepper-header" role="tablist">
+                                        <!-- your steps here -->
+                                        <div class="step" data-target="#data-part">
+                                            <button type="button" class="step-trigger" role="tab" aria-controls="data-part" id="data-part-trigger">
+                                                <span class="bs-stepper-circle">1</span>
+                                                <span class="bs-stepper-label">Data Diri</span>
+                                            </button>
+                                        </div>
+                                        <div class="line"></div>
+                                        <div class="step" data-target="#informasi-part">
+                                            <button type="button" class="step-trigger" role="tab" aria-controls="informasi-part" id="informasi-part-trigger">
+                                                <span class="bs-stepper-circle">2</span>
+                                                <span class="bs-stepper-label">Informasi Kontak</span>
+                                            </button>
+                                        </div>
+                                        <div class="line"></div>
+                                        <div class="step" data-target="#nodokumen-part">
+                                            <button type="button" class="step-trigger" role="tab" aria-controls="nodokumen-part" id="nodokumen-part-trigger">
+                                                <span class="bs-stepper-circle">3</span>
+                                                <span class="bs-stepper-label">Nomor Dokumen</span>
+                                            </button>
+                                        </div>
+                                        <div class="line"></div>
+                                        <div class="step" data-target="#posisikerja-part">
+                                            <button type="button" class="step-trigger" role="tab" aria-controls="posisikerja-part" id="posisikerja-part-trigger">
+                                                <span class="bs-stepper-circle">4</span>
+                                                <span class="bs-stepper-label">Posisi</span>
+                                            </button>
+                                        </div>
+                                        <div class="line"></div>
+                                        <div class="step" data-target="#pendidikan-part">
+                                            <button type="button" class="step-trigger" role="tab" aria-controls="pendidikan-part" id="pendidikan-part-trigger">
+                                                <span class="bs-stepper-circle">5</span>
+                                                <span class="bs-stepper-label">Pendidikan</span>
+                                            </button>
+                                        </div>
+                                        <div class="line"></div>
+                                        <div class="step" data-target="#medis-part">
+                                            <button type="button" class="step-trigger" role="tab" aria-controls="medis-part" id="medis-part-trigger">
+                                                <span class="bs-stepper-circle">6</span>
+                                                <span class="bs-stepper-label">Medis</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="bs-stepper-content">
+                                        <div id="data-part" class="content" role="tabpanel" aria-labelledby="data-part-trigger">
+                                            
+                                            <div class="form-group">
+                                                <label>Nama Lengkap</label>
+                                                <input type="text" class="form-control" placeholder="Benazheer Salsabila">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Nama dengan Gelar</label>
+                                                <input type="text" class="form-control" placeholder="Benazheer Salsabila, A.md">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Jenis Kelamin</label>
+                                                <select class="custom-select" name="jk" id="jk">
+                                                    <option value="Laki laki">L</option>
+                                                    <option value="Perempuan">P</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Email address</label>
+                                                <input type="email" class="form-control" placeholder="Enter email">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>NRK</label>
+                                                <input type="text" class="form-control" placeholder="XXXXXX">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>ID/NI/NRP</label>
+                                                <input type="text" class="form-control" placeholder="XXXXXXXXXXx">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Tempat Lahir</label>
+                                                <input type="text" class="form-control" placeholder="Jakarta">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Tanggal Lahir</label>
+                                                <input type="date" class="form-control">
+                                            </div>
+                                            <button class="btn btn-primary" onclick="stepper.next()">Next</button>
+                                        </div>
+                                        <div id="informasi-part" class="content" role="tabpanel" aria-labelledby="informasi-part-trigger">
+                                            <div class="form-group">
+                                                <label>No. Telp</label>
+                                                <input type="number" class="form-control" placeholder="08XXXXXXXXXX">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Provinsi</label>
+                                                <input type="text" class="form-control" placeholder="Jakarta">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Kota</label>
+                                                <input type="text" class="form-control" placeholder="Jakarta">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Kecamatan</label>
+                                                <input type="text" class="form-control" placeholder="Jakarta">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Kelurahan</label>
+                                                <input type="text" class="form-control" placeholder="Jakarta">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Alamat</label>
+                                                <textarea  class="form-control" rows="2"></textarea>
+                                            </div>
+                                            <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
+                                            <button class="btn btn-primary" onclick="stepper.next()">Next</button>
+                                        </div>
+                                        <div id="nodokumen-part" class="content" role="tabpanel" aria-labelledby="nodokumen-part-trigger">
+                                            <div class="form-group">
+                                                <label>NIK</label>
+                                                <input type="text" class="form-control" placeholder="32XXXXXXXXXXXXX">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>BPJS Kesehatan</label>
+                                                <input type="number" class="form-control" placeholder="123456">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>BPJS Ketenagakerjaan</label>
+                                                <input type="number" class="form-control" placeholder="123456">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>NPWP</label>
+                                                <input type="number" class="form-control" placeholder="123456">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Nomor Rekening</label>
+                                                <input type="number" class="form-control" placeholder="000000">
+                                            </div>
+                                            <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
+                                            <button class="btn btn-primary" onclick="stepper.next()">Next</button>
+                                        </div>
+                                        <div id="posisijabatan-part" class="content" role="tabpanel" aria-labelledby="posisijabatan-part-trigger">
+                                            <div class="form-group">
+                                                <label>Jabatan</label>
+                                                <input type="text" class="form-control" placeholder="IT">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Unit Kerja</label>
+                                                <input type="text" class="form-control" placeholder="Management">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Formasi Jabatan</label>
+                                                <input type="text" class="form-control" placeholder="000000">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Jenis Jabatan</label>
+                                                <input type="text" class="form-control" placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Status Pegawai</label>
+                                                <input type="text" class="form-control" placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Rank</label>
+                                                <input type="text" class="form-control" placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Group</label>
+                                                <input type="text" class="form-control" placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>TMT</label>
+                                                <input type="date" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>TMT Akhir</label>
+                                                <input type="date" class="form-control">
+                                            </div>
+                                            <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
+                                            <button class="btn btn-primary" onclick="stepper.next()">Next</button>
+                                        </div>
+                                        <div id="pendidikan-part" class="content" role="tabpanel" aria-labelledby="pendidikan-part-trigger">
+                                            <div class="form-group">
+                                                <label>Jenjang</label>
+                                                <select class="custom-select" name="jenjang" id="jenjang">
+                                                    <option value="D1">D1</option>
+                                                    <option value="D2">D2</option>
+                                                    <option value="D3">D3</option>
+                                                    <option value="D4">D4</option>
+                                                    <option value="S1">S1</option>
+                                                    <option value="S2">S2</option>
+                                                    <option value="S3">S3</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Pendidikan</label>
+                                                <input type="text" class="form-control" placeholder="Teknik Informatika">
+                                            </div>
+                                            <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
+                                            <button class="btn btn-primary" onclick="stepper.next()">Next</button>
+                                        </div>
+                                        <div id="medis-part" class="content" role="tabpanel" aria-labelledby="medis-part-trigger">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="medisCheck" onclick="enableMedis()">
+                                                <label class="form-check-label">
+                                                    Non Medis
+                                                </label>
+                                            </div>
+                                            <div id="medis" class="form-group">
+                                                <div class="form-group">
+                                                    <label for="strno">STR</label>
+                                                    <input name="strno" type="number" class="form-control" placeholder="123456789123456">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="terbitstr">Tanggal Terbit STR</label>
+                                                    <input name="terbitstr" type="date" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="berakhirstr">Tanggal Berakhir STR</label>
+                                                    <input name="berakhirstr" type="date" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="sipno">SIP</label>
+                                                    <input name="sipno" type="number" class="form-control" placeholder="123456789123456">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="terbitsip">Tanggal Terbit SIP</label>
+                                                    <input name="terbitsip" type="date" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="berakhirsip">Tanggal Berakhir SIP</label>
+                                                    <input name="berakhirsip" type="date" class="form-control">
+                                                </div>
+                                            </div>
+                                        <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                </div>
-                <!-- /.card-body -->
-                <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Informasi Kontak</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form>
-                <div class="card-body">
-                  <div class="form-group">
-                    <label>No. Telp</label>
-                    <input type="number" class="form-control"placeholder="nama lengkap">
-                  </div>
-                  <div class="form-group">
-                    <label>Provinsi</label>
-                    <input type="text" class="form-control" placeholder="nama dengan gelar">
-                  </div>
-                  <div class="form-group">
-                    <label>Kota</label>
-                    <input type="text" class="form-control" placeholder="Jenis kelamin">
-                  </div>
-                  <div class="form-group">
-                    <label>Kecamatan</label>
-                    <input type="email" class="form-control" placeholder="">
-                  </div>
-                  <div class="form-group">
-                    <label>Kelurahan</label>
-                    <input type="number" class="form-control" placeholder="nrk">
-                  </div>
-                  <div class="form-group">
-                    <label>Alamat</label>
-                    <input type="number" class="form-control" placeholder="">
-                  </div>
-                </div>
-                </div>
-                <!-- /.card-body -->
-                <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Nomor Dokumen</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form>
-                <div class="card-body">
-                  <div class="form-group">
-                    <label>NIK</label>
-                    <input type="number" class="form-control"placeholder="nama lengkap">
-                  </div>
-                  <div class="form-group">
-                    <label>BPJS Kesehatan</label>
-                    <input type="number" class="form-control" placeholder="nama dengan gelar">
-                  </div>
-                  <div class="form-group">
-                    <label>BPJS Ketenagakerjaan</label>
-                    <input type="number" class="form-control" placeholder="Jenis kelamin">
-                  </div>
-                  <div class="form-group">
-                    <label>NPWP</label>
-                    <input type="number" class="form-control" placeholder="">
-                  </div>
-                  <div class="form-group">
-                    <label>Nomor Rekening</label>
-                    <input type="number" class="form-control" placeholder="nrk">
-                  </div>
-                </div>
-                </div>
-                <!-- /.card-body -->
-                <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Posisi</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form>
-                <div class="card-body">
-                  <div class="form-group">
-                    <label>Jabatan</label>
-                    <input type="text" class="form-control"placeholder="nama lengkap">
-                  </div>
-                  <div class="form-group">
-                    <label>Unit Kerja</label>
-                    <input type="text" class="form-control" placeholder="nama dengan gelar">
-                  </div>
-                  <div class="form-group">
-                    <label>Formasi Jabatan</label>
-                    <input type="text" class="form-control" placeholder="Jenis kelamin">
-                  </div>
-                  <div class="form-group">
-                    <label>Status Pegawai</label>
-                    <input type="text" class="form-control" placeholder="">
-                  </div>
-                  <div class="form-group">
-                    <label>Rank</label>
-                    <input type="text" class="form-control" placeholder="nrk">
-                  </div>
-                  <div class="form-group">
-                    <label>Group</label>
-                    <input type="text" class="form-control" placeholder="">
-                  </div>
-                  <div class="form-group">
-                    <label>TMT</label>
-                    <input type="date" class="form-control" placeholder="">
-                  </div>
-                  <div class="form-group">
-                    <label>TMT Akhir</label>
-                    <input type="date" class="form-control" placeholder="">
-                  </div>
-                </div>
-                </div>
-                <!-- /.card-body -->
-                <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Pendidikan</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form>
-                <div class="card-body">
-                  <div class="form-group">
-                    <label>Jenjang</label>
-                    <input type="text" class="form-control"placeholder="nama lengkap">
-                  </div>
-                  <div class="form-group">
-                    <label>Pendidikan</label>
-                    <input type="text" class="form-control" placeholder="nama dengan gelar">
-                  </div>
-                </div>
-                </div>
-                <!-- /.card-body -->
-                <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Medis</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form>
-                <div class="card-body">
-                  <div class="form-group">
-                    <label>STR</label>
-                    <input type="number" class="form-control"placeholder="nama lengkap">
-                  </div>
-                  <div class="form-group">
-                    <label>Tanggal Terbit STR</label>
-                    <input type="date" class="form-control" placeholder="nama dengan gelar">
-                  </div>
-                  <div class="form-group">
-                    <label>Tanggal Berakhir STR</label>
-                    <input type="date" class="form-control" placeholder="Jenis kelamin">
-                  </div>
-                  <div class="form-group">
-                    <label>SIP</label>
-                    <input type="number" class="form-control" placeholder="">
-                  </div>
-                  <div class="form-group">
-                    <label>Tanggal Terbit SIP</label>
-                    <input type="date" class="form-control" placeholder="nrk">
-                  </div>
-                  <div class="form-group">
-                    <label>Tanggal Berakhir SIP</label>
-                    <input type="date" class="form-control" placeholder="">
-                  </div>
-                </div>
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-              </form>
             </div>
-            <!-- /.card -->
-            </div>
-        <!-- /.modal-content -->
         </div>
-    <!-- /.modal-dialog -->
     </div>
-    </div>
-    <!-- /.modal update -->
+</div>
+    <!-- /.modal edit -->
 
     <!-- Modal Detail -->
     <div class="modal fade bd-example-modal-lg" id="modal-detail" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -884,7 +912,6 @@
 <!-- BS-Stepper -->
 <script src="{{asset('plugins/bs-stepper/js/bs-stepper.min.js')}}"></script>
 <script>
-
 
     //profile pic
     $(document).ready(function() {
@@ -1146,6 +1173,8 @@
   document.addEventListener('DOMContentLoaded', function () {
     window.stepper = new Stepper(document.querySelector('.bs-stepper'))
   })
+
+  
     
 </script>
 @endsection

@@ -232,13 +232,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('pegawai.kegutama')}}" class="nav-link">
+                <a href="{{route('pegawai.kegutama')}}" class="nav-link {{ Request::is('pegawai/kegiatan/utama') ? 'active' : ''}}">
                   <i class="nav-icon fas fa-book"></i>
                   <p>Kegiatan Utama</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('pegawai.kegiatan')}}" class="nav-link {{ Request::is('pegawai/kegiatan') ? 'active' : ''}}">
+                <a href="{{route('pegawai.kegiatan')}}" class="nav-link {{ Request::is('pegawai/kegiatan/umum') ? 'active' : ''}}">
                   <i class="fa fa-file nav-icon"></i>
                   <p>Kegiatan Umum</p>
                 </a>
