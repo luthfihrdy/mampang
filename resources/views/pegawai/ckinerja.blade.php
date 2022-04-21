@@ -47,10 +47,10 @@
                 <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
               </div>
               <div class="card-footer text-center">
-                    <blockquote class="blockquote text-center">
-                        <p class="mb-0"> 300/400 </p>
-                        <footer class="blockquote-footer">Silahkan Input Aktivitas Anda untuk Mencapai Target!</footer>
-                    </blockquote>
+                    @foreach($pie as $pieTarget)
+                    <h6> {{$pieTarget->jumlah}}/{{$pieTarget->target}} ({{$pieTarget->jmlhari}} Hari Kerja)</h6>
+                    @endforeach
+                    <h6> Silahkan Input Aktivitas Anda untuk Mencapai Target</h6>
               </div>
               <!-- /.card-body -->
             </div>
@@ -250,11 +250,15 @@
 
     var donutData        = {
       labels: [
-          'Tercapai','Belum Tercapai',
+          'Tercapai', 'Belum Tercapai'
       ],
       datasets: [
         {
-          data: [300,100],
+          data: [
+              @foreach($pie as $pies)
+              {{$pies->jumlah}},{{$pies->kurang}}
+              @endforeach
+          ],
           backgroundColor : ['#3c8dbc', '#d2d6de'],
         }
       ]
@@ -567,18 +571,18 @@ function buttonEdit(ids) {
         })
     }
 
-   var donutData        = {
-      labels: [
-          'Tercapai',
-          'Belum tercapai',
-      ],
-      datasets: [
-        {
-          data: [300,100],
-          backgroundColor : ['#3c8dbc', '#d2d6de'],
-        }
-      ]
-    }
+//    var donutData        = {
+//       labels: [
+//           'Tercapai',
+//           'Belum tercapai',
+//       ],
+//       datasets: [
+//         {
+//           data: {!! json_encode($pie) !!},
+//           backgroundColor : ['#3c8dbc', '#d2d6de'],
+//         }
+//       ]
+//     }
 
 
     // <!-- Chart Bar -->
@@ -624,7 +628,7 @@ xRenderer.labels.template.setAll({
 
 var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
   maxDeviation: 0.3,
-  categoryField: "country",
+  categoryField: "tanggal",
   renderer: xRenderer,
   tooltip: am5.Tooltip.new(root, {})
 }));
@@ -642,7 +646,7 @@ var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
 var yAxis = chart.yAxes.push(
   am5xy.ValueAxis.new(root, {
     min: 0,
-    max: 100,
+    max: 7500,
     strictMinMax: true,
     renderer: am5xy.AxisRendererY.new(root, {})
   })
@@ -652,9 +656,9 @@ var series = chart.series.push(am5xy.ColumnSeries.new(root, {
   name: "Series 1",
   xAxis: xAxis,
   yAxis: yAxis,
-  valueYField: "value",
+  valueYField: "point_menit",
   sequencedInterpolation: true,
-  categoryXField: "country",
+  categoryXField: "tanggal",
   tooltip: am5.Tooltip.new(root, {
     labelText:"{valueY}"
   })
@@ -670,39 +674,41 @@ series.columns.template.adapters.add("stroke", function(stroke, target) {
   return chart.get("colors").getIndex(series.columns.indexOf(target));
 });
 
+//chart.dataSource.url = "{{route('pegawai.linechart')}}";
 
 // Set data
-var data = [{
-  country: "Januari 2022",
-  value: 100
-}, {
-  country: "Desember 2021",
-  value: 90
-}, {
-  country: "November 2021",
-  value: 0
-}, {
-  country: "Oktober 2021",
-  value: 0
-}, {
-  country: "September 2021",
-  value: 40
-}, {
-  country: "Agustus 2021",
-  value: 30
-}  ,{
-  country: "Juli 2021",
-  value: 50
-}, {
-  country: "Juni 2021",
-  value: 0
-}, {
-  country: "Mei 2021",
-  value: 20
-}, {
-  country: "April 2021",
-  value: 40
-}];
+var data = {!! json_encode($data) !!};
+// var data = [{
+//   country: "Januari 2022",
+//   value: 100
+// }, {
+//   country: "Desember 2021",
+//   value: 90
+// }, {
+//   country: "November 2021",
+//   value: 0
+// }, {
+//   country: "Oktober 2021",
+//   value: 0
+// }, {
+//   country: "September 2021",
+//   value: 40
+// }, {
+//   country: "Agustus 2021",
+//   value: 30
+// }  ,{
+//   country: "Juli 2021",
+//   value: 50
+// }, {
+//   country: "Juni 2021",
+//   value: 0
+// }, {
+//   country: "Mei 2021",
+//   value: 20
+// }, {
+//   country: "April 2021",
+//   value: 40
+// }];
 
 xAxis.data.setAll(data);
 series.data.setAll(data);

@@ -290,7 +290,7 @@ function table_reload(id){
 }
 
 $(document).ready(function(){
-
+  
   dTable = $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "dom": 'Brftip',
