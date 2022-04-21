@@ -126,7 +126,23 @@ body {
 }
 /*-----*/
 
+.outer:hover .inner {
+    -webkit-transform: rotate(0) translate(0);
+    -moz-transform: rotate(0) translate(0);
+    -ms-transform: rotate(0) translate(0);
+    -o-transform: rotate(0) translate(0);
+    transform: rotate(0) translate(0);
+}
+/*-----*/
 
+.designer a:hover:after {
+    color: #2ecc71;
+}
+
+body:hover .info,
+body:hover .designer {
+    opacity: 1;
+}
 
 .outer:active .inner {
     -webkit-transform: rotate(0) translate(0) scale(0.9);
@@ -370,10 +386,15 @@ em {
                     $name = explode(" ", $name);
                     @endphp {{ $name[0] }} </h2></p>
                     <p class="card-text">Have a nice day!</p>
+                    <br/>
                   </div>
                   <div class="col-sm-3">
                   </div>
                   <div class="col-sm-3">
+                  <div class="info anim04c">
+                    <li class="dribbble anim04c">
+                    </li>
+                </div>
                     <!-- main codes start -->
                     <div class="signboard outer">
                         <div class="signboard front inner anim04c" style="color: #ffff;">
@@ -429,7 +450,7 @@ em {
             <div class="row card-body">
               <div class="col-6 col-sm-6">
                 <h5 class="card-title">
-                  <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_fgltupfx.json"  background="transparent"  speed="1"  style="width: 150px; height: 150px;"  loop  autoplay></lottie-player>
+                  <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_0bmj3a09.json"  background="transparent"  speed="1"  style="width: 130px; height: 130px;"  loop  autoplay></lottie-player>
                 </h5>
               </div>
               <div class="col-6 col-sm-6">
@@ -463,7 +484,7 @@ em {
             <div class="row card-body">
               <div class="col-6 col-sm-6">
                 <h5 class="card-title">
-                  <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_42B8LS.json"  background="transparent"  speed="1"  style="width: 150px; height: 150px;"  loop  autoplay></lottie-player>
+                  <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_ljneldhs.json"  background="transparent"  speed="1"  style="width: 150px; height: 150px;"  loop  autoplay></lottie-player>
                 </h5>
               </div>
               <div class="col-6 col-sm-6">
