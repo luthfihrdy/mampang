@@ -136,7 +136,7 @@ option {
                 </div>
                 
                 <div class ="form-group">
-                    <label>Aktivitas Umum</label>
+                    <label>Aktivitas Utama</label>
                     <div class="input-group mb-3" >
                         <select class="form-control selectpicker" name="act_id" data-live-search="true" data-size="5" id="aktivitas" onchange="dataEfektif(this.value)" title="== Pilih Aktivitas ==">
                             @forelse($aktivitas as $data)
@@ -607,7 +607,7 @@ $('#form-create').on('submit', function(e){
         //type yg akan di kirim => ada get atau post
         type: "POST",
         //url ini di sesuaikan dengan routing yg udah d bikin
-        url: "{{ route ('pegawai.kegiatan_umum_store') }}",
+        url: "{{ route ('pegawai.kegiatan_utama_store') }}",
         //untuk data ini kalo semua isi form akan d kirimkan k controller amka menggunakan form serialize
         data: $(this).serialize(),
         //success cuma buat method ajax ajax , yg intinya di pake sh function(response) nya itu sesuai dengan yg kita kirimkan dari controller

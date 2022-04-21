@@ -74,8 +74,10 @@ Route::post('/pegawai/kegiatan/delete/{ids}', [App\Http\Controllers\KegiatanCont
 
 Route::get('/pegawai/kegiatan/utama', [App\Http\Controllers\KUtamaController::class, 'index'])->name('pegawai.kegutama')->middleware(['pegawai','auth']);
 Route::get('/pegawai/kegiatan/utama/data', [App\Http\Controllers\KUtamaController::class, 'create'])->name('pegawai.kegiatan_utama_get')->middleware('pegawai');
+Route::post('/pegawai/kegiatan/utama/store', [App\Http\Controllers\KUtamaController::class, 'store'])->name('pegawai.kegiatan_utama_store')->middleware('pegawai');
 
 Route::get('/pegawai/kinerja', [App\Http\Controllers\KinerjaController::class, 'index'])->name('pegawai.ckinerja')->middleware('pegawai');
+Route::get('/pegawai/kinerja/line/data', [App\Http\Controllers\KinerjaController::class, 'lineChart'])->name('pegawai.linechart')->middleware('pegawai');
 
 Route::get('/pegawai/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('pegawai.profile')->middleware('pegawai');
 

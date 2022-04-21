@@ -1,7 +1,7 @@
-@if(empty($data->count()))
+{{-- @if(empty($data->count()))
     <script>window.location = "{{ route('validator.aktivitas') }}";</script>
     <?php exit; ?>
-@endif
+@endif --}}
 
 @extends('layouts.app')
 

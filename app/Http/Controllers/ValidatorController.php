@@ -42,7 +42,7 @@ class ValidatorController extends Controller
     public function detail_validasi(Request $request){
         $getMonth = substr($request->get_date,5,2);
         $getYear = substr($request->get_date,0,4);
-        $res = Kegiatan::with('getAct')->with('getUser')->where('cacode','UMUM')->whereMonth('keg_date',$getMonth)->whereYear('keg_date',$getYear)->where('status',$request->status)->where('users_id',$request->users_id)
+        $res = Kegiatan::with('getAct')->with('getUser')->whereMonth('keg_date',$getMonth)->whereYear('keg_date',$getYear)->where('status',$request->status)->where('users_id',$request->users_id)
         ->get();
         //dd($res);
         return view('validator.validasi_detail',['data' => $res]);
