@@ -15,7 +15,7 @@ class CreateDataSipTable extends Migration
     {
         Schema::create('data_sip', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unique();
+            $table->integer('users_id')->unique();
             $table->integer('sip_no')->nullable();
             $table->date('sip_terbit')->nullable();
             $table->date('sip_akhir')->nullable();

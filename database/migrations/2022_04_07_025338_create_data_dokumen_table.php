@@ -15,12 +15,12 @@ class CreateDataDokumenTable extends Migration
     {
         Schema::create('data_dokumen', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unique();
-            $table->integer('nik')->unique();
-            $table->integer('bpks_kes')->nullable();
-            $table->integer('bpjs_ket')->nullable();
-            $table->integer('npwp')->nullable();
-            $table->integer('no_rek')->nullable();
+            $table->integer('users_id')->unique();
+            $table->string('nik')->unique();
+            $table->string('bpjs_kes')->nullable();
+            $table->string('bpjs_ket')->nullable();
+            $table->string('npwp')->nullable();
+            $table->string('no_rek')->nullable();
             $table->timestamps();
         });
     }

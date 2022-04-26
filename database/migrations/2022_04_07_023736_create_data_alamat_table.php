@@ -16,6 +16,7 @@ class CreateDataAlamatTable extends Migration
         Schema::create('data_alamat', function (Blueprint $table) {
             $table->id();
             $table->integer('users_id')->unique();
+            $table->string('no_telp');
             $table->text('alamat');
             $table->text('kelurahan');
             $table->text('kecamatan');

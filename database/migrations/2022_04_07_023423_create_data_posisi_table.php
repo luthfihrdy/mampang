@@ -23,8 +23,8 @@ class CreateDataPosisiTable extends Migration
             $table->text('status_pegawai');
             $table->date('tmt_awal');
             $table->date('tmt_akhir');
-            $table->text('rank');
-            $table->text('group');
+            $table->text('rank')->nullable();
+            $table->text('group')->nullable();
             $table->timestamps();
         });
     }

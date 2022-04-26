@@ -16,9 +16,9 @@ class CreateDataPendidikanTable extends Migration
         Schema::create('data_pendidikan', function (Blueprint $table) {
             $table->id();
             $table->integer('users_id')->unique();
-            $table->enum('jenjang',['SLTA/Sederajat','D1','D2','D3','D4','S1','S2','S3']);
+            $table->string('jenjang');
             $table->text('education');
-            $table->date('tamat');
+            $table->string('tamat');
             $table->timestamps();
         });
     }

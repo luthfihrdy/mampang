@@ -44,7 +44,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-            <table id="example1" class="table table-bordered table-hover">
+            <table id="myTable" class="table table-bordered table-hover">
                 <thead>
                     <tr>
                         <th>Role</th>
@@ -57,7 +57,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    {{-- <tr>
                         <td>Admin</td>
                         <td>231355</td>
                         <td>Benazheer</td>
@@ -66,7 +66,7 @@
                         <td>Manajemen</td>
                         <td><button type="button" class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#modal-detail"><i class="fa fa-eye"></i></button>
                       <button type="button" class="btn btn-warning btn-sm text-white"  data-toggle="modal" data-target="#modal-edit"><i class="fa fa-pen"></i></button></td>
-                      </tr>
+                      </tr> --}}
                 </tbody>
                 </table>
             </div>
@@ -140,9 +140,13 @@
                           </button>
                         </div>
                       </div>
+                      <form method="POST" id="form-create">
+                          @csrf
                       <div class="bs-stepper-content">
+                          
                         <!-- your steps content here -->
                         <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
+                            
                           <div class="form-group">
                           <label>Photo</label>
                           <div class="row">
@@ -155,139 +159,268 @@
                             </div>
                           </div>
                           </div>
-                          <div class="form-group">
-                            <label>Nama Lengkap</label>
-                            <input type="text" class="form-control" placeholder="Benazheer Salsabila">
+                          <div class="row">
+                              <div class="col">
+                                <div class="form-group">
+                                    <label>Nama Lengkap</label>
+                                    <input type="text" class="form-control" name="name" placeholder="Benazheer Salsabila">
+                                </div>
+                              </div>
+
+                              <div class="col">
+                                <div class="form-group">
+                                    <label>Nama dengan Gelar</label>
+                                    <input type="text" class="form-control" name="name_gelar" placeholder="Benazheer Salsabila, A.md">
+                                </div>
+                              </div>
+                              <div class="col">
+                                  <div class="form-group">
+                                    <label>Role</label>
+                                    <select class="form-control" name="role_id" >
+                                        <option value="1">Administrator</option>
+                                        <option value="2">Validator</option>
+                                        <option value="3">Pegawai</option>
+                                    </select>
+                                    </div>
+                              </div>
                           </div>
-                          <div class="form-group">
-                            <label>Nama dengan Gelar</label>
-                            <input type="text" class="form-control" placeholder="Benazheer Salsabila, A.md">
+                          <div class="row">
+                              <div class="col-3">
+                                <div class="form-group">
+                                    <label>Jenis Kelamin</label>
+                                    <select class="custom-select" name="gender" id="jk">
+                                        <option value="L">Laki-laki</option>
+                                        <option value="P">Perempuan</option>
+                                    </select>
+                                </div>
+                              </div>
+                              <div class="col">
+                                <div class="form-group">
+                                    <label>Email address</label>
+                                    <input type="email" class="form-control" name="email" placeholder="Enter email">
+                                </div>
+                              </div>
+                              <div class="col">
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" name="password" placeholder="Enter password">
+                                </div>
+                              </div>
                           </div>
-                          <div class="form-group">
-                            <label>Jenis Kelamin</label>
-                            <select class="custom-select" name="jk" id="jk">
-                                <option value="Laki laki">L</option>
-                                <option value="Perempuan">P</option>
-                            </select>
+                          
+                          
+                          <div class="row">
+                              <div class="col">
+                                <div class="form-group">
+                                    <label>NRK</label>
+                                    <input type="text" class="form-control" name="nrk" placeholder="XXXXXX">
+                                </div>
+                              </div>
+                              <div class="col">
+                                <div class="form-group">
+                                    <label>ID/NIP/NRP</label>
+                                    <input type="text" class="form-control" name="id_nip_nrp" placeholder="XXXXXXXXXXx">
+                                </div>
+                              </div>
                           </div>
-                          <div class="form-group">
-                            <label>Email address</label>
-                            <input type="email" class="form-control" placeholder="Enter email">
+                          
+                          <div class="row">
+                              <div class="col">
+                                <div class="form-group">
+                                    <label>Tempat Lahir</label>
+                                    <input type="text" class="form-control" name="tempat_lahir" placeholder="Jakarta">
+                                </div>
+                              </div>
+                              <div class="col">
+                                <div class="form-group">
+                                    <label>Tanggal Lahir</label>
+                                    <input type="date" name="tanggal_lahir" class="form-control">
+                                </div>
+                              </div>
                           </div>
-                          <div class="form-group">
-                            <label>NRK</label>
-                            <input type="text" class="form-control" placeholder="XXXXXX">
+
+                          <div class="row">
+                              <div class="col-2">
+                                <div class="form-group">
+                                    <label>Status Nikah</label>
+                                    <select name="status_nikah"  class="form-control">
+                                        <option value="Lajang">Lajang</option>
+                                        <option value="Menikah">Menikah</option>
+                                    </select>
+                                </div>
+                              </div>
+                              <div class="col-3">
+                                <div class="form-group">
+                                    <label>Jumlah Anak</label>
+                                    <input type="number" class="form-control" name="anak" placeholder="Input Jumlah anak">
+                                </div>
+                              </div>
+                              <div class="col">
+
+                              </div>
                           </div>
-                          <div class="form-group">
-                            <label>ID/NI/NRP</label>
-                            <input type="text" class="form-control" placeholder="XXXXXXXXXXx">
-                          </div>
-                          <div class="form-group">
-                            <label>Tempat Lahir</label>
-                            <input type="text" class="form-control" placeholder="Jakarta">
-                          </div>
-                          <div class="form-group">
-                            <label>Tanggal Lahir</label>
-                            <input type="date" class="form-control">
-                          </div>
-                          <button class="btn btn-primary" onclick="stepper.next()">Next</button>
+                          
+                          <span class="btn btn-primary float-right mb-3 ml-1" onclick="stepper.next()">Next</span>
+                          <button type="button" class="btn btn-default float-right mb-3" data-dismiss="modal" id="close-modal">Close</button>
                         </div>
                         <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
-                          <div class="form-group">
-                            <label>No. Telp</label>
-                            <input type="number" class="form-control" placeholder="08XXXXXXXXXX">
-                          </div>
-                          <div class="form-group">
-                            <label>Provinsi</label>
-                            <input type="text" class="form-control" placeholder="Jakarta">
-                          </div>
-                          <div class="form-group">
-                            <label>Kota</label>
-                            <input type="text" class="form-control" placeholder="Jakarta">
-                          </div>
-                          <div class="form-group">
-                            <label>Kecamatan</label>
-                            <input type="text" class="form-control" placeholder="Jakarta">
-                          </div>
-                          <div class="form-group">
-                            <label>Kelurahan</label>
-                            <input type="text" class="form-control" placeholder="Jakarta">
-                          </div>
-                          <div class="form-group">
-                            <label>Alamat</label>
-                            <textarea  class="form-control" rows="2"></textarea>
-                          </div>
-                          <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
-                          <button class="btn btn-primary" onclick="stepper.next()">Next</button>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>No. Telp</label>
+                                        <input type="number" class="form-control" name="no_telp" placeholder="08XXXXXXXXXX">
+                                     </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Provinsi</label>
+                                        <input type="text" class="form-control" name="provinsi" placeholder="Jakarta">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Kota</label>
+                                        <input type="text" class="form-control" name="kota" placeholder="Jakarta">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Kecamatan</label>
+                                        <input type="text" class="form-control" name="kecamatan" placeholder="Jakarta">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Kelurahan</label>
+                                        <input type="text" class="form-control" name="kelurahan" placeholder="Jakarta">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Alamat</label>
+                                        <textarea  class="form-control" name="alamat" rows="2"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                          
+                          <span class="btn btn-primary float-right ml-1 mb-3" onclick="stepper.next()">Next</span>
+                          <span class="btn btn-secondary float-right" onclick="stepper.previous()">Previous</span>
+                          
                         </div>
                         <div id="dokumen-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
-                          <div class="form-group">
-                            <label>NIK</label>
-                            <input type="text" class="form-control" placeholder="32XXXXXXXXXXXXX">
-                          </div>
-                          <div class="form-group">
-                            <label>BPJS Kesehatan</label>
-                            <input type="number" class="form-control" placeholder="123456">
-                          </div>
-                          <div class="form-group">
-                            <label>BPJS Ketenagakerjaan</label>
-                            <input type="number" class="form-control" placeholder="123456">
-                          </div>
-                          <div class="form-group">
-                            <label>NPWP</label>
-                            <input type="number" class="form-control" placeholder="123456">
-                          </div>
-                          <div class="form-group">
-                            <label>Nomor Rekening</label>
-                            <input type="number" class="form-control" placeholder="000000">
-                          </div>
-                          <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
-                          <button class="btn btn-primary" onclick="stepper.next()">Next</button>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>NIK</label>
+                                        <input type="text" class="form-control" name="nik" placeholder="32XXXXXXXXXXXXX">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>BPJS Kesehatan</label>
+                                        <input type="number" class="form-control" name="bpjs_kes" placeholder="123456">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>BPJS Ketenagakerjaan</label>
+                                        <input type="number" class="form-control" name="bpjs_ket" placeholder="123456">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>NPWP</label>
+                                        <input type="number" class="form-control" name="npwp" placeholder="123456">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Nomor Rekening</label>
+                                        <input type="number" class="form-control" name="no_rek" placeholder="000000">
+                                    </div>
+                                </div>
+                            </div>
+                          
+                          
+                          <span class="btn btn-primary float-right ml-1 mb-3" onclick="stepper.next()">Next</span>
+                          <span class="btn btn-secondary float-right" onclick="stepper.previous()">Previous</span>
+                          
                         </div>
                         <div id="posisi-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
-                          <div class="form-group">
-                            <label>Jabatan</label>
-                            <input type="text" class="form-control" placeholder="IT">
-                          </div>
-                          <div class="form-group">
-                            <label>Unit Kerja</label>
-                            <input type="text" class="form-control" placeholder="Management">
-                          </div>
-                          <div class="form-group">
-                            <label>Formasi Jabatan</label>
-                            <input type="text" class="form-control" placeholder="000000">
-                          </div>
-                          <div class="form-group">
-                            <label>Jenis Jabatan</label>
-                            <input type="text" class="form-control" placeholder="">
-                          </div>
-                          <div class="form-group">
-                            <label>Status Pegawai</label>
-                            <input type="text" class="form-control" placeholder="">
-                          </div>
-                          <div class="form-group">
-                            <label>Rank</label>
-                            <input type="text" class="form-control" placeholder="">
-                          </div>
-                          <div class="form-group">
-                            <label>Group</label>
-                            <input type="text" class="form-control" placeholder="">
-                          </div>
-                          <div class="form-group">
-                            <label>TMT</label>
-                            <input type="date" class="form-control">
-                          </div>
-                          <div class="form-group">
-                            <label>TMT Akhir</label>
-                            <input type="date" class="form-control">
-                          </div>
-                          <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
-                          <button class="btn btn-primary" onclick="stepper.next()">Next</button>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Jabatan</label>
+                                        <input type="text" class="form-control" name="jabatan" placeholder="IT">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Unit Kerja</label>
+                                        <input type="text" class="form-control" name="unit_kerja" placeholder="Management">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Formasi Jabatan</label>
+                                        <input type="text" class="form-control" name="formasi_jabatan" placeholder="000000">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Jenis Jabatan</label>
+                                        <input type="text" class="form-control" name="jenis_jabatan" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Status Pegawai</label>
+                                        <input type="text" class="form-control" name="status_pegawai" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Rank</label>
+                                        <input type="text" class="form-control" name="rank" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Group</label>
+                                        <input type="text" class="form-control" name="group" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>TMT</label>
+                                        <input type="date" class="form-control" name="tmt_awal">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>TMT Akhir</label>
+                                        <input type="date" class="form-control" name="tmt_akhir">
+                                    </div>
+                                </div>
+                            </div>                        
+
+                          <span class="btn btn-primary float-right ml-1 mb-3" onclick="stepper.next()">Next</span>
+                          <span class="btn btn-secondary float-right" onclick="stepper.previous()">Previous</span>
+                          
                         </div>
                         <div id="tiga-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
                           <div class="form-group">
                             <label>Jenjang</label>
                             <select class="custom-select" name="jenjang" id="jenjang">
+                                <option value="SLTA/Sederajat">SLTA/Sederajat</option>
                                 <option value="D1">D1</option>
                                 <option value="D2">D2</option>
                                 <option value="D3">D3</option>
@@ -297,12 +430,24 @@
                                 <option value="S3">S3</option>
                             </select>
                           </div>
-                          <div class="form-group">
-                            <label>Pendidikan</label>
-                            <input type="text" class="form-control" placeholder="Teknik Informatika">
+                          <div class="row">
+                              <div class="col">
+                                    <div class="form-group">
+                                        <label>Pendidikan</label>
+                                        <input type="text" class="form-control" name="education" placeholder="Teknik Informatika">
+                                    </div>
+                              </div>
+                              <div class="col">
+                                <div class="form-group">
+                                    <label>Tahun Tamat</label>
+                                    <input type="number" class="form-control" name="tamat" placeholder="2021">
+                                </div>
+                              </div>
                           </div>
-                          <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
-                          <button class="btn btn-primary" onclick="stepper.next()">Next</button>
+                          
+                          <span class="btn btn-primary float-right ml-1 mb-3" onclick="stepper.next()">Next</span>
+                          <span class="btn btn-secondary float-right" onclick="stepper.previous()">Previous</span>
+                          
                         </div>
                         <div id="empat-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
                             <div class="form-check">
@@ -312,34 +457,51 @@
                                 </label>
                             </div>
                             <div id="medis" class="form-group">
-                                <div class="form-group">
-                                    <label for="strno">STR</label>
-                                    <input name="strno" type="number" class="form-control" placeholder="123456789123456">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="strno">STR</label>
+                                            <input name="str_no" type="number" class="form-control" placeholder="123456789123456">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="terbitstr">Tanggal Terbit STR</label>
+                                            <input name="str_terbit" type="date" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="berakhirstr">Tanggal Berakhir STR</label>
+                                            <input name="str_akhir" type="date" class="form-control">
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="terbitstr">Tanggal Terbit STR</label>
-                                    <input name="terbitstr" type="date" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="berakhirstr">Tanggal Berakhir STR</label>
-                                    <input name="berakhirstr" type="date" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="sipno">SIP</label>
-                                    <input name="sipno" type="number" class="form-control" placeholder="123456789123456">
-                                </div>
-                                <div class="form-group">
-                                    <label for="terbitsip">Tanggal Terbit SIP</label>
-                                    <input name="terbitsip" type="date" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="berakhirsip">Tanggal Berakhir SIP</label>
-                                    <input name="berakhirsip" type="date" class="form-control">
-                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="sipno">SIP</label>
+                                            <input name="sip_no" type="number" class="form-control" placeholder="123456789123456">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="terbitsip">Tanggal Terbit SIP</label>
+                                            <input name="sip_terbit" type="date" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="berakhirsip">Tanggal Berakhir SIP</label>
+                                            <input name="sip_akhir" type="date" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>                                            
                             </div>
                           {{-- <button class="btn btn-primary" onclick="stepper.next()">Next</button> --}}
-                          <button class="btn btn-secondary" onclick="stepper.previous()">Previous</button>
-                          <button type="submit" class="btn btn-success">Submit</button>
+                          <button type="submit" class="btn btn-success float-right ml-1 mb-3">Submit</button>
+                          <span class="btn btn-secondary float-right" onclick="stepper.previous()">Previous</span>
+                        </form>
                         </div>
                   </div>
                 </div>
@@ -915,23 +1077,7 @@
 
     //profile pic
     $(document).ready(function() {
-    var readURL = function(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('.profile-pic').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
     
-    $(".file-upload").on('change', function(){
-        readURL(this);
-    });
-    
-    $(".upload-button").on('click', function() {
-       $(".file-upload").click();
-    });
     });
 
     //disable non medis
@@ -940,10 +1086,12 @@
             document.getElementById("medis").classList.add('disable_section')
         } else {
             document.getElementById("medis").classList.remove('disable_section')
-  }
+        }
     }
 
     $(document).ready(function(){
+        
+
         dTable = $('#myTable').DataTable({
             order: [[2,'asc']],
             responsive: true,
@@ -953,16 +1101,12 @@
             },
             serverSide: true,
             ajax: "{{ route('admin.user_get')}}",
+            lengthChange: false, 
+            autoWidth: false,
+            dom: 'Bfrtip',
+            buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
             columns: [
                 // { data: 'IdType', name: 'IdType' },
-                {
-                    data: 'name',
-                    name: 'name'
-                },
-                {
-                    data: 'email',
-                    name: 'email'
-                },
                 {
                     data: 'role_id',
                     render: function(data, type, row){
@@ -973,6 +1117,30 @@
                         }else if(row.role_id == 3){
                             return 'Pegawai';
                         }
+                    }
+                },
+                {
+                    data: 'nrk',
+                    name: 'nrk'
+                },
+                {
+                    data: 'name',
+                    name: 'name'
+                },
+                {
+                    data: 'email',
+                    name: 'email'
+                },
+                {
+                    data: 'id',
+                    render: function(row, meta, data){
+                        return 'null';
+                    }
+                },
+                {
+                    data: 'id',
+                    render: function(row, meta, data){
+                        return 'null';
                     }
                 },
                 // {
@@ -990,7 +1158,26 @@
                         return buttonEdit + buttonDelete;
                     }
                 }
-            ]
+            ],
+            
+        }).buttons().container().appendTo('#myTable_wrapper .col-md-6:eq(0)');
+
+        var readURL = function(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('.profile-pic').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    
+            $(".file-upload").on('change', function(){
+                readURL(this);
+            });
+        
+            $(".upload-button").on('click', function() {
+            $(".file-upload").click();
         });
 
     })
@@ -1020,7 +1207,6 @@
                 if (response.status == 200) {
                     // autonumber();
                     $('#form-create').trigger("reset");
-                    dTable.ajax.reload();
                     Swal.fire({
                         icon: 'success',
                         title: 'Success',
@@ -1030,6 +1216,10 @@
                         // footer: '<a href="">Why do I have this issue?</a>'
                     })
                     $('#close-modal').click();
+                    setTimeout(function () {
+                        location.reload()
+                    }, 1500);
+                    //dTable.ajax.reload();
                 } else {
                     Swal.fire({
                         icon: 'error',
@@ -1138,7 +1328,9 @@
                     success: function (resp) {
                         if (resp.success) {
                             swal.fire("Done!", resp.message, "success");
-                            dTable.ajax.reload();
+                            setTimeout(function () {
+                                location.reload()
+                            }, 1500);
                         } else {
                             swal.fire("Error!", 'Something went wrong.', "error");
                         }
@@ -1161,19 +1353,20 @@
     //     var name = $("#name").val();
     // }
 
-    $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "dom": 'Bfrtip',
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-  });
+//     $(function () {
+//     $("#example1").DataTable({
+//       "responsive": true, "lengthChange": false, "autoWidth": false,
+//       "dom": 'Bfrtip',
+//       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+//     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+//   });
 
   // BS-Stepper Init
   document.addEventListener('DOMContentLoaded', function () {
     window.stepper = new Stepper(document.querySelector('.bs-stepper'))
   })
 
+  
   
     
 </script>

@@ -16,12 +16,12 @@ class CreateDataDiriTable extends Migration
         Schema::create('data_diri', function (Blueprint $table) {
             $table->id();
             $table->integer('users_id')->unique();
-            $table->enum('gender',['Laki Laki','Perempuan']);
+            $table->enum('gender',['L','P']);
             $table->text('id_nip_nrp');
             $table->text('tempat_lahir');
             $table->date('tanggal_lahir');
-            $table->text('status_nikah');
-            $table->integer('anak');
+            $table->enum('status_nikah',['Lajang','Menikah']);
+            $table->integer('anak')->nullable();
             $table->timestamps();
         });
     }

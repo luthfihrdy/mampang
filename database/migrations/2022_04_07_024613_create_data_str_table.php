@@ -15,7 +15,7 @@ class CreateDataStrTable extends Migration
     {
         Schema::create('data_str', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unique();
+            $table->integer('users_id')->unique();
             $table->integer('str_no')->nullable();
             $table->date('str_terbit')->nullable();
             $table->date('str_akhir')->nullable();

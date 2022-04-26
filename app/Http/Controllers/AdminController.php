@@ -4,6 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Datadiri;
+use App\Models\DataAlamat;
+use App\Models\DataDokumen;
+use App\Models\DataPosisi;
+use App\Models\DataPendidikan;
+use App\Models\DataSip;
+use App\Models\DataStr;
 use App\Models\Kegiatan;
 use Yajra\DataTables\DataTables;
 use Validator;
@@ -99,22 +106,89 @@ class AdminController extends Controller
     public function createUser(Request $request) {
         Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
+            'name_gelar' => ['required', 'string', 'max:255'],
             'role_id' => ['required', 'integer', 'min:1'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'id_nip_nrk' => ['required'],
         ]);
 
-        $create = User::create([
+        $createUser = User::create([
+            'nrk'   => $request->nrk,
             'name' => $request->name,
+            'name_gelar' => $request->name_gelar,
             'role_id' => $request->role_id,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        if($create){
+        $createDatadiri = Datadiri::create([
+            'users_id' =>   $createUser->id,
+            'id_nip_nrp' => $request->id_nip_nrp,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'status_nikah'   => $request->status_nikah,
+            'jumlah_anak'   => $request->jumlah_anak,
+        ]);
+
+        $createDataalamat = DataAlamat::create([
+            'users_id' =>   $createUser->id,
+            'no_telp' => $request->no_telp,
+            'alamat' => $request->alamat,
+            'kelurahan' => $request->kelurahan,
+            'kecamatan'   => $request->kecamatan,
+            'provinsi'   => $request->provinsi,
+            'kota'   => $request->kota,
+        ]);
+
+        $createDataDokumen = DataDokumen::create([
+            'users_id' =>   $createUser->id,
+            'nik' => $request->nik,
+            'bpjs_kes' => $request->bpjs_kes,
+            'bpjs_ket' => $request->bpjs_ket,
+            'npwp' => $request->npwp,
+            'no_rek' => $request->no_rek,
+        ]);
+
+        $createDataPosisi = DataPosisi::create([
+            'users_id' =>   $createUser->id,
+            'jabatan' => $request->jabatan,
+            'unit_kerja' => $request->unit_kerja,
+            'formasi_jabatan' => $request->formasi_jabatan,
+            'jenis_jabatan' => $request->jenis_jabatan,
+            'status_pegawai' => $request->status_pegawai,
+            'tmt_akhir' => $request->tmt_akhir,
+            'tmt_awal' => $request->tmt_awal,
+            'rank' => $request->rank,
+            'group' => $request->group,
+
+        ]);
+
+        $createDataPendidikan = DataPendidikan::create([
+            'users_id' =>   $createUser->id,
+            'jenjang' => $request->jenjang,
+            'education' => $request->education,
+            'tamat' => $request->tamat,
+        ]);
+
+        $createDataSip = DataSip::create([
+            'users_id' =>   $createUser->id,
+            'sip_no' => $request->sip_no,
+            'sip_terbit' => $request->sip_terbit,
+            'sip_akhir' => $request->tamat,
+        ]);
+
+        $createDataStr = DataStr::create([
+            'users_id' =>   $createUser->id,
+            'str_no' => $request->str_no,
+            'str_terbit' => $request->str_terbit,
+            'str_akhir' => $request->str_akhir,
+        ]);
+
+        if($createDataStr){
             return response()->json(['status'=>200,'message'=>'Data Berhasil DiInput']);
         }else{
-            return response()->json(['status'=>422,'message'=>$validator->messages()]);
+            return response()->json(['status'=>422,'message'=>'Data Gagal Di Input']);
         }
     }
 
@@ -149,6 +223,11 @@ class AdminController extends Controller
     public function destroyUser($ids) {
         $user = User::find($ids);
         $success = $user->delete();
+        $success = DB::table('data_diri')->where('users_id',$ids)->delete();
+        $sucess = DB::table('data_alamat')->where('users_id',$ids)->delete();
+        $sucess = DB::table('data_dokumen')->where('users_id',$ids)->delete();
+        $sucess = DB::table('data_posisi')->where('users_id',$ids)->delete();
+        $sucess = DB::table('data_pendidikan')->where('users_id',$ids)->delete();
         if($success){
             return response()->json(['success'=>true, 'status'=>200,'message'=>'Data Berhasil Di Hapus']);
         }else{

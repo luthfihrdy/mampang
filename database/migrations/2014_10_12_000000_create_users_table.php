@@ -20,9 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('name_gelar');
             $table->string('email')->unique();
             $table->integer('role_id');
-            $table->text('foto');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->text('foto');
             $table->rememberToken();
             $table->timestamps();
         });
