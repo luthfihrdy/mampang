@@ -36,7 +36,7 @@
                         alt="User profile picture">
                     </div>
                     <h3 class="profile-username text-center">
-                    {{Auth::user()->name}}</h3>
+                    {{$data[0]->name}}</h3>
                     <p class="text-muted text-center">Software Engineer</p>
                 </div>
               <!-- /.card-body -->
@@ -51,23 +51,23 @@
               <!-- /.card-header -->
                 <div class="card-body">
                     <strong><i class="fas fa-user"></i> Nama Lengkap</strong>
-                    <p class="text-muted">{{Auth::user()->name}}</p>
+                    <p class="text-muted">{{$data[0]->name}}</p>
                     <hr>
                     {{-- Email --}}
                     <strong><i class="fas fa-at"></i> Email</strong>
-                    <p class="text-muted">bena@gmail.com</p>
+                    <p class="text-muted">{{$data[0]->email}}</p>
                     <hr>
                     {{-- No Hp --}}
                     <strong><i class="fas fa-phone mr-1"></i> No. Telp</strong>
-                    <p class="text-muted">08455156565</p>
+                    <p class="text-muted">{{$data[0]->no_telp}}</p>
                     <hr>
                     {{-- Alamat --}}
                     <strong><i class="fas fa-map-marker-alt mr-1"></i> Alamat</strong>
-                    <p class="text-muted">Alamat</p>
-                    <p class="text-muted">Kelurahan</p>
-                    <p class="text-muted">Kecamatan</p>
-                    <p class="text-muted">Kota</p>
-                    <p class="text-muted">Provinsi</p>
+                    <p class="text-muted">{{$data[0]->alamat}}</p>
+                    <p class="text-muted">Kelurahan <br/>{{$data[0]->kelurahan}}</p>
+                    <p class="text-muted">Kecamatan <br/>{{$data[0]->kecamatan}}</p>
+                    <p class="text-muted">Kota<br/>{{$data[0]->kota}}</p>
+                    <p class="text-muted">Provinsi<br/>{{$data[0]->provinsi}}</p>
                     <hr>
               </div>
               <!-- /.card-body -->
@@ -93,11 +93,11 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <label for="disabledTextInput" class="form-label">Nama Lengkap Dengan Gelar</label>
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="{{Auth::user()->name}}">
+                                <input type="text" id="disabledTextInput" class="form-control" value="{{$data[0]->name_gelar}}">
                             </div>
                             <div class="mb-3 col-sm-6">
                                 <label for="disabledTextInput" class="form-label">NIK</label>
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                <input type="text" id="disabledTextInput" class="form-control" value="{{$data[0]->nik}}">
                             </div>
                         </div>
                    </div>
@@ -105,11 +105,11 @@
                         <div class="row">
                             <div class="mb-3 col-sm-6">
                                 <label for="disabledTextInput" class="form-label">NRK</label>
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                <input type="text" id="disabledTextInput" class="form-control" value="{{$data[0]->nrk}}">
                             </div>
                             <div class="mb-3 col-sm-6">
                                 <label for="disabledTextInput" class="form-label">ID/NIP/NRP</label>
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="" value="{{$data[0]->id_nip_nrp}}">
                             </div>
                         </div>
                    </div>
@@ -135,11 +135,11 @@
                         <div class="row">
                             <div class="mb-3 col-sm-6">
                                 <label for="disabledTextInput" class="form-label">Tempat Lahir</label>
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="" value="{{$data[0]->tempat_lahir}}">
                             </div>
                             <div class="mb-3 col-sm-6">
                                 <label for="disabledTextInput" class="form-label">Tanggal Lahir</label>
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="" value="{{$data[0]->tanggal_lahir}}">
                             </div>
                         </div>
                    </div>
@@ -147,11 +147,11 @@
                         <div class="row">
                             <div class="mb-3 col-sm-6">
                                 <label for="disabledTextInput" class="form-label">Jenis Kelamin</label>
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="" value="{{($data[0]->gender)}}">
                             </div>
                             <div class="mb-3 col-sm-6">
                                 <label for="disabledTextInput" class="form-label">Pangkat</label>
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                <input type="text" id="disabledTextInput" class="form-control" value="{{($data[0]->rank)}}">
                             </div>
                         </div>
                    </div>
@@ -159,11 +159,11 @@
                         <div class="row">
                             <div class="mb-3 col-sm-6">
                                 <label for="disabledTextInput" class="form-label">Jabatan</label>
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                <input type="text" id="disabledTextInput" class="form-control" value="{{($data[0]->jabatan)}}">
                             </div>
                             <div class="mb-3 col-sm-6">
                                 <label for="disabledTextInput" class="form-label">Jenis Jabatan</label>
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                <input type="text" id="disabledTextInput" class="form-control" value="{{($data[0]->jenis_jabatan)}}">
                             </div>
                         </div>
                    </div>
@@ -171,11 +171,11 @@
                         <div class="row">
                             <div class="mb-3 col-sm-6">
                                 <label for="disabledTextInput" class="form-label">Unit Kerja</label>
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                <input type="text" id="disabledTextInput" class="form-control" value="{{($data[0]->unit_kerja)}}">
                             </div>
                             <div class="mb-3 col-sm-6">
                                 <label for="disabledTextInput" class="form-label">Jenis Unit</label>
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                <input type="text" id="disabledTextInput" class="form-control" value="">
                             </div>
                         </div>
                    </div>
@@ -183,11 +183,11 @@
                         <div class="row">
                             <div class="mb-3 col-sm-6">
                                 <label for="disabledTextInput" class="form-label">Nama Fasyankes</label>
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                <input type="text" id="disabledTextInput" class="form-control" value="{{($data[0]->fasyankes)}}">
                             </div>
                             <div class="mb-3 col-sm-6">
                                 <label for="disabledTextInput" class="form-label">Formasi Jabatan</label>
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                <input type="text" id="disabledTextInput" class="form-control" value="{{($data[0]->formasi_jabatan)}}">
                             </div>
                         </div>
                    </div>
@@ -195,11 +195,11 @@
                         <div class="row">
                             <div class="mb-3 col-sm-6">
                                 <label for="disabledTextInput" class="form-label">Status Pegawai</label>
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                <input type="text" id="disabledTextInput" class="form-control" value="{{($data[0]->status_pegawai)}}">
                             </div>
                             <div class="mb-3 col-sm-6">
                                 <label for="disabledTextInput" class="form-label">Golongan</label>
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                <input type="text" id="disabledTextInput" class="form-control" value="{{($data[0]->group)}}">
                             </div>
                         </div>
                    </div>
@@ -207,11 +207,11 @@
                         <div class="row">
                             <div class="mb-3 col-sm-6">
                                 <label for="disabledTextInput" class="form-label">TMT</label>
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                <input type="text" id="disabledTextInput" class="form-control" value="{{($data[0]->tmt_awal)}}">
                             </div>
                             <div class="mb-3 col-sm-6">
                                 <label for="disabledTextInput" class="form-label">TMT Berakhir</label>
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="">
+                                <input type="text" id="disabledTextInput" class="form-control" value="{{($data[0]->tmt_akhir)}}">
                             </div>
                         </div>
                    </div>

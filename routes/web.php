@@ -25,6 +25,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile')->middleware(['auth']);
+
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'adminDash'])->name('admin.dash')->middleware('admin');
 Route::get('/admin/user', [App\Http\Controllers\AdminController::class, 'showUser'])->name('admin.user')->middleware(['admin', 'auth']);
 Route::get('/admin/user/data', [App\Http\Controllers\AdminController::class, 'getUser'])->name('admin.user_get')->middleware('admin');
@@ -79,7 +81,7 @@ Route::post('/pegawai/kegiatan/utama/store', [App\Http\Controllers\KUtamaControl
 Route::get('/pegawai/kinerja', [App\Http\Controllers\KinerjaController::class, 'index'])->name('pegawai.ckinerja')->middleware('pegawai');
 Route::get('/pegawai/kinerja/line/data', [App\Http\Controllers\KinerjaController::class, 'lineChart'])->name('pegawai.linechart')->middleware('pegawai');
 
-Route::get('/pegawai/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('pegawai.profile')->middleware('pegawai');
+
 
 Route::get('/pegawai/sakit', [App\Http\Controllers\SakitController::class, 'index'])->name('pegawai.sakit')->middleware(['pegawai']);
 

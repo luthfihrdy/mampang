@@ -89,7 +89,7 @@
             <i class="fas fa-cog mr-2"></i> Settings
           </a>
           <div class="dropdown-divider"></div>
-          <a href="{{route('pegawai.profile')}}" class="dropdown-item">
+          <a href="{{route('profile')}}" class="dropdown-item">
             <i class="fas fa-users mr-2"></i> Profile
           </a>
           <!-- <div class="dropdown-divider"></div>
@@ -131,7 +131,7 @@
           <img src="{{asset('img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div> --}}
         <div class="info">
-          <a href="{{route('pegawai.profile')}}" class="d-block">
+          <a href="{{route('profile')}}" class="d-block">
             {{-- Ambil nama depan --}}
             @php
             $name = Auth::user()->name;
