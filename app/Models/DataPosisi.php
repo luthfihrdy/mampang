@@ -13,6 +13,7 @@ class DataPosisi extends Model
 
     protected $fillable = [
         'users_id',
+        'fasyankes',
         'jabatan',
         'unit_kerja',
         'formasi_jabatan',

@@ -354,6 +354,12 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
+                                        <label>Fasyankes</label>
+                                        <input type="text" class="form-control" name="fasyankes" placeholder="Kec. Mampang Prapatan">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
                                         <label>Jabatan</label>
                                         <input type="text" class="form-control" name="jabatan" placeholder="IT">
                                     </div>
@@ -609,7 +615,7 @@
                     <div class="col-md-12">
                         <div class="card card-default">
                             <div class="card-body p-0">
-                                <div class="bs-stepper">
+                                <div class="bs-stepper" id="bs-stepper-2">
                                     <div class="bs-stepper-header" role="tablist">
                                         <!-- your steps here -->
                                         <div class="step" data-target="#data-part">
@@ -1132,16 +1138,12 @@
                     name: 'email'
                 },
                 {
-                    data: 'id',
-                    render: function(row, meta, data){
-                        return 'null';
-                    }
+                    data: 'fasyankes',
+                    name: 'fasyankes'
                 },
                 {
-                    data: 'id',
-                    render: function(row, meta, data){
-                        return 'null';
-                    }
+                    data: 'unit_kerja',
+                    name: 'unit_kerja',
                 },
                 // {
                 //     data: 'role_id',
@@ -1152,7 +1154,7 @@
                     render: function (data, type, row) {
                         // console.log(type);
                         let buttonEdit =
-                        '<a href="#" class="text-primary" data-toggle="modal" data-target="#modal-update" onclick="buttonEdit(\'' + data + '\');"><i class="fas fa-edit"></i></a>';
+                        '<a href="#" class="text-primary" data-toggle="modal" data-target="#modal-edit" onclick="buttonEdit(\'' + data + '\');"><i class="fas fa-edit"></i></a>';
                             // '<button type="button" class="btn btn-success btn-rounded btn-icon" data-toggle="modal" data-placement="buttom" data-custom-class="tooltip-success" title="EDIT" data-target="#showModalUpdateLocation" style="margin-right:5px;" onclick="buttonEdit(\'' + data + '\');"><i style="font-size:1.5rem; margin-left:-7px;" class="ti-pencil-alt"></i></button>';
                         let buttonDelete = '<a href="#" class="text-danger ml-2" onclick="buttonDelete(\'' + data + '\')"><i class="fas fa-trash"></i></a>';
                         return buttonEdit + buttonDelete;
@@ -1363,7 +1365,8 @@
 
   // BS-Stepper Init
   document.addEventListener('DOMContentLoaded', function () {
-    window.stepper = new Stepper(document.querySelector('.bs-stepper'))
+    window.stepper = new Stepper(document.querySelector('.bs-stepper'));
+    window.stepper = new Stepper(document.querySelector('#bs-stepper-2'))
   })
 
   

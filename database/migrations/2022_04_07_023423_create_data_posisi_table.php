@@ -16,6 +16,7 @@ class CreateDataPosisiTable extends Migration
         Schema::create('data_posisi', function (Blueprint $table) {
             $table->id();
             $table->integer('users_id')->unique();
+            $table->text('fasyankes');
             $table->text('jabatan');
             $table->text('unit_kerja');
             $table->text('formasi_jabatan');

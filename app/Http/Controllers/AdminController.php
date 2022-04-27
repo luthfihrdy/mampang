@@ -99,7 +99,9 @@ class AdminController extends Controller
     }
 
     public function getUser(){
-        $res = DB::table('users')->get();
+        $res = DB::table('users')
+        //->join('data_posisi','data_posisi.users_id','=','users.id')
+        ->get();
         return Datatables::of($res)->make(true);
     }
 
@@ -152,6 +154,7 @@ class AdminController extends Controller
 
         $createDataPosisi = DataPosisi::create([
             'users_id' =>   $createUser->id,
+            'fasyankes' => $request->fasyankes,
             'jabatan' => $request->jabatan,
             'unit_kerja' => $request->unit_kerja,
             'formasi_jabatan' => $request->formasi_jabatan,
@@ -179,13 +182,13 @@ class AdminController extends Controller
         ]);
 
         $createDataStr = DataStr::create([
-            'users_id' =>   $createUser->id,
+            'users_id' => $createUser->id,
             'str_no' => $request->str_no,
             'str_terbit' => $request->str_terbit,
             'str_akhir' => $request->str_akhir,
         ]);
 
-        if($createDataStr){
+        if($createDataPendidikan){
             return response()->json(['status'=>200,'message'=>'Data Berhasil DiInput']);
         }else{
             return response()->json(['status'=>422,'message'=>'Data Gagal Di Input']);
@@ -228,6 +231,8 @@ class AdminController extends Controller
         $sucess = DB::table('data_dokumen')->where('users_id',$ids)->delete();
         $sucess = DB::table('data_posisi')->where('users_id',$ids)->delete();
         $sucess = DB::table('data_pendidikan')->where('users_id',$ids)->delete();
+        $sucess = DB::table('data_sip')->where('users_id',$ids)->delete();
+        $sucess = DB::table('data_str')->where('users_id',$ids)->delete();
         if($success){
             return response()->json(['success'=>true, 'status'=>200,'message'=>'Data Berhasil Di Hapus']);
         }else{
@@ -241,48 +246,52 @@ class AdminController extends Controller
     }
     
     public function getData() {
-        $res = DB::table('kegiatans')
-                ->join('users','users.id','=','kegiatans.user_id')
-                ->where('status','Approved')
-                ->get([
-                    'users.name as name',
-                    'tanggal_kegiatan',
-                    'jam_awal',
-                    'jam_akhir',
-                    'kegiatan',
-                    'status',
-                ]);
+        // $res = DB::table('kegiatan')
+        //         ->join('users','users.id','=','kegiatan.user_id')
+        //         ->where('status','Approved')
+        //         ->get([
+        //             'users.name as name',
+        //             'tanggal_kegiatan',
+        //             'keg_jammulai',
+        //             'keg_jamselesai',
+        //             'kegiatan',
+        //             'status',
+        //         ]);
+        $res = Kegiatan::with('getUser')->with('getAct')->get();
         //$res = Kegiatan::with('getUser')->where('status','Approved')->get();
-        return Datatables::of($res)->editColumn('tanggal_kegiatan', function($date) {
-            return Carbon::parse($date->tanggal_kegiatan)->format('Y-m-d');
+        return Datatables::of($res)->editColumn('keg_date', function($date) {
+            return Carbon::parse($date->keg_date)->format('Y-m-d');
          })->make(true);
     }
 
     public function filter(Request $request) {
-        $data = DB::table('
-        ')
-                ->join('users','users.id','=','kegiatans.user_id')
-                ->where('status','Approved');
+        $data = Kegiatan::with('getUser')->with('getAct');
+        // $data = DB::table('
+        // ')
+        //         ->join('users','users.id','=','kegiatans.user_id')
+        //         ->where('status','Approved');
                 
         if(!empty($request->user_id)){
-            $data->where('user_id',$request->user_id);
+            $data->where('users_id',$request->user_id);
         }
 
         if(!empty($request->awal || $request->akhir)){
-            $data->whereBetween('tanggal_kegiatan', [$request->awal, $request->akhir]);
+            $data->whereBetween('keg_date', [$request->awal, $request->akhir]);
         }
         
-        $data->get([
-            'users.name as name',
-            'tanggal_kegiatan',
-            'jam_awal',
-            'jam_akhir',
-            'kegiatan',
-            'status',
-        ]);
-        return Datatables::of($data)->editColumn('tanggal_kegiatan', function($date) {
-            return Carbon::parse($date->tanggal_kegiatan)->format('Y-m-d');
-        })->make(true);
+        // $data->get([
+        //     'users.name as name',
+        //     'tanggal_kegiatan',
+        //     'jam_awal',
+        //     'jam_akhir',
+        //     'kegiatan',
+        //     'status',
+        // ]);
+        $data->get();
+        // return Datatables::of($data)->editColumn('keg_date', function($date) {
+        //     return Carbon::parse($date->tanggal_kegiatan)->format('Y-m-d');
+        // })->make(true);
+        return Datatables::of($data)->make(true);
     }
 
     public function getUserJson() {

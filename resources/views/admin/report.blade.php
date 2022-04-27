@@ -59,7 +59,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-            <table id="example1" class="table table-bordered table-hover">
+            <table id="myTable" class="table table-bordered table-hover">
                 <thead>
                     <tr>
                         <th style="width: 100px;">Timestamp</th>
@@ -67,6 +67,7 @@
                         <th>Kegiatan</th>
                         <th>Uraian</th>
                         <th>Waktu</th>
+                        <th>Jam Akhir</th>
                         <th>Durasi</th>
                         <th>Vol</th>
                         <th>Hasil</th>
@@ -75,7 +76,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    {{-- <tr>
                         <td>12/03/2022</td>
                         <td>Benazheer</td>
                         <td>Ngoding</td>
@@ -110,7 +111,7 @@
                         <td>1 Laporan</td>
                         <td>Umum</td>
                         <td><button type="button" class="btn btn-danger btn-sm" title="rejected"><i class="fa fa-ban"></i></button></td>
-                  </tr>
+                  </tr> --}}
                   </tbody>
                 </table>
             </div>
@@ -133,13 +134,8 @@
     dataUser(); //manggil method datauser()
     //setTime();
     dTable = $('#myTable').DataTable({
-    columnDefs: [
-        { width: '12%', targets:1},
-        { width: '5%', targets:2},
-        { width: '5%', targets:3},
-        { width: '40%', targets:4}
-    ],
-    // order: [[2,'asc']],
+
+    order: [[0,'desc']],
     responsive: true,
     processing: true,
     "language": {
@@ -147,83 +143,114 @@
     },
     serverSide: true,
     ajax: "{{ route('admin.report_get')}}",
+    dom: 'Bfrtip',
+    buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
     columns: [
         // { data: 'IdType', name: 'IdType' },
         {
-            data: 'name',
-            name: 'name'
+            data: 'keg_date',
+            render: function(meta, data, row) {
+                return row.keg_date.substring(0,10)
+            }
         },
         {
-            data: 'tanggal_kegiatan',
-            name: 'tanggal_kegiatan'
+            data: 'get_user',
+            render: function(data, type, row, meta){
+                if(data == null){
+                        return null;
+                    }else{
+                        return data.name;
+                }
+            }
         },
         {
-            data: 'jam_awal',
-            name: 'jam_awal'
+            data: 'get_act',
+            render: function(data, type, row, meta){
+                if(data == null){
+                        return null;
+                    }else{
+                        return data.act_nama;
+                }
+            }
         },
         {
-            data: 'jam_akhir',
-            name: 'jam_akhir'
+            data: 'keg_notes',
+            name: 'keg_notes'
         },
         {
-            data: 'kegiatan',
-            name: 'kegiatan'
+            data: 'keg_jammulai',
+            name: 'keg_jammulai'
+        },
+        {
+            data: 'keg_jamselesai',
+            name: 'keg_jamselesai'
+        },
+        {
+            data: 'point_menit',
+            data: 'point_menit'
+        },
+        {
+            data: 'keg_volume',
+            name: 'keg_volume'
+        },
+        {
+            data: 'totalunit',
+            name: 'totalunit'
+        },
+        {
+            data: 'cacode',
+            name: 'cacode'
         },
         {
             data: 'status',
             render: function(data, type, row) {
-                if(row.status == 'Waiting') {
-                    return '<span class="badge badge-warning">' + data + '</span>'
-                }else if(row.status == 'Approved') {
-                    return '<span class="badge badge-success">' + data + '</span>'
-                }else if(row.status == 'Rejected') {
-                    return '<span class="badge badge-danger">' + data + '</span>'
+                if(row.status == '1') {
+                    return '<span type="button" class="btn btn-warning btn-sm text-white" title="Waiting"><i class="fa fa-hourglass"> Waiting</span>'
+                }else if(row.status == '2') {
+                    return '<span type="button" class="btn btn-success btn-sm" title="approved"><i class="fa fa-check"></i> Approved</span>'
+                }else if(row.status == '3') {
+                    return '<span type="button" class="btn btn-danger btn-sm" title="rejected"><i class="fa fa-ban"></i> Rejected</span>'
                 }
             }
         },
-        // {
-        //     data: 'role_id',
-        //     render: function(data, type, row){
-        //         if(row.role_id == 1) {
-        //             return 'Admin';
-        //         }else if(row.role_id == 2){
-        //             return 'Validator';
-        //         }else if(row.role_id == 3){
-        //             return 'Pegawai';
-        //         }
-        //     }
-        // },
-        // {
-        //     data: 'role_id',
-        //     name: 'role_id'
-        // },
-        // {
-        //     data: 'id',
-        //     //name: 'id'
-        //     render: function (data, type, row) {
-        //         if(row.status == 'Approved' || row.status == 'Rejected') {
-        //             let buttonApprove = '<button type="button" class="ml-2 btn btn-success btn-sm disabled" onclick="buttonApprove(\'' + data + '\')"><i class="fas fa-check"></i></button>'
-        //             let buttonReject = '<button type="button" class="ml-2 btn btn-danger btn-sm disabled" onclick="buttonReject(\'' + data + '\')"><i class="fa fa-times"></i></button>'
-        //             return buttonApprove + buttonReject;
-        //         }
-        //         if(row.status == 'Waiting') {
-        //             let buttonApprove = '<button type="button" class="ml-2 btn btn-success btn-sm" onclick="buttonApprove(\'' + data + '\')"><i class="fas fa-check"></i></button>'
-        //             let buttonReject = '<button type="button" class="ml-2 btn btn-danger btn-sm" onclick="buttonReject(\'' + data + '\')"><i class="fa fa-times"></i></button>'
-        //             return buttonApprove + buttonReject;
-        //         }//let buttonApprove = '<button href="#" class="text-success ml-2 disabled" onclick="buttonApprove(\'' + data + '\')"><i class="fas fa-check"></i></button>';
-        //         //return buttonApprove + buttonReject;
-        //     }
-        // }
-        ]
-});
+        ],
+        columnDefs: [
+            {
+                targets: 4,
+                render: function(data, type, row) {
+                    var awal = data.substring(0,5);
+                    var selesai = row.keg_jamselesai.substring(0,5)
+                    return awal + ' - ' + selesai;
+                }
+            },
+            {
+                targets: 6,
+                render: function(data, type, row) {
+                    return data + ' ' + row.get_act.act_durasi;
+                }
+            },
+            {
+                targets: 8,
+                render: function(data, type, row) {
+                    return data + ' ' + row.get_act.act_unit;
+                }
+            },
+            { width: '1%', targets:7},
+            { width: '5%', targets:8},
+            {
+                "visible": false, "targets": [ 5 ]
+            },
+        ],
+}).buttons().container().appendTo('#myTable_wrapper .col-md-6:eq(0)');
 
 });
 
 function table_reload(){
     // console.log('here');
     var filter_asset = $('#filterasset').serialize();
-    dTable.ajax.url("{{ url('/') }}/admin/report/filter?"+filter_asset).load();
     console.log(filter_asset);
+    $('#myTable').DataTable().ajax.url("{{ url('/') }}/admin/report/filter?"+filter_asset).load();
+    //console.log(filter_asset);
 }
 
 function dataUser() {
@@ -259,17 +286,17 @@ function setTime() {
         document.getElementById("tgl_awal").value = convert1;
         document.getElementById("tgl_akhir").value = convert2;
     }
-    
     table_reload();
+    // table_reload();
 }
 
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "dom": 'Bfrtip',
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-  });
+//   $(function () {
+//     $("#example1").DataTable({
+//       "responsive": true, "lengthChange": false, "autoWidth": false,
+//       "dom": 'Bfrtip',
+//       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+//     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+//   });
 </script>
 
 @endsection
