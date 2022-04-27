@@ -1082,9 +1082,9 @@
 <script>
 
     //profile pic
-    $(document).ready(function() {
+    // $(document).ready(function() {
     
-    });
+    // });
 
     //disable non medis
     function enableMedis() {
@@ -1380,7 +1380,7 @@
   // BS-Stepper Init
   document.addEventListener('DOMContentLoaded', function () {
     window.stepper = new Stepper(document.querySelector('.bs-stepper'));
-    window.stepper = new Stepper(document.querySelector('#bs-stepper-2'))
+    // window.stepper = new Stepper(document.querySelector('#bs-stepper-2'))
   })
 
   

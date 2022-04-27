@@ -130,7 +130,7 @@ class AdminController extends Controller
             'tempat_lahir' => $request->tempat_lahir,
             'tanggal_lahir' => $request->tanggal_lahir,
             'status_nikah'   => $request->status_nikah,
-            'jumlah_anak'   => $request->jumlah_anak,
+            'anak'   => $request->anak,
         ]);
 
         $createDataalamat = DataAlamat::create([
@@ -174,19 +174,23 @@ class AdminController extends Controller
             'tamat' => $request->tamat,
         ]);
 
-        $createDataSip = DataSip::create([
-            'users_id' =>   $createUser->id,
-            'sip_no' => $request->sip_no,
-            'sip_terbit' => $request->sip_terbit,
-            'sip_akhir' => $request->tamat,
-        ]);
-
-        $createDataStr = DataStr::create([
-            'users_id' => $createUser->id,
-            'str_no' => $request->str_no,
-            'str_terbit' => $request->str_terbit,
-            'str_akhir' => $request->str_akhir,
-        ]);
+        if(!empty($request->sip_no)){
+            $createDataSip = DataSip::create([
+                'users_id' =>   $createUser->id,
+                'sip_no' => $request->sip_no,
+                'sip_terbit' => $request->sip_terbit,
+                'sip_akhir' => $request->tamat,
+            ]);
+        }
+        
+        if(!empty($request->str_no)){
+            $createDataStr = DataStr::create([
+                'users_id' => $createUser->id,
+                'str_no' => $request->str_no,
+                'str_terbit' => $request->str_terbit,
+                'str_akhir' => $request->str_akhir,
+            ]);
+        }
 
         if($createDataPendidikan){
             return response()->json(['status'=>200,'message'=>'Data Berhasil DiInput']);
