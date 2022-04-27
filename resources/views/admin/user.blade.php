@@ -1139,11 +1139,23 @@
                 },
                 {
                     data: 'fasyankes',
-                    name: 'fasyankes'
+                    render: function(data, type, row) {
+                        if(data == null) {
+                            return '-';
+                        }else {
+                            return data;
+                        }
+                    }
                 },
                 {
                     data: 'unit_kerja',
-                    name: 'unit_kerja',
+                    render: function(data, type, row) {
+                        if(data == null) {
+                            return '-';
+                        }else {
+                            return data;
+                        }
+                    }
                 },
                 // {
                 //     data: 'role_id',

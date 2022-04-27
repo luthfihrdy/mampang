@@ -99,9 +99,16 @@ class AdminController extends Controller
     }
 
     public function getUser(){
-        $res = DB::table('users')
-        //->join('data_posisi','data_posisi.users_id','=','users.id')
-        ->get();
+        $res = User::leftJoin('data_posisi','data_posisi.users_id','=','users.id')->get([
+            'users.id as id',
+            'role_id',
+            'nrk',
+            'name',
+            'email',
+            'fasyankes',
+            'unit_kerja',
+
+        ]);
         return Datatables::of($res)->make(true);
     }
 
