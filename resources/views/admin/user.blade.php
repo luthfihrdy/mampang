@@ -1071,6 +1071,8 @@
             </div>
         </div>
     </div>
+</div>
+
 
 
 @endsection
@@ -1245,6 +1247,10 @@
                     })
                     $('#close-modal').click();
                 }
+            },
+            error: function(data){
+                var errors = data.responseJSON;
+                console.log(errors);
             }
         });
     })

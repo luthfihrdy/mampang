@@ -444,7 +444,7 @@ em {
       </div><!-- end row -->
 
       <!--row -->
-      <div class="row">
+      {{-- <div class="row">
         <div class="col-md-4 mb-3">
           <div class="card bg-info rounded h-100">
             <div class="row card-body">
@@ -496,8 +496,8 @@ em {
             </div>
           </div>
         </div>
-      </div><!--end row-->
-      {{-- skp --}}
+      </div><!--end row--> --}}
+      {{-- skp
       <div class="row">
         <div class="col-sm-12">
           <div class="card bg-info rounded">
@@ -515,7 +515,7 @@ em {
               </div>
           </div>
         </div>
-      </div>
+      </div> --}}
       {{-- end row --}}
     </div><!-- /.container-fluid -->
 </div>

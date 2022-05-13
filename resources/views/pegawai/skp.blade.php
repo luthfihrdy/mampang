@@ -282,7 +282,7 @@ dTable = $("#myTable").DataTable({
                 }else if(data == 2) {
                      return '<span class="badge rounded-pill bg-success"><i class="fa fa-thumbs-up"></i> Approved</span>'
                 }else if(data == 3) {
-                     return '<span class="badge rounded-pill bg-danger"><i class="fa fa-thumbs-down"></i> Approved</span>'
+                     return '<span class="badge rounded-pill bg-danger"><i class="fa fa-thumbs-down"></i> Rejected</span>'
                 }
             }
         },

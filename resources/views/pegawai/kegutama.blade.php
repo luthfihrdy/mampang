@@ -526,9 +526,9 @@ $(document).ready(function(){
                     if(row.status == 1) {
                         return '<span class="badge badge-warning"><i class="fa fa-hourglass"></i> Waiting</span>'
                     }else if(row.status == 2) {
-                        return '<span class="badge badge-success">' + data + '</span>'
+                        return '<span class="badge badge-success"><i class="fa fa-thumbs-up"></i> Approved</span>'
                     }else if(row.status == 3) {
-                        return '<span class="badge badge-danger">' + data + '</span>'
+                        return '<span class="badge badge-danger"><i class="fa fa-hourglass"></i> Rejected</span>'
                     }
                 }
             },

@@ -21,7 +21,7 @@ class SkpController extends Controller
     }
 
     public function create() {
-        $res = Skp::with('getAct')->with('getUser')->get();
+        $res = Skp::with('getAct')->with('getUser')->where('users_id',Auth::user()->id)->get();
 
         return Datatables::of($res)->editColumn('skp_date', function($date) {
             return Carbon::parse($date->skp_date)->format('Y-m-d');
